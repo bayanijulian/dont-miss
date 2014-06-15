@@ -4,19 +4,24 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 
 public class PlayScreen implements Screen {
-	private Game game;
 	
+	private Game game;
 	private boolean running;
+	private boolean gameOver;
 	
 	public PlayScreen(Game game)
 	{
 		this.game = game;
 		running = true;
+		gameOver = false;
 	}
 
 	@Override
 	public void render(float delta) {
-		while(running){
+		if(running&&(!(gameOver))){
+			
+		}
+		if(gameOver){
 			
 		}
 	}
