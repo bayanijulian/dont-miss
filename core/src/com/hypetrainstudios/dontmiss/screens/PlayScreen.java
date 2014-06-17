@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.hypetrainstudios.dontmiss.Creator;
 import com.hypetrainstudios.dontmiss.handlers.GameInputHandler;
+import com.hypetrainstudios.dontmiss.handlers.SpawnHandler;
 
 public class PlayScreen implements Screen {
 	
@@ -19,7 +20,7 @@ public class PlayScreen implements Screen {
 	private SpriteBatch batch;
 	private OrthographicCamera cam;
 	private InputProcessor gameInput;
-	private Rectangle rectBorderBounds;
+	//private Rectangle rectBorderBounds;
 	public PlayScreen(Game game)
 	{
 		this.game = game;
@@ -36,7 +37,7 @@ public class PlayScreen implements Screen {
 		gameInput = new GameInputHandler();
 		Gdx.input.setInputProcessor(gameInput);
 		
-		Creator.createEnemy();
+		
 	}
 	
 	@Override
@@ -44,6 +45,10 @@ public class PlayScreen implements Screen {
 		if(running&&(!(gameOver))){
 			Gdx.gl.glClearColor(1,1,1,1);
 			Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+			
+			Creator.gameTime -= delta;
+			
+			updateChallenge(delta);
 			
 			drawEntites();
 			
@@ -150,5 +155,9 @@ public class PlayScreen implements Screen {
 			Creator.enemies.get(i).getSprite().draw(batch);
 		
 		batch.end();
+	}
+	private void updateChallenge(float delta)
+	{
+		SpawnHandler.update(delta, Creator.gameTime);
 	}
 }

@@ -14,6 +14,10 @@ public class Creator {
 	public static float enemySpeed = .05f;
 	public static float turretRotationSpeed = 155f;
 	
+	public static float gameTime = 180;
+	
+	public static float spawnWaveRate = 7;
+	
 	public static ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 	public static ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
 	public static Turret player = new Turret(new Sprite(AssetHandler.manager.get(AssetHandler.imgTurretLayout)),turretRotationSpeed);
@@ -21,7 +25,7 @@ public class Creator {
 	public static void createProjectile(){
 		projectiles.add(new Projectile(new Sprite(AssetHandler.manager.get(AssetHandler.imgProjectileBlue)), projectileSpeed));
 	}
-	public static void createEnemy(){
-		enemies.add(new Enemy(new Sprite(AssetHandler.manager.get(AssetHandler.imgEnemyBlue)),player.getSprite(),enemySpeed,0));
+	public static void createEnemy(float degrees){
+		enemies.add(new Enemy(new Sprite(AssetHandler.manager.get(AssetHandler.imgEnemyBlue)),player.getSprite(),enemySpeed,degrees));
 	}
 }
