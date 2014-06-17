@@ -36,4 +36,14 @@ public abstract class Entity{
 	public Circle getCircle(){
 		return this.collisionBounds;
 	}
+
+	public float getX() {
+		return x;
+	}
+
+	public float getY() {
+		return y;
+	}
+
+	
 }

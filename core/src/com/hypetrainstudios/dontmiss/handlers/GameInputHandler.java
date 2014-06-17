@@ -1,6 +1,7 @@
 package com.hypetrainstudios.dontmiss.handlers;
 
 import com.badlogic.gdx.InputProcessor;
+import com.hypetrainstudios.dontmiss.Creator;
 
 public class GameInputHandler implements InputProcessor{
 
@@ -30,7 +31,7 @@ public class GameInputHandler implements InputProcessor{
 
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-		
+		Creator.createProjectile();
 		return false;
 	}
 

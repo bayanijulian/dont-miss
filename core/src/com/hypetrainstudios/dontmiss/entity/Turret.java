@@ -10,8 +10,10 @@ public class Turret extends Entity{
 	
 	public Turret(Sprite spr,float rotationSpeed) {
 		super(spr);
-		x = Gdx.graphics.getWidth()/2 - (spr.getWidth());
+		x = Gdx.graphics.getWidth()/2 - (spr.getWidth()/2);
 		y = Gdx.graphics.getHeight()/2 - (spr.getHeight()/2);
+		spr.setPosition(x, y);
+		spr.setRotation(-90);
 		this.rotationSpeed = rotationSpeed;
 		rotationCounter = 0;
 	}

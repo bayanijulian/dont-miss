@@ -17,5 +17,11 @@ public class Creator {
 	public static ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 	public static ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
 	public static Turret player = new Turret(new Sprite(AssetHandler.manager.get(AssetHandler.imgTurretLayout)),turretRotationSpeed);
-		
+	
+	public static void createProjectile(){
+		projectiles.add(new Projectile(new Sprite(AssetHandler.manager.get(AssetHandler.imgProjectileBlue)), projectileSpeed));
+	}
+	public static void createEnemy(){
+		enemies.add(new Enemy(new Sprite(AssetHandler.manager.get(AssetHandler.imgEnemyBlue)),player.getSprite(),enemySpeed,0));
+	}
 }
