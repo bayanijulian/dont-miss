@@ -30,6 +30,7 @@ public class Projectile extends Entity{
 	public void update(float delta) {
 		//no need for delta because in run and rise the degrees are multiplied by delta, I may be wrong
 		spr.translate(run, rise);
+		this.updateBounds();
 	}
 
 }

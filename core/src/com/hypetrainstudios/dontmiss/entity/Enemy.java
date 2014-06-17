@@ -26,6 +26,7 @@ public class Enemy extends Entity{
 	public void update(float delta) {
 		//needs delta, because delta acts as the T in a parametric funtion
 		spr.translate(run*delta*-1, rise*delta*-1);
+		this.updateBounds();
 	}
 
 }

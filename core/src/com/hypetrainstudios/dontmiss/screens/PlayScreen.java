@@ -7,6 +7,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Rectangle;
 import com.hypetrainstudios.dontmiss.Creator;
 import com.hypetrainstudios.dontmiss.handlers.GameInputHandler;
 
@@ -18,6 +19,7 @@ public class PlayScreen implements Screen {
 	private SpriteBatch batch;
 	private OrthographicCamera cam;
 	private InputProcessor gameInput;
+	private Rectangle rectBorderBounds;
 	public PlayScreen(Game game)
 	{
 		this.game = game;
@@ -29,6 +31,7 @@ public class PlayScreen implements Screen {
 		cam.update();
 		batch = new SpriteBatch();
 		batch.setProjectionMatrix(cam.combined);
+		//rectBorderBounds = new Rectangle(0,0,(int)(Gdx.graphics.getWidth()*1.15),(int)(Gdx.graphics.getHeight()*1.15));
 		
 		gameInput = new GameInputHandler();
 		Gdx.input.setInputProcessor(gameInput);
@@ -43,8 +46,12 @@ public class PlayScreen implements Screen {
 			Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 			
 			drawEntites();
+			
 			updateEntites(delta);
 			
+			checkCollision();
+			
+			removeEntities();
 			
 		}
 		if(gameOver){
@@ -75,7 +82,54 @@ public class PlayScreen implements Screen {
 	@Override
 	public void dispose() {
 	}
-	public void updateEntites(float delta){
+	
+	private void removeEntities()
+	{
+		//removes projectiles
+		for(int i=0;i<Creator.projectiles.size();i++)
+		{
+			if(!(Creator.projectiles.get(i).isActive()))
+				Creator.projectiles.remove(i);
+		}
+		//removes enemies
+		for(int i=0;i<Creator.enemies.size();i++)
+		{
+			if(!(Creator.enemies.get(i).isActive()))
+				Creator.enemies.remove(i);
+		}
+	}
+	
+	private void checkCollision()
+	{
+		//Checks collision between projectile and enemies
+		for (int x=0; x<Creator.projectiles.size();x++)
+		{
+			for (int k=0; k<Creator.enemies.size();k++)
+			{
+				if( Creator.projectiles.get(x).getCircle().overlaps( Creator.enemies.get(k).getCircle() ) )
+				{
+					//Removes both the projectile and enemy from the screen
+					Creator.enemies.get(k).setActive(false);
+					Creator.projectiles.get(x).setActive(false);
+				}
+			}
+		}
+		
+		//Checks collision between projectiles and the player
+		for(int  x= 0; x<Creator.enemies.size();x++)
+		{
+			if(Creator.enemies.get(x).getCircle().overlaps(Creator.player.getCircle())){
+				//end game code
+				System.exit(0);
+			}
+		}
+		//checks for projectile collision with game border/edge of screen
+		//for(int x = 0; x < Creator.projectiles.size(); x ++){
+			//if(Creator.projectiles.get(x).getCircle().overlaps(rectBorderBounds));
+			
+		//}
+	}
+	private void updateEntites(float delta){
 		Creator.player.update(delta);
 		
 		for(int i = 0; i<Creator.projectiles.size();i++)
@@ -84,7 +138,7 @@ public class PlayScreen implements Screen {
 			Creator.enemies.get(i).update(delta);
 		
 	}
-	public void drawEntites(){
+	private void drawEntites(){
 		batch.begin();
 		batch.setProjectionMatrix(cam.combined);
 		

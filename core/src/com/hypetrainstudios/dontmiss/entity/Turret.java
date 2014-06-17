@@ -16,6 +16,7 @@ public class Turret extends Entity{
 		spr.setRotation(-90);
 		this.rotationSpeed = rotationSpeed;
 		rotationCounter = 0;
+		this.updateBounds();
 	}
 
 	@Override

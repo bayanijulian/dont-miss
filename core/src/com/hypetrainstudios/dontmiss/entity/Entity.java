@@ -14,12 +14,17 @@ public abstract class Entity{
 	public Entity(Sprite spr){
 		this.spr = spr;
 		this.active = true;
-		collisionBounds = new Circle();
 		x = 0;
 		y = 0;
+		collisionBounds = new Circle(x,y,(spr.getHeight()/2));
 	}
 	
 	public abstract void update(float delta);
+	
+	public void updateBounds(){
+		collisionBounds.setPosition(spr.getX()+ (spr.getWidth()/2)
+									,(spr.getY()+spr.getHeight()/2));
+	}
 	
 	public void setActive(boolean active){
 		this.active = active;
