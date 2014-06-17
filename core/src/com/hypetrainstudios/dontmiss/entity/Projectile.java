@@ -31,6 +31,12 @@ public class Projectile extends Entity{
 		//no need for delta because in run and rise the degrees are multiplied by delta, I may be wrong
 		spr.translate(run, rise);
 		this.updateBounds();
+		if(spr.getX()<(0-spr.getHeight())||spr.getY()<(0-spr.getHeight())||spr.getX()>(Gdx.graphics.getWidth()+spr.getHeight())||spr.getY()>(Gdx.graphics.getHeight()+spr.getHeight()))
+		{
+			active = false;
+			
+		}
+			
 	}
 
 }

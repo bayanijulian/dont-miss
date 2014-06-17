@@ -46,7 +46,8 @@ public class PlayScreen implements Screen {
 			Gdx.gl.glClearColor(1,1,1,1);
 			Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 			
-			Creator.gameTime -= delta;
+			Creator.update(delta);
+			
 			
 			updateChallenge(delta);
 			

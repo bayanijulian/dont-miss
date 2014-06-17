@@ -6,7 +6,7 @@ import com.hypetrainstudios.dontmiss.Creator;
 
 public class SpawnHandler {
 	
-	private static float spawnWaveCounter = Creator.spawnWaveRate;
+	
 	private static Random rdm = new Random();
 	private static void spawnAmountRdm(int amountToSpawn){
 		for(int i = 0; i<amountToSpawn; i ++)
