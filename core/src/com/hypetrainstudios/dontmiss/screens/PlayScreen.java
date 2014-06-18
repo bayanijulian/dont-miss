@@ -7,7 +7,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Rectangle;
+import com.hypetrainstudios.challenges.Challenge;
 import com.hypetrainstudios.dontmiss.Creator;
 import com.hypetrainstudios.dontmiss.handlers.GameInputHandler;
 import com.hypetrainstudios.dontmiss.handlers.SpawnHandler;
@@ -20,7 +20,7 @@ public class PlayScreen implements Screen {
 	private SpriteBatch batch;
 	private OrthographicCamera cam;
 	private InputProcessor gameInput;
-	//private Rectangle rectBorderBounds;
+
 	public PlayScreen(Game game)
 	{
 		this.game = game;
@@ -32,7 +32,7 @@ public class PlayScreen implements Screen {
 		cam.update();
 		batch = new SpriteBatch();
 		batch.setProjectionMatrix(cam.combined);
-		//rectBorderBounds = new Rectangle(0,0,(int)(Gdx.graphics.getWidth()*1.15),(int)(Gdx.graphics.getHeight()*1.15));
+		
 		
 		gameInput = new GameInputHandler();
 		Gdx.input.setInputProcessor(gameInput);
@@ -117,6 +117,7 @@ public class PlayScreen implements Screen {
 					//Removes both the projectile and enemy from the screen
 					Creator.enemies.get(k).setActive(false);
 					Creator.projectiles.get(x).setActive(false);
+					Challenge.currentCode = Challenge.codeCollision;
 				}
 			}
 		}
@@ -129,11 +130,7 @@ public class PlayScreen implements Screen {
 				System.exit(0);
 			}
 		}
-		//checks for projectile collision with game border/edge of screen
-		//for(int x = 0; x < Creator.projectiles.size(); x ++){
-			//if(Creator.projectiles.get(x).getCircle().overlaps(rectBorderBounds));
-			
-		//}
+		
 	}
 	private void updateEntites(float delta){
 		Creator.player.update(delta);
@@ -159,6 +156,6 @@ public class PlayScreen implements Screen {
 	}
 	private void updateChallenge(float delta)
 	{
-		SpawnHandler.update(delta, Creator.gameTime);
+		SpawnHandler.update(Creator.gameTime);
 	}
 }

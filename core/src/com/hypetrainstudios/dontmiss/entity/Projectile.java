@@ -3,6 +3,7 @@ package com.hypetrainstudios.dontmiss.entity;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.MathUtils;
+import com.hypetrainstudios.challenges.Challenge;
 import com.hypetrainstudios.dontmiss.Creator;
 
 public class Projectile extends Entity{
@@ -34,7 +35,7 @@ public class Projectile extends Entity{
 		if(spr.getX()<(0-spr.getHeight())||spr.getY()<(0-spr.getHeight())||spr.getX()>(Gdx.graphics.getWidth()+spr.getHeight())||spr.getY()>(Gdx.graphics.getHeight()+spr.getHeight()))
 		{
 			active = false;
-			
+			Challenge.currentCode = Challenge.codeMiss;
 		}
 			
 	}

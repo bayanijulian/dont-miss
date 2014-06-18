@@ -1,5 +1,9 @@
 package com.hypetrainstudios.challenges;
 
-public class ReverseRotationChallenge {
+public class ReverseRotationChallenge extends Challenge{
+
+	@Override
+	public void update() {
+	}
 
 }

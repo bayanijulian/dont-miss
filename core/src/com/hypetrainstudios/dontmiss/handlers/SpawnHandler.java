@@ -73,24 +73,18 @@ public class SpawnHandler {
 		spawnMoreRandomly(12);
 	}
 
-	public static void update(float delta, float time){
-		spawnWaveCounter+=delta;
-		if(spawnWaveCounter >= Creator.spawnWaveRate)
-		{
-			spawnWaveCounter = 0;
-			if(time<=15)	spawnFor015();
-			else if (time<=30) spawnFor030();
-			else if (time<=45) spawnFor045();
-			else if (time<=60) spawnFor060();
-			else if (time<=75) spawnFor075();
-			else if (time<=90) spawnFor090();
-			else if (time<=105) spawnFor105();
-			else if (time<=120) spawnFor120();
-			else if (time<=135) spawnFor135();
-			else if (time<=150) spawnFor150();
-			else if (time<=165) spawnFor165();
-			else if (time<=180) spawnFor180();	
-		}
-		
+	public static void update(float time){
+		if(time<=15)	spawnFor015();
+		else if (time<=30) spawnFor030();
+		else if (time<=45) spawnFor045();
+		else if (time<=60) spawnFor060();
+		else if (time<=75) spawnFor075();
+		else if (time<=90) spawnFor090();
+		else if (time<=105) spawnFor105();
+		else if (time<=120) spawnFor120();
+		else if (time<=135) spawnFor135();
+		else if (time<=150) spawnFor150();
+		else if (time<=165) spawnFor165();
+		else if (time<=180) spawnFor180();	
 	}
 }
