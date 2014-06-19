@@ -4,6 +4,7 @@ import com.badlogic.gdx.assets.AssetDescriptor;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 
 public class AssetHandler {
 	public static final AssetManager manager = new AssetManager();
@@ -20,7 +21,9 @@ public class AssetHandler {
 	public static final AssetDescriptor<Texture> imgEnemyRed = new AssetDescriptor<Texture>("enemyRed.png", Texture.class);
 	public static final AssetDescriptor<Texture> imgEnemyBlue = new AssetDescriptor<Texture>("enemyBlue.png", Texture.class);
 	public static final AssetDescriptor<Texture> imgEnemyYellow = new AssetDescriptor<Texture>("enemyYellow.png", Texture.class);
-
+	
+	public static final AssetDescriptor<BitmapFont> fontPlay = new AssetDescriptor<BitmapFont>("play.fnt", BitmapFont.class);
+	
 	public static void load(){
 		manager.load(imgTurretLayout);
 		manager.load(imgTurretRed);
@@ -34,6 +37,8 @@ public class AssetHandler {
 		manager.load(imgEnemyRed);
 		manager.load(imgEnemyBlue);
 		manager.load(imgEnemyYellow);
+		
+		manager.load(fontPlay);
 	}
 
 	public static void setTextures(){

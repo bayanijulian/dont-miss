@@ -4,7 +4,7 @@ import com.hypetrainstudios.dontmiss.Creator;
 
 public class DisappearingPlayerChallenge extends Challenge{
 	
-	private static float time;
+	private static float time = 0;
 	@Override
 	public void update(float delta) {
 		time+=delta;

@@ -1,14 +1,23 @@
 package com.hypetrainstudios.dontmiss.screens;
 
+import java.text.DecimalFormat;
+
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
+import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.hypetrainstudios.dontmiss.Creator;
 import com.hypetrainstudios.dontmiss.challenges.Challenge;
+import com.hypetrainstudios.dontmiss.handlers.AssetHandler;
 import com.hypetrainstudios.dontmiss.handlers.ChallengeHandler;
 import com.hypetrainstudios.dontmiss.handlers.GameInputHandler;
 import com.hypetrainstudios.dontmiss.handlers.SpawnHandler;
@@ -21,9 +30,19 @@ public class PlayScreen implements Screen {
 	private SpriteBatch batch;
 	private OrthographicCamera cam;
 	private InputProcessor gameInput;
-
-	public PlayScreen(Game game)
-	{
+	
+	/* User Interface Variables */
+	private Stage stage;
+	private LabelStyle mainLblStyle;
+	private Label lblTimer;
+	private BitmapFont playFont;
+	private DecimalFormat dfMinutes;
+	private DecimalFormat dfSeconds;
+	private FitViewport view;
+	/*--------------------------*/
+	
+	
+	public PlayScreen(Game game){
 		this.game = game;
 		running = true;
 		gameOver = false;
@@ -37,8 +56,19 @@ public class PlayScreen implements Screen {
 		
 		gameInput = new GameInputHandler();
 		Gdx.input.setInputProcessor(gameInput);
+		createUserInterface();
 		
-		
+	}
+	private void createUserInterface(){
+		dfSeconds = new DecimalFormat("00");
+		dfMinutes = new DecimalFormat("0");
+		//view = new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		stage = new Stage();
+		playFont = AssetHandler.manager.get(AssetHandler.fontPlay);
+		mainLblStyle = new LabelStyle(playFont, Color.BLACK);
+		lblTimer = new Label("3:00",mainLblStyle);
+		lblTimer.setPosition((Gdx.graphics.getWidth()/2)-(lblTimer.getWidth()/2),Gdx.graphics.getHeight()-100);
+		stage.addActor(lblTimer);
 	}
 	
 	@Override
@@ -52,6 +82,8 @@ public class PlayScreen implements Screen {
 			updateChallenge(delta);
 			
 			updateSpawn(delta);
+			
+			updateUI();
 			
 			drawEntites();
 			
@@ -107,7 +139,14 @@ public class PlayScreen implements Screen {
 				Creator.enemies.remove(i);
 		}
 	}
-	
+	private void updateUI(){
+		float timerMins = (Creator.gameTime/60)-1;
+		float timerSecs = Creator.gameTime%60;
+		lblTimer.setText(dfMinutes.format(timerMins) + ":" + dfSeconds.format(timerSecs));
+		lblTimer.setPosition((Gdx.graphics.getWidth()/2)-(lblTimer.getWidth()/2),Gdx.graphics.getHeight()-100);
+		stage.act();
+		stage.draw();
+	}
 	private void checkCollision()
 	{
 		//Checks collision between projectile and enemies
