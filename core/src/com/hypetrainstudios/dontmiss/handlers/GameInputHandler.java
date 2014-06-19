@@ -1,5 +1,6 @@
 package com.hypetrainstudios.dontmiss.handlers;
 
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.InputProcessor;
 import com.hypetrainstudios.dontmiss.Creator;
 
@@ -13,6 +14,7 @@ public class GameInputHandler implements InputProcessor{
 
 	@Override
 	public boolean keyUp(int keycode) {
+		if(keycode == Keys.A)	log();
 		
 		return false;
 	}
@@ -32,8 +34,7 @@ public class GameInputHandler implements InputProcessor{
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
 		Creator.createProjectile();
-		System.out.println(Creator.fireRate);
-		System.out.println(Creator.turretRotationSpeed);
+		log();
 		return false;
 	}
 
@@ -53,6 +54,11 @@ public class GameInputHandler implements InputProcessor{
 	public boolean scrolled(int amount) {
 		
 		return false;
+	}
+	private void log(){
+		System.out.println("Fire Rate:\t" + Creator.fireRate);
+		System.out.println("Rotation Speed:\t" + Creator.turretRotationSpeed);
+		System.out.println("Turret Alpha:\t" + Creator.player.getSprite().getColor().a);
 	}
 
 }

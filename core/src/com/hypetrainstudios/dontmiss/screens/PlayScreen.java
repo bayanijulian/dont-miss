@@ -49,7 +49,7 @@ public class PlayScreen implements Screen {
 			
 			Creator.update(delta);
 			
-			updateChallenge();
+			updateChallenge(delta);
 			
 			updateSpawn(delta);
 			
@@ -63,7 +63,8 @@ public class PlayScreen implements Screen {
 			
 		}
 		if(gameOver){
-			
+			//shows retry menu
+			this.game.setScreen(new MenuScreen());
 		}
 	}
 	
@@ -128,6 +129,7 @@ public class PlayScreen implements Screen {
 		for(int  x= 0; x<Creator.enemies.size();x++)
 		{
 			if(Creator.enemies.get(x).getCircle().overlaps(Creator.player.getCircle())){
+				gameOver = true;
 				//end game code
 				System.exit(0);
 			}
@@ -159,10 +161,10 @@ public class PlayScreen implements Screen {
 	private void updateSpawn(float delta){
 		SpawnHandler.update(Creator.gameTime);
 	}
-	private void updateChallenge(){
+	private void updateChallenge(float delta){
 		ChallengeHandler.update(Creator.gameTime);
 		for(int i = 0; i < Creator.challenges.size(); i ++){
-			Creator.challenges.get(i).update();
+			Creator.challenges.get(i).update(delta);
 		}
 		Challenge.currentCode = Challenge.codeDefault;
 	}

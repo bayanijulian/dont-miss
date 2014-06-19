@@ -17,6 +17,7 @@ public class Turret extends Entity{
 		this.rotationSpeed = rotationSpeed;
 		rotationCounter = 0;
 		this.updateBounds();
+		
 	}
 
 	@Override

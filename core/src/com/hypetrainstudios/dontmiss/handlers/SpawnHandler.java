@@ -3,7 +3,7 @@ package com.hypetrainstudios.dontmiss.handlers;
 import java.util.Random;
 
 import com.hypetrainstudios.dontmiss.Creator;
-import com.hypetrainstudios.dontmiss.challenges.FrostChallenge;
+
 
 public class SpawnHandler {
 	

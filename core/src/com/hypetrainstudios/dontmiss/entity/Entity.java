@@ -18,6 +18,8 @@ public abstract class Entity{
 		x = 0;
 		y = 0;
 		collisionBounds = new Circle(x,y,(spr.getHeight()/2));
+		spr.setAlpha(alpha);
+		spr.setColor(1, 1, 1, 1);
 	}
 	
 	public abstract void update(float delta);

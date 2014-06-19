@@ -47,5 +47,27 @@ public class Creator {
 		spawnWaveCounter += delta;
 		fireRateCounter += delta;
 	}
+	public static void reset(){
+		for(int i = 0; i<challenges.size();i++)
+			challenges.remove(i);
+		for(int i = 0; i<enemies.size(); i++)
+			enemies.remove(i);
+		for(int i = 0; i<projectiles.size(); i++)
+			projectiles.remove(i);
+		
+		gameTime = 0;
+		spawnWaveRate = 7f;
+		spawnWaveCounter = 7f;
+		fireRate = .8f;
+		fireRateCounter = .8f;
+		turretRotationSpeed = 155f;
+		projectileSpeed = 35f;
+		enemySpeed = .05f;
+		
+		player.setRotationSpeed(turretRotationSpeed);
+		player.getSprite().setRotation(0);
+		player.setRotationCounter(0);
+		player.getSprite().setAlpha(1);
+	}
 	
 }
