@@ -3,6 +3,7 @@ package com.hypetrainstudios.dontmiss.handlers;
 import java.util.Random;
 
 import com.hypetrainstudios.dontmiss.Creator;
+import com.hypetrainstudios.dontmiss.challenges.FrostChallenge;
 
 public class SpawnHandler {
 	
@@ -36,6 +37,7 @@ public class SpawnHandler {
 		spawnWithSwitchUp(actualAmountToSpawn);
 	}
 	private static void spawnFor180(){
+		
 		spawnWithSwitchUp(4);
 	}
 	private static void spawnFor165(){

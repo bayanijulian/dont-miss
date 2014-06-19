@@ -1,4 +1,4 @@
-package com.hypetrainstudios.challenges;
+package com.hypetrainstudios.dontmiss.challenges;
 
 public class DisappearingEnemyChallenge extends Challenge{
 

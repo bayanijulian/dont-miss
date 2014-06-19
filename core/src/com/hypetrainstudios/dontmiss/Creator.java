@@ -3,7 +3,7 @@ package com.hypetrainstudios.dontmiss;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.hypetrainstudios.challenges.Challenge;
+import com.hypetrainstudios.dontmiss.challenges.Challenge;
 import com.hypetrainstudios.dontmiss.entity.Enemy;
 import com.hypetrainstudios.dontmiss.entity.Projectile;
 import com.hypetrainstudios.dontmiss.entity.Turret;
@@ -19,8 +19,8 @@ public class Creator {
 	
 	public static float spawnWaveRate = 7;
 	public static float spawnWaveCounter = 7;
-	public static float fireRate = .5f;
-	public static float fireRateCounter = .5f;
+	public static float fireRate = .8f;
+	public static float fireRateCounter = .8f;
 	
 	public static ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 	public static ArrayList<Projectile> projectiles = new ArrayList<Projectile>();

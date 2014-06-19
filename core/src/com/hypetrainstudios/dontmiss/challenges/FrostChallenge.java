@@ -1,4 +1,4 @@
-package com.hypetrainstudios.challenges;
+package com.hypetrainstudios.dontmiss.challenges;
 
 import com.hypetrainstudios.dontmiss.Creator;
 
@@ -7,9 +7,9 @@ public class FrostChallenge extends Challenge{
 	@Override
 	public void update() {
 		if(currentCode==codeCollision)
-			Creator.fireRate*=1.5;
-		if(currentCode==codeMiss)
 			Creator.fireRate/=2;
+		if(currentCode==codeMiss)
+			Creator.fireRate*=2;
 	}
 	
 }

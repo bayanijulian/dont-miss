@@ -10,10 +10,11 @@ public abstract class Entity{
 	protected Circle collisionBounds;
 	protected float x;
 	protected float y;
-	
+	protected float alpha;
 	public Entity(Sprite spr){
 		this.spr = spr;
 		this.active = true;
+		alpha = 1f;
 		x = 0;
 		y = 0;
 		collisionBounds = new Circle(x,y,(spr.getHeight()/2));

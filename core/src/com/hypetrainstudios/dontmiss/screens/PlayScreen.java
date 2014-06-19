@@ -7,8 +7,9 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.hypetrainstudios.challenges.Challenge;
 import com.hypetrainstudios.dontmiss.Creator;
+import com.hypetrainstudios.dontmiss.challenges.Challenge;
+import com.hypetrainstudios.dontmiss.handlers.ChallengeHandler;
 import com.hypetrainstudios.dontmiss.handlers.GameInputHandler;
 import com.hypetrainstudios.dontmiss.handlers.SpawnHandler;
 
@@ -48,8 +49,9 @@ public class PlayScreen implements Screen {
 			
 			Creator.update(delta);
 			
+			updateChallenge();
 			
-			updateChallenge(delta);
+			updateSpawn(delta);
 			
 			drawEntites();
 			
@@ -154,8 +156,14 @@ public class PlayScreen implements Screen {
 		
 		batch.end();
 	}
-	private void updateChallenge(float delta)
-	{
+	private void updateSpawn(float delta){
 		SpawnHandler.update(Creator.gameTime);
+	}
+	private void updateChallenge(){
+		ChallengeHandler.update(Creator.gameTime);
+		for(int i = 0; i < Creator.challenges.size(); i ++){
+			Creator.challenges.get(i).update();
+		}
+		Challenge.currentCode = Challenge.codeDefault;
 	}
 }

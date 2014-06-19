@@ -3,8 +3,8 @@ package com.hypetrainstudios.dontmiss.entity;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.MathUtils;
-import com.hypetrainstudios.challenges.Challenge;
 import com.hypetrainstudios.dontmiss.Creator;
+import com.hypetrainstudios.dontmiss.challenges.Challenge;
 
 public class Projectile extends Entity{
 	

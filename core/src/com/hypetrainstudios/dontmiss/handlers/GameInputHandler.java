@@ -32,6 +32,8 @@ public class GameInputHandler implements InputProcessor{
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
 		Creator.createProjectile();
+		System.out.println(Creator.fireRate);
+		System.out.println(Creator.turretRotationSpeed);
 		return false;
 	}
 
