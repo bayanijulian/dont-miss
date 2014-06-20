@@ -1,9 +1,11 @@
 package com.hypetrainstudios.dontmiss.screens;
 
+import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
@@ -11,9 +13,19 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.Button.ButtonStyle;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
+
+
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.hypetrainstudios.dontmiss.Creator;
 import com.hypetrainstudios.dontmiss.challenges.Challenge;
@@ -29,16 +41,26 @@ public class PlayScreen implements Screen {
 	private boolean gameOver;
 	private SpriteBatch batch;
 	private OrthographicCamera cam;
+	private InputMultiplexer inputMultiplexer;
 	private InputProcessor gameInput;
 	
 	/* User Interface Variables */
 	private Stage stage;
+	private FitViewport view;
 	private LabelStyle mainLblStyle;
 	private Label lblTimer;
+	
 	private BitmapFont playFont;
+	
 	private DecimalFormat dfMinutes;
 	private DecimalFormat dfSeconds;
-	private FitViewport view;
+	
+	private Image imgTintBG;
+	
+	private Button btnRetry;
+	private ButtonStyle retryBtnStyle;
+	
+	
 	/*--------------------------*/
 	
 	
@@ -55,20 +77,52 @@ public class PlayScreen implements Screen {
 		
 		
 		gameInput = new GameInputHandler();
-		Gdx.input.setInputProcessor(gameInput);
 		createUserInterface();
+		
+		inputMultiplexer = new InputMultiplexer(stage, gameInput);
+		
+		Gdx.input.setInputProcessor(inputMultiplexer);
 		
 	}
 	private void createUserInterface(){
 		dfSeconds = new DecimalFormat("00");
+		dfSeconds.setRoundingMode(RoundingMode.DOWN);
 		dfMinutes = new DecimalFormat("0");
-		//view = new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-		stage = new Stage();
+		dfMinutes.setRoundingMode(RoundingMode.DOWN);
+		view = new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		stage = new Stage(view);
 		playFont = AssetHandler.manager.get(AssetHandler.fontPlay);
+		
 		mainLblStyle = new LabelStyle(playFont, Color.BLACK);
 		lblTimer = new Label("3:00",mainLblStyle);
-		lblTimer.setPosition((Gdx.graphics.getWidth()/2)-(lblTimer.getWidth()/2),Gdx.graphics.getHeight()-100);
+		lblTimer.setPosition((Gdx.graphics.getWidth()/2)-(lblTimer.getWidth()/2),Gdx.graphics.getHeight()-lblTimer.getMinHeight());
+		
+		imgTintBG = new Image(AssetHandler.manager.get(AssetHandler.imgTintBG));
+		
+		
+		
+		retryBtnStyle = new ButtonStyle(new TextureRegionDrawable(new TextureRegion(AssetHandler.manager.get(AssetHandler.imgBtnRetryNormal))),
+										new TextureRegionDrawable(new TextureRegion(AssetHandler.manager.get(AssetHandler.imgBtnRetryPressed))),
+										new TextureRegionDrawable(new TextureRegion(AssetHandler.manager.get(AssetHandler.imgBtnRetryNormal))));
+		
+		btnRetry = new Button(retryBtnStyle);
+		btnRetry.setPosition((Gdx.graphics.getWidth()/2-(btnRetry.getWidth()/2)), ((Gdx.graphics.getHeight()/2)-(btnRetry.getHeight()/2)));
+		btnRetry.setVisible(false);
+		btnRetry.addListener(new ChangeListener() {
+			
+			@Override
+			public void changed(ChangeEvent event, Actor actor) {
+				reset();
+			}
+		});
+		imgTintBG.setVisible(false);
+		
 		stage.addActor(lblTimer);
+		stage.addActor(imgTintBG);
+		stage.addActor(btnRetry);
+		
+		
+		
 	}
 	
 	@Override
@@ -83,7 +137,6 @@ public class PlayScreen implements Screen {
 			
 			updateSpawn(delta);
 			
-			updateUI();
 			
 			drawEntites();
 			
@@ -93,10 +146,14 @@ public class PlayScreen implements Screen {
 			
 			removeEntities();
 			
+			updateUI();
+			
 		}
 		if(gameOver){
 			//shows retry menu
-			this.game.setScreen(new MenuScreen());
+			showGameOverUI();
+			updateUI();
+			//this.ga;me.setScreen(new MenuScreen());
 		}
 	}
 	
@@ -123,7 +180,11 @@ public class PlayScreen implements Screen {
 	@Override
 	public void dispose() {
 	}
-	
+	private void showGameOverUI(){
+		imgTintBG.setVisible(true);
+		btnRetry.setVisible(true);
+		
+	}
 	private void removeEntities()
 	{
 		//removes projectiles
@@ -140,10 +201,13 @@ public class PlayScreen implements Screen {
 		}
 	}
 	private void updateUI(){
-		float timerMins = (Creator.gameTime/60)-1;
-		float timerSecs = Creator.gameTime%60;
-		lblTimer.setText(dfMinutes.format(timerMins) + ":" + dfSeconds.format(timerSecs));
-		lblTimer.setPosition((Gdx.graphics.getWidth()/2)-(lblTimer.getWidth()/2),Gdx.graphics.getHeight()-100);
+		if(!gameOver){
+			float timerMins = (Creator.gameTime/60);
+			float timerSecs = Creator.gameTime%60;
+			lblTimer.setText(dfMinutes.format(timerMins) + ":" + dfSeconds.format(timerSecs));
+			lblTimer.setPosition((Gdx.graphics.getWidth()/2)-(lblTimer.getWidth()/2),Gdx.graphics.getHeight()-lblTimer.getMinHeight());
+		}
+		
 		stage.act();
 		stage.draw();
 	}
@@ -170,7 +234,7 @@ public class PlayScreen implements Screen {
 			if(Creator.enemies.get(x).getCircle().overlaps(Creator.player.getCircle())){
 				gameOver = true;
 				//end game code
-				System.exit(0);
+				//System.exit(0);
 			}
 		}
 		
@@ -206,5 +270,11 @@ public class PlayScreen implements Screen {
 			Creator.challenges.get(i).update(delta);
 		}
 		Challenge.currentCode = Challenge.codeDefault;
+	}
+	private void reset(){
+		btnRetry.setVisible(false);
+		imgTintBG.setVisible(false);
+		Creator.reset();
+		gameOver=false;
 	}
 }

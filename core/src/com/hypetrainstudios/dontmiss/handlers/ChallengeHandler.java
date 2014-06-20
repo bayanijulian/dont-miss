@@ -12,7 +12,7 @@ import com.hypetrainstudios.dontmiss.challenges.ReverseShootingChallenge;
 
 public class ChallengeHandler {
 	
-	private static int challengeCounter = 0;
+	public static int challengeCounter = 0;
 	private static boolean frost = false;
 	private static boolean reverseRotation = false;
 	private static boolean disappearingPlayer = false;

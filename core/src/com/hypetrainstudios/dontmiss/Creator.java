@@ -8,6 +8,7 @@ import com.hypetrainstudios.dontmiss.entity.Enemy;
 import com.hypetrainstudios.dontmiss.entity.Projectile;
 import com.hypetrainstudios.dontmiss.entity.Turret;
 import com.hypetrainstudios.dontmiss.handlers.AssetHandler;
+import com.hypetrainstudios.dontmiss.handlers.ChallengeHandler;
 
 public class Creator {
 	
@@ -55,7 +56,7 @@ public class Creator {
 		for(int i = 0; i<projectiles.size(); i++)
 			projectiles.remove(i);
 		
-		gameTime = 0;
+		gameTime = 180;
 		spawnWaveRate = 7f;
 		spawnWaveCounter = 7f;
 		fireRate = .8f;
@@ -65,9 +66,11 @@ public class Creator {
 		enemySpeed = .05f;
 		
 		player.setRotationSpeed(turretRotationSpeed);
-		player.getSprite().setRotation(0);
+		player.getSprite().setRotation(270);
 		player.setRotationCounter(0);
 		player.getSprite().setAlpha(1);
+		
+		ChallengeHandler.challengeCounter = 0;
 	}
 	
 }

@@ -22,6 +22,11 @@ public class AssetHandler {
 	public static final AssetDescriptor<Texture> imgEnemyBlue = new AssetDescriptor<Texture>("enemyBlue.png", Texture.class);
 	public static final AssetDescriptor<Texture> imgEnemyYellow = new AssetDescriptor<Texture>("enemyYellow.png", Texture.class);
 	
+	public static final AssetDescriptor<Texture> imgTintBG = new AssetDescriptor<Texture>("tintBG.png", Texture.class);
+	
+	public static final AssetDescriptor<Texture> imgBtnRetryPressed = new AssetDescriptor<Texture>("btnRetryPressed.png", Texture.class);
+	public static final AssetDescriptor<Texture> imgBtnRetryNormal = new AssetDescriptor<Texture>("btnRetryNormal.png", Texture.class);
+	
 	public static final AssetDescriptor<BitmapFont> fontPlay = new AssetDescriptor<BitmapFont>("play.fnt", BitmapFont.class);
 	
 	public static void load(){
@@ -37,6 +42,11 @@ public class AssetHandler {
 		manager.load(imgEnemyRed);
 		manager.load(imgEnemyBlue);
 		manager.load(imgEnemyYellow);
+		
+		manager.load(imgTintBG);
+		
+		manager.load(imgBtnRetryNormal);
+		manager.load(imgBtnRetryPressed);
 		
 		manager.load(fontPlay);
 	}
@@ -54,6 +64,11 @@ public class AssetHandler {
 		manager.get(imgEnemyRed).setFilter(TextureFilter.Linear,TextureFilter.Linear);
 		manager.get(imgEnemyBlue).setFilter(TextureFilter.Linear,TextureFilter.Linear);
 		manager.get(imgEnemyYellow).setFilter(TextureFilter.Linear,TextureFilter.Linear);
+		
+		manager.get(imgTintBG).setFilter(TextureFilter.Linear,TextureFilter.Linear);
+		
+		manager.get(imgBtnRetryNormal).setFilter(TextureFilter.Linear,TextureFilter.Linear);
+		manager.get(imgBtnRetryPressed).setFilter(TextureFilter.Linear,TextureFilter.Linear);
 	}
 
 	public static void dispose(){
