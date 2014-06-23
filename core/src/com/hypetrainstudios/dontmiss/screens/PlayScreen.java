@@ -25,7 +25,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.hypetrainstudios.dontmiss.Creator;
 import com.hypetrainstudios.dontmiss.challenges.Challenge;
@@ -47,8 +46,10 @@ public class PlayScreen implements Screen {
 	/* User Interface Variables */
 	private Stage stage;
 	private FitViewport view;
+	
 	private LabelStyle mainLblStyle;
 	private Label lblTimer;
+	private Label lblChallengeMessage;
 	
 	private BitmapFont playFont;
 	
@@ -59,10 +60,8 @@ public class PlayScreen implements Screen {
 	
 	private Button btnRetry;
 	private ButtonStyle retryBtnStyle;
-	
-	
 	/*--------------------------*/
-	
+	private static float challengeCounter;
 	
 	public PlayScreen(Game game){
 		this.game = game;
@@ -75,7 +74,7 @@ public class PlayScreen implements Screen {
 		batch = new SpriteBatch();
 		batch.setProjectionMatrix(cam.combined);
 		
-		
+		challengeCounter = 0;
 		gameInput = new GameInputHandler();
 		createUserInterface();
 		
@@ -94,8 +93,13 @@ public class PlayScreen implements Screen {
 		playFont = AssetHandler.manager.get(AssetHandler.fontPlay);
 		
 		mainLblStyle = new LabelStyle(playFont, Color.BLACK);
+		
 		lblTimer = new Label("3:00",mainLblStyle);
 		lblTimer.setPosition((Gdx.graphics.getWidth()/2)-(lblTimer.getWidth()/2),Gdx.graphics.getHeight()-lblTimer.getMinHeight());
+		
+		lblChallengeMessage = new Label("Challenge",mainLblStyle);
+		//lblChallengeMessage.setVisible(false);
+		lblChallengeMessage.setPosition((Gdx.graphics.getWidth()/2)-(lblChallengeMessage.getWidth()/2),0);
 		
 		imgTintBG = new Image(AssetHandler.manager.get(AssetHandler.imgTintBG));
 		
@@ -117,6 +121,7 @@ public class PlayScreen implements Screen {
 		});
 		imgTintBG.setVisible(false);
 		
+		stage.addActor(lblChallengeMessage);
 		stage.addActor(lblTimer);
 		stage.addActor(imgTintBG);
 		stage.addActor(btnRetry);
@@ -137,8 +142,9 @@ public class PlayScreen implements Screen {
 			
 			updateSpawn(delta);
 			
-			
 			drawEntites();
+			
+			//updateChallengeMessage(delta);
 			
 			updateEntites(delta);
 			
@@ -153,7 +159,7 @@ public class PlayScreen implements Screen {
 			//shows retry menu
 			showGameOverUI();
 			updateUI();
-			//this.ga;me.setScreen(new MenuScreen());
+			//this.game.setScreen(new MenuScreen());
 		}
 	}
 	
@@ -276,5 +282,8 @@ public class PlayScreen implements Screen {
 		imgTintBG.setVisible(false);
 		Creator.reset();
 		gameOver=false;
+	}
+	public static void updateChallengeMessage(String message){
+		
 	}
 }

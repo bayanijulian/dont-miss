@@ -49,12 +49,16 @@ public class Creator {
 		fireRateCounter += delta;
 	}
 	public static void reset(){
-		for(int i = 0; i<challenges.size();i++)
-			challenges.remove(i);
-		for(int i = 0; i<enemies.size(); i++)
-			enemies.remove(i);
-		for(int i = 0; i<projectiles.size(); i++)
-			projectiles.remove(i);
+		
+		challenges.clear();
+		enemies.clear();
+		projectiles.clear();
+		
+		/* Debugging Comments */
+		System.out.println("Enemy Size:" + enemies.size());
+		System.out.println("Projectile Size:" + projectiles.size());
+		System.out.println("Challenge Size:" + challenges.size());
+		/* Debugging Comments */
 		
 		gameTime = 180;
 		spawnWaveRate = 7f;

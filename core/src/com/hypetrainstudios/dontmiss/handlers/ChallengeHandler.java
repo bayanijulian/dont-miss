@@ -19,6 +19,7 @@ public class ChallengeHandler {
 	private static boolean limitedProjectiles = false;
 	private static boolean reverseShooting = false;
 	private static boolean increasingDifficulty = false;
+	private static String message = "";
 	public static void update(float time){
 		if(time<=180&&challengeCounter==0){
 			challengeCounter++;

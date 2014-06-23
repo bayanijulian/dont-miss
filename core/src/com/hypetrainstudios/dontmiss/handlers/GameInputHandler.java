@@ -34,7 +34,11 @@ public class GameInputHandler implements InputProcessor{
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
 		Creator.createProjectile();
+		
+		/* Debugging Comments */
 		log();
+		/* Debugging Comments */
+		
 		return false;
 	}
 
@@ -55,10 +59,12 @@ public class GameInputHandler implements InputProcessor{
 		
 		return false;
 	}
+	/* Debugging Comments */
 	private void log(){
 		System.out.println("Fire Rate:\t" + Creator.fireRate);
 		System.out.println("Rotation Speed:\t" + Creator.turretRotationSpeed);
 		System.out.println("Turret Alpha:\t" + Creator.player.getSprite().getColor().a);
 	}
+	/* Debugging Comments */
 
 }
