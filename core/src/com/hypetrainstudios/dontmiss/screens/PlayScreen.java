@@ -105,9 +105,9 @@ public class PlayScreen implements Screen {
 		
 		
 		
-		retryBtnStyle = new ButtonStyle(new TextureRegionDrawable(new TextureRegion(AssetHandler.manager.get(AssetHandler.imgBtnRetryNormal))),
-										new TextureRegionDrawable(new TextureRegion(AssetHandler.manager.get(AssetHandler.imgBtnRetryPressed))),
-										new TextureRegionDrawable(new TextureRegion(AssetHandler.manager.get(AssetHandler.imgBtnRetryNormal))));
+		retryBtnStyle = new ButtonStyle(new TextureRegionDrawable(new TextureRegion(AssetHandler.manager.get(AssetHandler.imgretryBtn))),
+										new TextureRegionDrawable(new TextureRegion(AssetHandler.manager.get(AssetHandler.imgRetryBtnPressed))),
+										new TextureRegionDrawable(new TextureRegion(AssetHandler.manager.get(AssetHandler.imgRetryBtn))));
 		
 		btnRetry = new Button(retryBtnStyle);
 		btnRetry.setPosition((Gdx.graphics.getWidth()/2-(btnRetry.getWidth()/2)), ((Gdx.graphics.getHeight()/2)-(btnRetry.getHeight()/2)));
