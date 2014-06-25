@@ -36,16 +36,11 @@ public class Creator {
 			
 	}
 	public static void createEnemy(float degrees){
-		if(spawnWaveCounter >= spawnWaveRate){
-			spawnWaveCounter = 0;
 			enemies.add(new Enemy(new Sprite(AssetHandler.manager.get(AssetHandler.imgEnemyBlue)),player.getSprite(),enemySpeed,degrees));
-		}
-			
 	}
 	public static void update(float delta)
 	{
 		gameTime-=delta;
-		spawnWaveCounter += delta;
 		fireRateCounter += delta;
 	}
 	public static void reset(){

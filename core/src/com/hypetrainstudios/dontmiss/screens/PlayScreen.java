@@ -289,7 +289,16 @@ public class PlayScreen implements Screen {
 		batch.end();
 	}
 	private void updateSpawn(float delta){
-		SpawnHandler.update(Creator.gameTime);
+		
+		if(Creator.spawnWaveCounter>=Creator.spawnWaveRate){
+			SpawnHandler.update(Creator.gameTime);
+			Creator.spawnWaveCounter = 0;
+			/*Debugging Comments*/
+			System.out.println("new wave coming");
+			/*Debugging Comments*/
+		}
+		else
+			Creator.spawnWaveCounter+=delta;
 	}
 	private void updateChallenge(float delta){
 		ChallengeHandler.update(Creator.gameTime);
