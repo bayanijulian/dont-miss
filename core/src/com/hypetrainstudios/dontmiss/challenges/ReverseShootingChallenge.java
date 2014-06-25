@@ -3,7 +3,7 @@ package com.hypetrainstudios.dontmiss.challenges;
 import com.hypetrainstudios.dontmiss.Creator;
 
 public class ReverseShootingChallenge extends Challenge{
-	private static boolean didAlready = false;
+	private boolean didAlready = false;
 	@Override
 	public void update(float delta) {
 		if(!didAlready){

@@ -5,8 +5,8 @@ import com.hypetrainstudios.dontmiss.Creator;
 public class LimitedProjeciltesChallenge extends Challenge{
 
 	
-	private static int totalProjectiles = 30;
-	private static float time;
+	private int totalProjectiles = 30;
+	private float time;
 	
 	@Override
 	public void update(float delta) {
@@ -26,7 +26,7 @@ public class LimitedProjeciltesChallenge extends Challenge{
 		}
 		System.out.println("Total Bullets:\t" + totalProjectiles);
 	}
-	public static int getTotalProjectiles(){
+	public int getTotalProjectiles(){
 		return totalProjectiles;
 	}
 }
