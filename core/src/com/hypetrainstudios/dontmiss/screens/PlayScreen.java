@@ -110,7 +110,7 @@ public class PlayScreen implements Screen {
 		
 		alphaChallengeMsg = new AlphaAction();
 		alphaChallengeMsg.setAlpha(0);
-		alphaChallengeMsg.setDuration(2f);
+		alphaChallengeMsg.setDuration(3f);
 		
 //		delayChallengeMsg = new DelayAction();
 //		delayChallengeMsg.setDuration(2f);

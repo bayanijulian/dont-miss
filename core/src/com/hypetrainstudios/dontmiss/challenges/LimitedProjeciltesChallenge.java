@@ -5,7 +5,7 @@ import com.hypetrainstudios.dontmiss.Creator;
 public class LimitedProjeciltesChallenge extends Challenge{
 
 	
-	private int totalProjectiles = 30;
+	private int totalProjectiles = 10;
 	private float time;
 	
 	@Override

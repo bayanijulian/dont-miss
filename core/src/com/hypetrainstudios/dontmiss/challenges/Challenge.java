@@ -7,5 +7,4 @@ public abstract class Challenge {
 	public static int codeMiss = 2;
 	public static int currentCode = 0;
 	public abstract void update(float delta);
-	
 }
