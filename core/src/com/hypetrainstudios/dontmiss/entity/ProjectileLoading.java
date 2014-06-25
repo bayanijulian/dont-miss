@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-
+import com.hypetrainstudios.dontmiss.Creator;
 import com.hypetrainstudios.dontmiss.handlers.AssetHandler;
 
 public class ProjectileLoading{
@@ -18,7 +18,7 @@ public class ProjectileLoading{
 	public static void create(){
 		spr.setPosition((Gdx.graphics.getWidth()/2)-(spr.getWidth()/2), (Gdx.graphics.getHeight()/2)-(spr.getHeight()/2));
 		time=0;
-		animLoadingBlue.setPlayMode(PlayMode.LOOP);
+		animLoadingBlue.setPlayMode(PlayMode.NORMAL);
 	}
 	public ProjectileLoading(){
 
@@ -27,10 +27,11 @@ public class ProjectileLoading{
 		return spr;
 	}
 	public static void update(float delta){
+		time = Creator.fireRateCounter/Creator.fireRate;
 		spr.setRegion((animLoadingBlue.getKeyFrame(time)));
-		if(!(animLoadingBlue.isAnimationFinished(time)))
-			time+=delta;
-		else
-			time = 0;
+//		if(!(animLoadingBlue.isAnimationFinished(time)))
+//			time+=delta;
+//		else
+//			time = 0;
 	}
 }
