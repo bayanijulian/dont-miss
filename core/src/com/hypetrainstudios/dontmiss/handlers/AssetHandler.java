@@ -5,6 +5,7 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
 public class AssetHandler {
 	public static final AssetManager manager = new AssetManager();
@@ -24,10 +25,9 @@ public class AssetHandler {
 	
 	public static final AssetDescriptor<Texture> imgTintBG = new AssetDescriptor<Texture>("tintBG.png", Texture.class);
 	
-	public static final AssetDescriptor<Texture> imgRetryBtnPressed = new AssetDescriptor<Texture>("retryBtnPressed.png", Texture.class);
-	public static final AssetDescriptor<Texture> imgRetryBtn = new AssetDescriptor<Texture>("retryBtn.png", Texture.class);
+	public static final AssetDescriptor<TextureAtlas> atlasButtons = new AssetDescriptor<TextureAtlas>("buttons/buttons.pack", TextureAtlas.class);
 	
-	public static final AssetDescriptor<BitmapFont> fontPlay = new AssetDescriptor<BitmapFont>("play.fnt", BitmapFont.class);
+	public static final AssetDescriptor<BitmapFont> fontPlay = new AssetDescriptor<BitmapFont>("playFont/play.fnt", BitmapFont.class);
 	
 	public static void load(){
 		manager.load(imgTurretLayout);
@@ -45,8 +45,7 @@ public class AssetHandler {
 		
 		manager.load(imgTintBG);
 		
-		manager.load(imgRetryBtn);
-		manager.load(imgRetryBtnPressed);
+		manager.load(atlasButtons);
 		
 		manager.load(fontPlay);
 	}
@@ -67,8 +66,6 @@ public class AssetHandler {
 		
 		manager.get(imgTintBG).setFilter(TextureFilter.Linear,TextureFilter.Linear);
 		
-		manager.get(imgRetryBtn).setFilter(TextureFilter.Linear,TextureFilter.Linear);
-		manager.get(imgRetryBtnPressed).setFilter(TextureFilter.Linear,TextureFilter.Linear);
 	}
 
 	public static void dispose(){

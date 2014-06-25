@@ -1,0 +1,131 @@
+
+buttons.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+resumeBtnPressed
+  rotate: false
+  xy: 2, 659
+  size: 257, 258
+  orig: 257, 258
+  offset: 0, 0
+  index: -1
+menuBtn
+  rotate: false
+  xy: 2, 396
+  size: 257, 258
+  orig: 257, 258
+  offset: 0, 0
+  index: -1
+resumeBtn
+  rotate: false
+  xy: 264, 661
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+menuBtnPressed
+  rotate: false
+  xy: 2, 135
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+oneBtn
+  rotate: false
+  xy: 264, 400
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+oneBtnPressed
+  rotate: false
+  xy: 525, 661
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+optionsBtn
+  rotate: false
+  xy: 525, 400
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+optionsBtnPressed
+  rotate: false
+  xy: 786, 661
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+playBtn
+  rotate: false
+  xy: 786, 400
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+playBtnPressed
+  rotate: false
+  xy: 1047, 661
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+retryBtn
+  rotate: false
+  xy: 1047, 400
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+retryBtnPressed
+  rotate: false
+  xy: 1308, 661
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+threeBtn
+  rotate: false
+  xy: 1308, 400
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+threeBtnPressed
+  rotate: false
+  xy: 1569, 661
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+twoBtn
+  rotate: false
+  xy: 1569, 400
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+backBtn
+  rotate: false
+  xy: 2, 2
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+backBtnPressed
+  rotate: false
+  xy: 1830, 789
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+twoBtnPressed
+  rotate: false
+  xy: 264, 139
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
