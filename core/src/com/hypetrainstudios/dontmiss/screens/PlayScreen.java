@@ -31,6 +31,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.hypetrainstudios.dontmiss.Creator;
 import com.hypetrainstudios.dontmiss.challenges.Challenge;
+import com.hypetrainstudios.dontmiss.entity.ProjectileLoading;
 import com.hypetrainstudios.dontmiss.handlers.AssetHandler;
 import com.hypetrainstudios.dontmiss.handlers.ChallengeHandler;
 import com.hypetrainstudios.dontmiss.handlers.GameInputHandler;
@@ -92,6 +93,7 @@ public class PlayScreen implements Screen {
 		
 		Gdx.input.setInputProcessor(inputMultiplexer);
 		
+		ProjectileLoading.create();
 	}
 	private void createUserInterface(){
 		dfSeconds = new DecimalFormat("00");
@@ -174,6 +176,7 @@ public class PlayScreen implements Screen {
 			
 			updateUI();
 			
+			ProjectileLoading.update(delta);
 		}
 		if(gameOver){
 			//shows retry menu
@@ -278,7 +281,7 @@ public class PlayScreen implements Screen {
 	private void drawEntites(){
 		batch.begin();
 		batch.setProjectionMatrix(cam.combined);
-		
+		ProjectileLoading.getSprite().draw(batch);
 		Creator.player.getSprite().draw(batch);
 		
 		for(int i = 0; i<Creator.projectiles.size();i++)
