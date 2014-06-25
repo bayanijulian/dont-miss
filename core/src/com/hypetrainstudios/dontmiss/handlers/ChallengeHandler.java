@@ -7,6 +7,7 @@ import com.hypetrainstudios.dontmiss.challenges.IncreasingDifficultyChallenge;
 import com.hypetrainstudios.dontmiss.challenges.LimitedProjeciltesChallenge;
 import com.hypetrainstudios.dontmiss.challenges.ReverseRotationChallenge;
 import com.hypetrainstudios.dontmiss.challenges.ReverseShootingChallenge;
+import com.hypetrainstudios.dontmiss.screens.PlayScreen;
 
 
 
@@ -27,6 +28,8 @@ public class ChallengeHandler {
 			if(challengeCounter==1&&frost) {
 				Creator.challenges.add(new FrostChallenge()); 
 				frost = false;
+				message="Challenge: Frost";
+				PlayScreen.updateChallengeMessage(message);
 			}
 		}
 		if(time<=165&&challengeCounter==1){
@@ -35,6 +38,8 @@ public class ChallengeHandler {
 			if(challengeCounter==2 && reverseRotation){
 				Creator.challenges.add(new ReverseRotationChallenge());
 				reverseRotation = false;
+				message="Challenge: The ol' Switcheroo";
+				PlayScreen.updateChallengeMessage(message);
 			}
 		}
 		if(time<=150&&challengeCounter==2){
@@ -43,6 +48,8 @@ public class ChallengeHandler {
 			if(challengeCounter==3 && disappearingPlayer){
 				Creator.challenges.add(new DisappearingPlayerChallenge());
 				disappearingPlayer = false;
+				message="Challenge: Where'd he go?";
+				PlayScreen.updateChallengeMessage(message);
 			}
 		}
 		if(time<=135&&challengeCounter==3){
@@ -51,6 +58,8 @@ public class ChallengeHandler {
 			if(challengeCounter==4&&limitedProjectiles){
 				Creator.challenges.add(new LimitedProjeciltesChallenge());
 				limitedProjectiles = false;
+				message="Challenge: Running Low";
+				PlayScreen.updateChallengeMessage(message);
 			}
 		}
 		if(time<=120&&challengeCounter==4){
@@ -59,6 +68,8 @@ public class ChallengeHandler {
 			if(challengeCounter==5&&increasingDifficulty){
 				Creator.challenges.add(new IncreasingDifficultyChallenge());
 				increasingDifficulty = false;
+				message="Challenge: Damn, did it get harder?";
+				PlayScreen.updateChallengeMessage(message);
 			}
 		}
 		if(time<=105&&challengeCounter==5){
@@ -67,6 +78,8 @@ public class ChallengeHandler {
 			if(challengeCounter==6&&reverseShooting){
 				Creator.challenges.add(new ReverseShootingChallenge());
 				reverseShooting = false;
+				message="Challenge: Malfunction";
+				PlayScreen.updateChallengeMessage(message);
 			}
 		}
 		

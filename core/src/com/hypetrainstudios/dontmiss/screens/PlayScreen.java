@@ -16,6 +16,9 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.actions.AlphaAction;
+import com.badlogic.gdx.scenes.scene2d.actions.DelayAction;
+import com.badlogic.gdx.scenes.scene2d.actions.ParallelAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Button.ButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -35,33 +38,41 @@ import com.hypetrainstudios.dontmiss.handlers.SpawnHandler;
 
 public class PlayScreen implements Screen {
 	
-	private Game game;
-	private boolean running;
-	private boolean gameOver;
-	private SpriteBatch batch;
-	private OrthographicCamera cam;
-	private InputMultiplexer inputMultiplexer;
-	private InputProcessor gameInput;
+	private static Game game;
+	private static boolean running;
+	private static boolean gameOver;
+	private static SpriteBatch batch;
+	private static OrthographicCamera cam;
+	private static InputMultiplexer inputMultiplexer;
+	private static InputProcessor gameInput;
 	
 	/* User Interface Variables */
-	private Stage stage;
-	private FitViewport view;
+	private static Stage stage;
+	private static FitViewport view;
 	
-	private LabelStyle mainLblStyle;
-	private Label lblTimer;
-	private Label lblChallengeMessage;
+	private static LabelStyle mainLblStyle;
+	private static Label lblTimer;
+	private static Label lblChallengeMsg;
 	
-	private BitmapFont playFont;
+	private static BitmapFont playFont;
 	
-	private DecimalFormat dfMinutes;
-	private DecimalFormat dfSeconds;
+	private static DecimalFormat dfMinutes;
+	private static DecimalFormat dfSeconds;
 	
-	private Image imgTintBG;
+	private static Image imgTintBG;
 	
-	private Button btnRetry;
-	private ButtonStyle retryBtnStyle;
+	private static Button btnRetry;
+	private static ButtonStyle retryBtnStyle;
+	
+	
+	/* Actions */
+	private static AlphaAction alphaChallengeMsg;
+//	private static DelayAction delayChallengeMsg;
+//	private static ParallelAction parallelChallengeMsg;
+	/*---------*/
+	
 	/*--------------------------*/
-	private static float challengeCounter;
+	
 	
 	public PlayScreen(Game game){
 		this.game = game;
@@ -74,7 +85,6 @@ public class PlayScreen implements Screen {
 		batch = new SpriteBatch();
 		batch.setProjectionMatrix(cam.combined);
 		
-		challengeCounter = 0;
 		gameInput = new GameInputHandler();
 		createUserInterface();
 		
@@ -91,15 +101,27 @@ public class PlayScreen implements Screen {
 		view = new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		stage = new Stage(view);
 		playFont = AssetHandler.manager.get(AssetHandler.fontPlay);
-		
+		playFont.setScale(.5f);
 		mainLblStyle = new LabelStyle(playFont, Color.BLACK);
 		
 		lblTimer = new Label("3:00",mainLblStyle);
-		lblTimer.setPosition((Gdx.graphics.getWidth()/2)-(lblTimer.getWidth()/2),Gdx.graphics.getHeight()-lblTimer.getMinHeight());
+		lblTimer.setPosition((Gdx.graphics.getWidth()/2)-(lblTimer.getPrefWidth()/2),Gdx.graphics.getHeight()-lblTimer.getPrefHeight());
 		
-		lblChallengeMessage = new Label("Challenge",mainLblStyle);
-		//lblChallengeMessage.setVisible(false);
-		lblChallengeMessage.setPosition((Gdx.graphics.getWidth()/2)-(lblChallengeMessage.getWidth()/2),0);
+		
+		alphaChallengeMsg = new AlphaAction();
+		alphaChallengeMsg.setAlpha(0);
+		alphaChallengeMsg.setDuration(2f);
+		
+//		delayChallengeMsg = new DelayAction();
+//		delayChallengeMsg.setDuration(2f);
+		
+//		parallelChallengeMsg = new ParallelAction();
+//		parallelChallengeMsg.addAction(delayChallengeMsg);
+//		parallelChallengeMsg.addAction(alphaChallengeMsg);
+		
+		lblChallengeMsg = new Label("wertewt",mainLblStyle);
+		lblChallengeMsg.setColor(0, 0, 0, 0);
+		lblChallengeMsg.setPosition((Gdx.graphics.getWidth()/2)-(lblChallengeMsg.getPrefWidth()/2),0);
 		
 		imgTintBG = new Image(AssetHandler.manager.get(AssetHandler.imgTintBG));
 		
@@ -121,7 +143,7 @@ public class PlayScreen implements Screen {
 		});
 		imgTintBG.setVisible(false);
 		
-		stage.addActor(lblChallengeMessage);
+		stage.addActor(lblChallengeMsg);
 		stage.addActor(lblTimer);
 		stage.addActor(imgTintBG);
 		stage.addActor(btnRetry);
@@ -143,8 +165,6 @@ public class PlayScreen implements Screen {
 			updateSpawn(delta);
 			
 			drawEntites();
-			
-			//updateChallengeMessage(delta);
 			
 			updateEntites(delta);
 			
@@ -211,7 +231,8 @@ public class PlayScreen implements Screen {
 			float timerMins = (Creator.gameTime/60);
 			float timerSecs = Creator.gameTime%60;
 			lblTimer.setText(dfMinutes.format(timerMins) + ":" + dfSeconds.format(timerSecs));
-			lblTimer.setPosition((Gdx.graphics.getWidth()/2)-(lblTimer.getWidth()/2),Gdx.graphics.getHeight()-lblTimer.getMinHeight());
+			lblTimer.validate();
+			lblTimer.setPosition((Gdx.graphics.getWidth()/2)-(lblTimer.getPrefWidth()/2),Gdx.graphics.getHeight()-lblTimer.getPrefHeight());
 		}
 		
 		stage.act();
@@ -284,6 +305,12 @@ public class PlayScreen implements Screen {
 		gameOver=false;
 	}
 	public static void updateChallengeMessage(String message){
+		lblChallengeMsg.setText(message);
+		lblChallengeMsg.validate();
+		lblChallengeMsg.setPosition((Gdx.graphics.getWidth()/2)-(lblChallengeMsg.getPrefWidth()/2),0);
+		lblChallengeMsg.setColor(0, 0, 0, 1);
+		lblChallengeMsg.addAction(alphaChallengeMsg);
+		alphaChallengeMsg.reset();
 		
 	}
 }
