@@ -11,9 +11,6 @@ public class AssetHandler {
 	public static final AssetManager manager = new AssetManager();
 
 	public static final AssetDescriptor<Texture> imgTurretLayout = new AssetDescriptor<Texture>("turretLayout.png", Texture.class);
-	public static final AssetDescriptor<Texture> imgTurretRed = new AssetDescriptor<Texture>("turretRed.png", Texture.class);
-	public static final AssetDescriptor<Texture> imgTurretBlue = new AssetDescriptor<Texture>("turretBlue.png", Texture.class);
-	public static final AssetDescriptor<Texture> imgTurretYellow = new AssetDescriptor<Texture>("turretYellow.png", Texture.class);
 
 	public static final AssetDescriptor<Texture> imgProjectileRed = new AssetDescriptor<Texture>("projectileRed.png", Texture.class);
 	public static final AssetDescriptor<Texture> imgProjectileBlue = new AssetDescriptor<Texture>("projectileBlue.png", Texture.class);
@@ -26,15 +23,12 @@ public class AssetHandler {
 	public static final AssetDescriptor<Texture> imgTintBG = new AssetDescriptor<Texture>("tintBG.png", Texture.class);
 	
 	public static final AssetDescriptor<TextureAtlas> atlasButtons = new AssetDescriptor<TextureAtlas>("buttons/buttons.pack", TextureAtlas.class);
-	public static final AssetDescriptor<TextureAtlas> atlasLoadingProjBlue = new AssetDescriptor<TextureAtlas>("loadingProj/loadingProjBlue.pack", TextureAtlas.class);
+	public static final AssetDescriptor<TextureAtlas> atlasLoadingProjBlue = new AssetDescriptor<TextureAtlas>("loadingProj/loadingProj.pack", TextureAtlas.class);
 	
 	public static final AssetDescriptor<BitmapFont> fontPlay = new AssetDescriptor<BitmapFont>("playFont/play.fnt", BitmapFont.class);
 	
 	public static void load(){
 		manager.load(imgTurretLayout);
-		manager.load(imgTurretRed);
-		manager.load(imgTurretBlue);
-		manager.load(imgTurretYellow);
 
 		manager.load(imgProjectileRed);
 		manager.load(imgProjectileBlue);
@@ -54,9 +48,6 @@ public class AssetHandler {
 
 	public static void setTextures(){
 		manager.get(imgTurretLayout).setFilter(TextureFilter.Linear,TextureFilter.Linear);
-		manager.get(imgTurretRed).setFilter(TextureFilter.Linear,TextureFilter.Linear);
-		manager.get(imgTurretBlue).setFilter(TextureFilter.Linear,TextureFilter.Linear);
-		manager.get(imgTurretYellow).setFilter(TextureFilter.Linear,TextureFilter.Linear);
 
 		manager.get(imgProjectileRed).setFilter(TextureFilter.Linear,TextureFilter.Linear);
 		manager.get(imgProjectileBlue).setFilter(TextureFilter.Linear,TextureFilter.Linear);

@@ -6,10 +6,14 @@ public class FrostChallenge extends Challenge{
 
 	@Override
 	public void update(float delta) {
-		if(currentCode==codeCollision)
+		if(currentCode==codeCollision){
 			Creator.fireRate/=2;
-		if(currentCode==codeMiss)
-			Creator.fireRate*=2;
+		}
+			
+		if(currentCode==codeMiss){
+			Creator.fireRate*=1.1;
+		}
+			
 	}
 	
 }

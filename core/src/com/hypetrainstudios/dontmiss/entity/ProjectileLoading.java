@@ -10,7 +10,7 @@ import com.hypetrainstudios.dontmiss.handlers.AssetHandler;
 
 public class ProjectileLoading{
 	
-	public static Animation animLoadingBlue = new Animation(1/30f,AssetHandler.manager.get(AssetHandler.atlasLoadingProjBlue).findRegions("turretBlue"));;
+	public static Animation animLoadingBlue = new Animation(1/30f,AssetHandler.manager.get(AssetHandler.atlasLoadingProjBlue).findRegions("loadingProjBlue"));;
 	public static Sprite spr = new Sprite(animLoadingBlue.getKeyFrame(0));
 	public static float time;
 	

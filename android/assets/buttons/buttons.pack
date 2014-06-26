@@ -1,131 +1,187 @@
 
 buttons.png
 format: RGBA8888
-filter: Linear,Linear
+filter: Nearest,Nearest
 repeat: none
-resumeBtnPressed
+aboutBtn
   rotate: false
-  xy: 2, 659
-  size: 257, 258
-  orig: 257, 258
+  xy: 1, 647
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+aboutBtnPressed
+  rotate: false
+  xy: 1, 389
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+btnResume
+  rotate: false
+  xy: 259, 647
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+btnResumePressed
+  rotate: false
+  xy: 1, 131
+  size: 256, 256
+  orig: 256, 256
   offset: 0, 0
   index: -1
 menuBtn
   rotate: false
-  xy: 2, 396
-  size: 257, 258
-  orig: 257, 258
-  offset: 0, 0
-  index: -1
-resumeBtn
-  rotate: false
-  xy: 264, 661
+  xy: 259, 389
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 menuBtnPressed
   rotate: false
-  xy: 2, 135
+  xy: 517, 647
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 oneBtn
   rotate: false
-  xy: 264, 400
+  xy: 259, 131
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 oneBtnPressed
   rotate: false
-  xy: 525, 661
+  xy: 517, 389
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 optionsBtn
   rotate: false
-  xy: 525, 400
+  xy: 775, 647
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 optionsBtnPressed
   rotate: false
-  xy: 786, 661
+  xy: 517, 131
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 playBtn
   rotate: false
-  xy: 786, 400
+  xy: 775, 389
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 playBtnPressed
   rotate: false
-  xy: 1047, 661
+  xy: 1033, 647
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 retryBtn
   rotate: false
-  xy: 1047, 400
+  xy: 775, 131
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 retryBtnPressed
   rotate: false
-  xy: 1308, 661
+  xy: 1033, 389
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+scoresBtn
+  rotate: false
+  xy: 1291, 647
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+scoresBtnPressed
+  rotate: false
+  xy: 1033, 131
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 threeBtn
   rotate: false
-  xy: 1308, 400
+  xy: 1291, 389
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 threeBtnPressed
   rotate: false
-  xy: 1569, 661
+  xy: 1549, 647
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 twoBtn
   rotate: false
-  xy: 1569, 400
+  xy: 1291, 131
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+twoBtnPressed
+  rotate: false
+  xy: 1549, 389
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 backBtn
   rotate: false
-  xy: 2, 2
+  xy: 1, 1
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 backBtnPressed
   rotate: false
-  xy: 1830, 789
+  xy: 1807, 775
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
-twoBtnPressed
+leftArrowBtn
   rotate: false
-  xy: 264, 139
-  size: 256, 256
-  orig: 256, 256
+  xy: 1549, 259
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+leftArrowBtnPressed
+  rotate: false
+  xy: 131, 1
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+rightArrowBtn-01
+  rotate: false
+  xy: 1807, 645
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+rightArrowBtnPressed
+  rotate: false
+  xy: 261, 1
+  size: 128, 128
+  orig: 128, 128
   offset: 0, 0
   index: -1

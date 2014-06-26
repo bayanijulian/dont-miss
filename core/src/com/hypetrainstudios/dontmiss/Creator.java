@@ -20,7 +20,10 @@ public class Creator {
 	
 	public static float spawnWaveRate = 7;
 	public static float spawnWaveCounter = 7;
+	public static float spawnRateMax,spawnRateMin;
+	
 	public static float fireRate = .8f;
+	public static float fireRateMin,fireRateMax;
 	public static float fireRateCounter = .8f;
 	
 	public static ArrayList<Enemy> enemies = new ArrayList<Enemy>();

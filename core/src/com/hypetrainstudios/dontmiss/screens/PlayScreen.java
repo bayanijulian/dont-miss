@@ -150,15 +150,16 @@ public class PlayScreen implements Screen {
 		stage.addActor(imgTintBG);
 		stage.addActor(btnRetry);
 		
-		
+	
 		
 	}
 	
 	@Override
 	public void render(float delta) {
+		Gdx.gl.glClearColor(1,1,1,1);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		
 		if(running&&(!(gameOver))){
-			Gdx.gl.glClearColor(1,1,1,1);
-			Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 			
 			Creator.update(delta);
 			
@@ -176,6 +177,9 @@ public class PlayScreen implements Screen {
 			
 			updateUI();
 			
+			System.out.println(Gdx.graphics.getFramesPerSecond());
+			
+
 			ProjectileLoading.update(delta);
 		}
 		if(gameOver){
