@@ -6,7 +6,6 @@ public class Boss extends Entity{
 
 	public Boss(Sprite spr) {
 		super(spr);
-		
 	}
 
 	@Override

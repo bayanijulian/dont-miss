@@ -1,7 +1,7 @@
 package com.hypetrainstudios.dontmiss.entity;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
+
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -29,9 +29,5 @@ public class ProjectileLoading{
 	public static void update(float delta){
 		time = Creator.fireRateCounter/Creator.fireRate;
 		spr.setRegion((animLoadingBlue.getKeyFrame(time)));
-//		if(!(animLoadingBlue.isAnimationFinished(time)))
-//			time+=delta;
-//		else
-//			time = 0;
 	}
 }

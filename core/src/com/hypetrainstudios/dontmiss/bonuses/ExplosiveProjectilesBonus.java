@@ -1,5 +1,5 @@
 package com.hypetrainstudios.dontmiss.bonuses;
 
-public class BonusGuidedProjectiles {
+public class ExplosiveProjectilesBonus {
 
 }

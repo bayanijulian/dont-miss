@@ -5,13 +5,14 @@ import com.hypetrainstudios.dontmiss.Creator;
 public class LimitedProjeciltesChallenge extends Challenge{
 
 	
-	private int totalProjectiles = 10;
+	private int totalProjectiles = 5;
+	private int addOn = 1;
 	private float time;
 	
 	@Override
 	public void update(float delta) {
 		if(Challenge.currentCode == Challenge.codeCollision){
-			totalProjectiles += 3;
+			totalProjectiles += addOn;
 		}
 		if(Challenge.currentCode == Challenge.codeMiss){
 			if(totalProjectiles<0)

@@ -13,12 +13,11 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
+
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.AlphaAction;
-import com.badlogic.gdx.scenes.scene2d.actions.DelayAction;
-import com.badlogic.gdx.scenes.scene2d.actions.ParallelAction;
+
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Button.ButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -39,7 +38,7 @@ import com.hypetrainstudios.dontmiss.handlers.SpawnHandler;
 
 public class PlayScreen implements Screen {
 	
-	private static Game game;
+	private Game game;
 	private static boolean running;
 	private static boolean gameOver;
 	private static SpriteBatch batch;
@@ -92,6 +91,10 @@ public class PlayScreen implements Screen {
 		inputMultiplexer = new InputMultiplexer(stage, gameInput);
 		
 		Gdx.input.setInputProcessor(inputMultiplexer);
+		
+		//moving player it works, just fix spawning to rectangular spawning
+		//cam.position.x = 300;
+		//cam.update();
 		
 		ProjectileLoading.create();
 	}
