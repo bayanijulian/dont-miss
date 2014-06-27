@@ -3,7 +3,9 @@ package com.hypetrainstudios.dontmiss;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.hypetrainstudios.dontmiss.bonuses.BonusType;
 import com.hypetrainstudios.dontmiss.challenges.Challenge;
+import com.hypetrainstudios.dontmiss.enemies.EnemyType;
 import com.hypetrainstudios.dontmiss.entity.Enemy;
 import com.hypetrainstudios.dontmiss.entity.Projectile;
 import com.hypetrainstudios.dontmiss.entity.Turret;
@@ -26,9 +28,13 @@ public class Creator {
 	public static final float  fireRateMin = .5f,fireRateMax = 3f;
 	public static float fireRateCounter = .8f;
 	
+	public static ArrayList<Challenge> challenges = new ArrayList<Challenge>();
+	public static ArrayList<BonusType> bonusTypes = new ArrayList<BonusType>();
+	public static ArrayList<EnemyType> enemyTypes = new ArrayList<EnemyType>();
 	public static ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 	public static ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
-	public static ArrayList<Challenge> challenges = new ArrayList<Challenge>();
+	
+	
 	public static Turret player = new Turret(new Sprite(AssetHandler.manager.get(AssetHandler.imgTurretLayout)),turretRotationSpeed);
 	
 	public static void createProjectile(){
