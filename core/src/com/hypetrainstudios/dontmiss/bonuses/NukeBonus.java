@@ -1,5 +1,12 @@
 package com.hypetrainstudios.dontmiss.bonuses;
 
-public class NukeBonus {
+import com.hypetrainstudios.dontmiss.bonuses.BonusType.Effector;
+
+public class NukeBonus extends BonusType{
+
+	public NukeBonus() {
+		super();
+		effector = Effector.Enemy;
+	}
 
 }

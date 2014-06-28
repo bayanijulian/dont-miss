@@ -1,5 +1,12 @@
 package com.hypetrainstudios.dontmiss.bonuses;
 
-public class SheildBonus {
+import com.hypetrainstudios.dontmiss.bonuses.BonusType.Effector;
+
+public class SheildBonus extends BonusType{
+
+	public SheildBonus() {
+		super();
+		effector = Effector.Player;
+	}
 
 }

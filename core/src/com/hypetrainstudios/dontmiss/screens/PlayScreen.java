@@ -73,7 +73,6 @@ public class PlayScreen implements Screen {
 	
 	/*--------------------------*/
 	
-	
 	public PlayScreen(Game game){
 		this.game = game;
 		running = true;
@@ -152,8 +151,6 @@ public class PlayScreen implements Screen {
 		stage.addActor(lblTimer);
 		stage.addActor(imgTintBG);
 		stage.addActor(btnRetry);
-		
-	
 		
 	}
 	

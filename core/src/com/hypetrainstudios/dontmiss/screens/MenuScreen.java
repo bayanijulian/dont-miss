@@ -50,11 +50,8 @@ public class MenuScreen implements Screen{
 		view = new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		stage = new Stage(view);
 		
-		
 		createMainMenu();
-		
-		
-		
+
 		Gdx.input.setInputProcessor(stage);
 	}
 	

@@ -1,5 +1,12 @@
 package com.hypetrainstudios.dontmiss.bonuses;
 
-public class MultipleProjectilesBonus {
+import com.hypetrainstudios.dontmiss.bonuses.BonusType.Effector;
+
+public class MultipleProjectilesBonus extends BonusType{
+
+	public MultipleProjectilesBonus() {
+		super();
+		effector = Effector.Projectile;
+	}
 
 }
