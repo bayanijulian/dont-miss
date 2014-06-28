@@ -57,6 +57,8 @@ public class Creator {
 		challenges.clear();
 		enemies.clear();
 		projectiles.clear();
+		enemyTypes.clear();
+		bonusTypes.clear();
 		
 		/* Debugging Comments */
 		System.out.println("Enemy Size:" + enemies.size());

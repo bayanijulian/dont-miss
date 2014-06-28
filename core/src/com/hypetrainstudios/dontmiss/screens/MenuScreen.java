@@ -50,12 +50,12 @@ public class MenuScreen implements Screen{
 		view = new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		stage = new Stage(view);
 		
-		menuInput = new GameInputHandler();
+		
 		createMainMenu();
 		
-		inputMultiplexer = new InputMultiplexer(stage, menuInput);
 		
-		Gdx.input.setInputProcessor(inputMultiplexer);
+		
+		Gdx.input.setInputProcessor(stage);
 	}
 	
 	public void createMainMenu() {
