@@ -3,11 +3,11 @@ package com.hypetrainstudios.dontmiss;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 import com.hypetrainstudios.dontmiss.handlers.AssetHandler;
-import com.hypetrainstudios.dontmiss.screens.PlayScreen;
+import com.hypetrainstudios.dontmiss.screens.MenuScreen;
 
 public class DontMiss extends Game {
 	
-	private Screen playScreen;
+	private Screen menuScreen;
 	@Override
 	public void create() {
 		//loads assets to a queue
@@ -16,8 +16,8 @@ public class DontMiss extends Game {
 		AssetHandler.manager.finishLoading();
 		AssetHandler.setTextures();
 		
-		playScreen = new PlayScreen(this);
-		setScreen(playScreen);
+		menuScreen = new MenuScreen(this);
+		setScreen(menuScreen);
 	}
 	
 	
