@@ -30,14 +30,12 @@ public class MenuScreen implements Screen{
 	private Button playBtn, optionsBtn, rightArrowBtn, leftArrowBtn, oneBtn, twoBtn, threeBtn, back;
 	private ButtonStyle playBtnStyle, optionsBtnStyle, rightArrowBtnStyle, leftArrowBtnStyle, oneBtnStyle, twoBtnStyle, threeBtnStyle;
 	
-	private Image background;
+	private Image mainMenuBackground, playMenuBackground;
 	
 	private int checkpointNum;
 	private boolean mainMenu;
 	
 	private Game game;
-	private InputProcessor menuInput;
-	private InputMultiplexer inputMultiplexer;
 	
 	public MenuScreen(Game game) {
 		mainMenu=true;
@@ -218,10 +216,6 @@ public class MenuScreen implements Screen{
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
 		updateMenu();
-	}
-	
-	public void setBackground(Drawable newBackground ) {
-		background.setDrawable(newBackground);
 	}
 	
 	public void updateMenu() {
