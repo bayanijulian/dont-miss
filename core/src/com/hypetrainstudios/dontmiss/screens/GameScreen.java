@@ -13,11 +13,9 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.AlphaAction;
-
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Button.ButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -33,6 +31,7 @@ import com.hypetrainstudios.dontmiss.challenges.Challenge;
 import com.hypetrainstudios.dontmiss.entity.ProjectileLoading;
 import com.hypetrainstudios.dontmiss.handlers.AssetHandler;
 import com.hypetrainstudios.dontmiss.handlers.ChallengeHandler;
+import com.hypetrainstudios.dontmiss.handlers.CollisionHandler;
 import com.hypetrainstudios.dontmiss.handlers.GameInputHandler;
 import com.hypetrainstudios.dontmiss.handlers.SpawnHandler;
 
@@ -40,7 +39,6 @@ public class GameScreen implements Screen {
 	
 	private Game game;
 	private static boolean running;
-	private static boolean gameOver;
 	private static SpriteBatch batch;
 	private static OrthographicCamera cam;
 	private static InputMultiplexer inputMultiplexer;
@@ -76,7 +74,7 @@ public class GameScreen implements Screen {
 	public GameScreen(Game game){
 		this.game = game;
 		running = true;
-		gameOver = false;
+		
 		
 		cam = new OrthographicCamera();
 		cam.setToOrtho(false,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
@@ -143,6 +141,7 @@ public class GameScreen implements Screen {
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
 				reset();
+				
 			}
 		});
 		imgTintBG.setVisible(false);
@@ -159,19 +158,19 @@ public class GameScreen implements Screen {
 		Gdx.gl.glClearColor(1,1,1,1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		Gdx.graphics.setTitle("Don't Miss\tFPS:"+Gdx.graphics.getFramesPerSecond());
-		if(running&&(!(gameOver))){
+		if(running&&(!(Creator.gameOver))){
 			
 			Creator.update(delta);
 
 			drawEntites();
 
-			checkCollision();
+			CollisionHandler.checkCollision();
 
 			updateUI();
 
 			ProjectileLoading.update(delta);
 		}
-		if(gameOver){
+		if(Creator.gameOver){
 			//shows retry menu
 			showGameOverUI();
 			updateUI();
@@ -206,9 +205,12 @@ public class GameScreen implements Screen {
 		imgTintBG.setVisible(true);
 		btnRetry.setVisible(true);
 	}
-	
+	private void hideGameOverUI(){
+		btnRetry.setVisible(false);
+		imgTintBG.setVisible(false);
+	}
 	private void updateUI(){
-		if(!gameOver){
+		if(!Creator.gameOver){
 			float timerMins = (Creator.gameTime/60);
 			float timerSecs = Creator.gameTime%60;
 			lblTimer.setText(dfMinutes.format(timerMins) + ":" + dfSeconds.format(timerSecs));
@@ -218,34 +220,6 @@ public class GameScreen implements Screen {
 		
 		stage.act();
 		stage.draw();
-	}
-	private void checkCollision()
-	{
-		//Checks collision between projectile and enemies
-		for (int x=0; x<Creator.projectiles.size();x++)
-		{
-			for (int k=0; k<Creator.enemies.size();k++)
-			{
-				if( Creator.projectiles.get(x).getCircle().overlaps( Creator.enemies.get(k).getCircle() ) )
-				{
-					//Removes both the projectile and enemy from the screen
-					Creator.enemies.get(k).setActive(false);
-					Creator.projectiles.get(x).setActive(false);
-					Challenge.currentCode = Challenge.codeCollision;
-				}
-			}
-		}
-		
-		//Checks collision between projectiles and the player
-		for(int  x= 0; x<Creator.enemies.size();x++)
-		{
-			if(Creator.enemies.get(x).getCircle().overlaps(Creator.player.getCircle())){
-				gameOver = true;
-				//end game code
-				//System.exit(0);
-			}
-		}
-		
 	}
 	
 	private void drawEntites(){
@@ -264,10 +238,8 @@ public class GameScreen implements Screen {
 	
 	
 	private void reset(){
-		btnRetry.setVisible(false);
-		imgTintBG.setVisible(false);
+		hideGameOverUI();
 		Creator.reset();
-		gameOver=false;
 	}
 	public static void updateChallengeMessage(String message){
 		lblChallengeMsg.setText(message);

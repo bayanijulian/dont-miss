@@ -21,6 +21,7 @@ public class Creator {
 	public static float turretRotationSpeed = 155f;
 	
 	public static float gameTime = 180;
+	public static boolean gameOver = false;
 	
 	public static float spawnWaveRate = 7;
 	public static float spawnWaveCounter = 7;
@@ -57,32 +58,24 @@ public class Creator {
 		checkForGarbage();
 	}
 	
-private static void updateSpawn(float delta){
+	private static void updateSpawn(float delta){
 		
-		if(Creator.spawnWaveCounter>=Creator.spawnWaveRate){
-			SpawnHandler.update(Creator.gameTime);
-			Creator.spawnWaveCounter = 0;
-			/*Debugging Comments*/
-			System.out.println("new wave coming");
-			/*Debugging Comments*/
+		if(spawnWaveCounter>=spawnWaveRate){
+			SpawnHandler.update(gameTime);
+			spawnWaveCounter = 0;
 		}
 		else
-			Creator.spawnWaveCounter+=delta;
+			spawnWaveCounter+=delta;
 	}
-	
 	public static void reset(){
+		gameOver = false;
 		
 		challenges.clear();
 		enemies.clear();
 		projectiles.clear();
 		enemyTypes.clear();
 		bonusTypes.clear();
-		
-		/* Debugging Comments */
-		System.out.println("Enemy Size:" + enemies.size());
-		System.out.println("Projectile Size:" + projectiles.size());
-		System.out.println("Challenge Size:" + challenges.size());
-		/* Debugging Comments */
+		misc.clear();
 		
 		gameTime = 180;
 		spawnWaveRate = 7f;

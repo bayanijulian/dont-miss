@@ -12,11 +12,13 @@ public class DontMiss extends Game {
 	public void create() {
 		//loads assets to a queue
 		AssetHandler.load();
-		//loads it to ram
+		//loads queue to ram
 		AssetHandler.manager.finishLoading();
+		//sets textures for individual pictures
 		AssetHandler.setTextures();
-		
+		//creates the main menu for the game
 		menuScreen = new MenuScreen(this);
+		//sets screen to the main menu
 		setScreen(menuScreen);
 	}
 	
