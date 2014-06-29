@@ -1,34 +1,36 @@
 package com.hypetrainstudios.dontmiss.screens;
 
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.InputMultiplexer;
-import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Event;
+import com.badlogic.gdx.scenes.scene2d.EventListener;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Button.ButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener.ChangeEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-import com.badlogic.gdx.utils.viewport.FitViewport;
+
 import com.hypetrainstudios.dontmiss.handlers.AssetHandler;
-import com.hypetrainstudios.dontmiss.handlers.GameInputHandler;
 import com.hypetrainstudios.dontmiss.screens.GameScreen;
 
 public class MenuScreen implements Screen{
 	//UI Variables
 	private Stage stage;
-	private FitViewport view;
-	private OrthographicCamera cam;
+	private static FitViewport view;
+	private static OrthographicCamera cam;
 	
-	private Button playBtn, optionsBtn, rightArrowBtn, leftArrowBtn, oneBtn, twoBtn, threeBtn, back;
-	private ButtonStyle playBtnStyle, optionsBtnStyle, rightArrowBtnStyle, leftArrowBtnStyle, oneBtnStyle, twoBtnStyle, threeBtnStyle;
+	private static Button playBtn, optionsBtn, rightArrowBtn, leftArrowBtn, oneBtn, twoBtn, threeBtn, back;
+	private static ButtonStyle playBtnStyle, optionsBtnStyle, rightArrowBtnStyle, leftArrowBtnStyle, oneBtnStyle, twoBtnStyle, threeBtnStyle;
+	private static ChangeListener listener;
 	
 	private Image mainMenuBackground, playMenuBackground;
 	
@@ -49,25 +51,18 @@ public class MenuScreen implements Screen{
 		stage = new Stage(view);
 		
 		createMainMenu();
-
+		
 		Gdx.input.setInputProcessor(stage);
 	}
 	
-	public void createMainMenu() {
+	private void createMainMenu() {
 		playBtnStyle = new ButtonStyle(new TextureRegionDrawable((AssetHandler.manager.get(AssetHandler.atlasButtons).findRegion("playBtn"))),
 									   new TextureRegionDrawable((AssetHandler.manager.get(AssetHandler.atlasButtons).findRegion("playBtnPressed"))),
 									   new TextureRegionDrawable((AssetHandler.manager.get(AssetHandler.atlasButtons).findRegion("playBtn"))));
 		playBtn = new Button(playBtnStyle);
 		playBtn.setPosition((Gdx.graphics.getWidth()/2-(playBtn.getWidth()/2)), ((Gdx.graphics.getHeight()/2)-(playBtn.getHeight()/2)));
 		playBtn.setVisible(true);
-		playBtn.addListener(new ChangeListener() {
-			
-			@Override
-			public void changed(ChangeEvent event, Actor actor) {
-				mainMenu=false;
-				createPlayMenu();
-			}
-		});
+		playBtn.addListener(listener);
 	
 		optionsBtnStyle = new ButtonStyle(new TextureRegionDrawable((AssetHandler.manager.get(AssetHandler.atlasButtons).findRegion("optionsBtn"))),
 									   	  new TextureRegionDrawable((AssetHandler.manager.get(AssetHandler.atlasButtons).findRegion("optionsBtnPressed"))),
@@ -75,13 +70,7 @@ public class MenuScreen implements Screen{
 		optionsBtn = new Button(optionsBtnStyle);
 		optionsBtn.setPosition((Gdx.graphics.getWidth()/2-(optionsBtn.getWidth()/2)), ((Gdx.graphics.getHeight()/2)-(optionsBtn.getHeight()/2)));
 		optionsBtn.setVisible(false);
-		optionsBtn.addListener(new ChangeListener() {
-			
-			@Override
-			public void changed(ChangeEvent event, Actor actor) {
-				
-			}
-		});
+		optionsBtn.addListener(listener);
 	
 		rightArrowBtnStyle = new ButtonStyle(new TextureRegionDrawable((AssetHandler.manager.get(AssetHandler.atlasButtons).findRegion("rightArrowBtn-01"))),
 			   	  			 				 new TextureRegionDrawable((AssetHandler.manager.get(AssetHandler.atlasButtons).findRegion("rightArrowBtnPressed"))),
@@ -89,32 +78,7 @@ public class MenuScreen implements Screen{
 		rightArrowBtn = new Button(rightArrowBtnStyle);
 		rightArrowBtn.setPosition((3*Gdx.graphics.getWidth()/4-(rightArrowBtn.getWidth()/2)), ((Gdx.graphics.getHeight()/2)-(rightArrowBtn.getHeight()/2)));
 		rightArrowBtn.setVisible(true);
-		rightArrowBtn.addListener(new ChangeListener() {
-			
-			@Override
-			public void changed(ChangeEvent event, Actor actor) {
-				if(mainMenu) {
-					playBtn.setVisible(false);
-					rightArrowBtn.setVisible(false);
-					optionsBtn.setVisible(true);
-					leftArrowBtn.setVisible(true);
-				}
-				else {
-					if(checkpointNum==3) {
-						threeBtn.setVisible(false);
-						leftArrowBtn.setVisible(true);
-						twoBtn.setVisible(true);
-						checkpointNum=2;
-					}
-					else if(checkpointNum==2) {
-						rightArrowBtn.setVisible(false);
-						twoBtn.setVisible(false);
-						oneBtn.setVisible(true);
-						checkpointNum=1;
-					}
-				}
-			}
-		});
+		rightArrowBtn.addListener(listener);
 
 		leftArrowBtnStyle = new ButtonStyle(new TextureRegionDrawable((AssetHandler.manager.get(AssetHandler.atlasButtons).findRegion("leftArrowBtn"))),
   	  			 							new TextureRegionDrawable((AssetHandler.manager.get(AssetHandler.atlasButtons).findRegion("leftArrowBtnPressed"))),
@@ -122,39 +86,14 @@ public class MenuScreen implements Screen{
 		leftArrowBtn = new Button(leftArrowBtnStyle);
 		leftArrowBtn.setPosition((Gdx.graphics.getWidth()/4-(leftArrowBtn.getWidth()/2)), ((Gdx.graphics.getHeight()/2)-(leftArrowBtn.getHeight()/2)));
 		leftArrowBtn.setVisible(false);
-		leftArrowBtn.addListener(new ChangeListener() {
-			
-			@Override
-			public void changed(ChangeEvent event, Actor actor) {
-				if(mainMenu) {
-					optionsBtn.setVisible(false);
-					leftArrowBtn.setVisible(false);
-					playBtn.setVisible(true);
-					rightArrowBtn.setVisible(true);
-				}
-				else {
-					if(checkpointNum==2) {
-						leftArrowBtn.setVisible(false);
-						twoBtn.setVisible(false);
-						threeBtn.setVisible(true);
-						checkpointNum=3;
-					}
-					else if(checkpointNum==1) {
-						oneBtn.setVisible(false);
-						twoBtn.setVisible(true);
-						rightArrowBtn.setVisible(true);
-						checkpointNum=2;
-					}
-				}
-			}
-		});
+		leftArrowBtn.addListener(listener);
 		stage.addActor(playBtn);
 		stage.addActor(optionsBtn);
 		stage.addActor(leftArrowBtn);
 		stage.addActor(rightArrowBtn);
 	}
 	
-	public void createPlayMenu() {
+	private void createPlayMenu() {
 		playBtn.setVisible(false);
 		optionsBtn.setVisible(false);
 		
@@ -166,13 +105,7 @@ public class MenuScreen implements Screen{
 		oneBtn = new Button(oneBtnStyle);
 		oneBtn.setPosition((Gdx.graphics.getWidth()/2-(oneBtn.getWidth()/2)), ((Gdx.graphics.getHeight()/2)-(oneBtn.getHeight()/2)));
 		oneBtn.setVisible(false);
-		oneBtn.addListener(new ChangeListener() {
-			
-			@Override
-			public void changed(ChangeEvent event, Actor actor) {
-				
-			}
-		});
+		oneBtn.addListener(listener);
 
 		twoBtnStyle = new ButtonStyle(new TextureRegionDrawable((AssetHandler.manager.get(AssetHandler.atlasButtons).findRegion("twoBtn"))),
  	  			 	  				  new TextureRegionDrawable((AssetHandler.manager.get(AssetHandler.atlasButtons).findRegion("twoBtnPressed"))),
@@ -180,13 +113,7 @@ public class MenuScreen implements Screen{
 		twoBtn = new Button(twoBtnStyle);
 		twoBtn.setPosition((Gdx.graphics.getWidth()/2-(twoBtn.getWidth()/2)), ((Gdx.graphics.getHeight()/2)-(twoBtn.getHeight()/2)));
 		twoBtn.setVisible(false);
-		twoBtn.addListener(new ChangeListener() {
-			
-			@Override
-			public void changed(ChangeEvent event, Actor actor) {
-				
-			}
-		});
+		twoBtn.addListener(listener);
 
 		threeBtnStyle = new ButtonStyle(new TextureRegionDrawable((AssetHandler.manager.get(AssetHandler.atlasButtons).findRegion("threeBtn"))),
  			 	  						new TextureRegionDrawable((AssetHandler.manager.get(AssetHandler.atlasButtons).findRegion("threeBtnPressed"))),
@@ -194,20 +121,19 @@ public class MenuScreen implements Screen{
 		threeBtn = new Button(threeBtnStyle);
 		threeBtn.setPosition((Gdx.graphics.getWidth()/2-(threeBtn.getWidth()/2)), ((Gdx.graphics.getHeight()/2)-(threeBtn.getHeight()/2)));
 		threeBtn.setVisible(true);
-		threeBtn.addListener(new ChangeListener() {
-			
-			@Override
-			public void changed(ChangeEvent event, Actor actor) {
-				game.setScreen(new GameScreen(game));
-			}
-		});
+		threeBtn.addListener(listener);
 		stage.addActor(oneBtn);
 		stage.addActor(twoBtn);
 		stage.addActor(threeBtn);
 	}
 	
-	public void createOptionsMenu() {
+	private void createOptionsMenu() {
 		
+	}
+	
+	private void updateMenu() {
+		stage.act();
+		stage.draw();
 	}
 	
 	@Override
@@ -217,11 +143,7 @@ public class MenuScreen implements Screen{
 		
 		updateMenu();
 	}
-	
-	public void updateMenu() {
-		stage.act();
-		stage.draw();
-	}
+
 	@Override
 	public void resize(int width, int height) {
 		
@@ -247,4 +169,73 @@ public class MenuScreen implements Screen{
 	public void dispose() {
 	}
 
+	private class ChangeListener implements EventListener{
+		public void changed(ChangeEvent event, Actor actor) {
+			if(actor==playBtn) {
+				mainMenu=false;
+				createPlayMenu();
+			}
+			if(actor==optionsBtn) {
+				
+			}
+			if(actor==oneBtn) {
+				
+			}
+			if(actor==twoBtn) {
+				
+			}
+			if(actor==threeBtn) {
+				game.setScreen(new GameScreen(game));
+			}
+			if(actor==rightArrowBtn) {
+				if(mainMenu) {
+					playBtn.setVisible(false);
+					rightArrowBtn.setVisible(false);
+					optionsBtn.setVisible(true);
+					leftArrowBtn.setVisible(true);
+				}
+				else {
+					if(checkpointNum==3) {
+						threeBtn.setVisible(false);
+						leftArrowBtn.setVisible(true);
+						twoBtn.setVisible(true);
+						checkpointNum=2;
+					}
+					else if(checkpointNum==2) {
+						rightArrowBtn.setVisible(false);
+						twoBtn.setVisible(false);
+						oneBtn.setVisible(true);
+						checkpointNum=1;
+					}
+				}
+			}
+			if(actor==leftArrowBtn) {
+				if(mainMenu) {
+					optionsBtn.setVisible(false);
+					leftArrowBtn.setVisible(false);
+					playBtn.setVisible(true);
+					rightArrowBtn.setVisible(true);
+				}
+				else {
+					if(checkpointNum==2) {
+						leftArrowBtn.setVisible(false);
+						twoBtn.setVisible(false);
+						threeBtn.setVisible(true);
+						checkpointNum=3;
+					}
+					else if(checkpointNum==1) {
+						oneBtn.setVisible(false);
+						twoBtn.setVisible(true);
+						rightArrowBtn.setVisible(true);
+						checkpointNum=2;
+					}
+				}
+			}
+		}
+
+		@Override
+		public boolean handle(Event event) {
+			return false;
+		}
+	}
 }
