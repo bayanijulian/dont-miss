@@ -24,18 +24,18 @@ import com.hypetrainstudios.dontmiss.screens.GameScreen;
 
 public class MenuScreen implements Screen{
 	//UI Variables
-	private Stage stage;
+	private static Stage stage;
 	private static FitViewport view;
 	private static OrthographicCamera cam;
 	
 	private static Button playBtn, optionsBtn, rightArrowBtn, leftArrowBtn, oneBtn, twoBtn, threeBtn, back;
 	private static ButtonStyle playBtnStyle, optionsBtnStyle, rightArrowBtnStyle, leftArrowBtnStyle, oneBtnStyle, twoBtnStyle, threeBtnStyle;
-	private static ChangeListener listener;
+	private static Listener listener;
 	
-	private Image mainMenuBackground, playMenuBackground;
+	private static Image mainMenuBackground, playMenuBackground;
 	
-	private int checkpointNum;
-	private boolean mainMenu;
+	private static int checkpointNum;
+	private static boolean mainMenu;
 	
 	private Game game;
 	
@@ -50,6 +50,7 @@ public class MenuScreen implements Screen{
 		view = new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		stage = new Stage(view);
 		
+		listener = new Listener();
 		createMainMenu();
 		
 		Gdx.input.setInputProcessor(stage);
@@ -169,25 +170,25 @@ public class MenuScreen implements Screen{
 	public void dispose() {
 	}
 
-	private class ChangeListener implements EventListener{
+	private class Listener extends ChangeListener{
 		public void changed(ChangeEvent event, Actor actor) {
 			if(actor==playBtn) {
 				mainMenu=false;
 				createPlayMenu();
 			}
-			if(actor==optionsBtn) {
+			else if(actor==optionsBtn) {
 				
 			}
-			if(actor==oneBtn) {
+			else if(actor==oneBtn) {
 				
 			}
-			if(actor==twoBtn) {
+			else if(actor==twoBtn) {
 				
 			}
-			if(actor==threeBtn) {
+			else if(actor==threeBtn) {
 				game.setScreen(new GameScreen(game));
 			}
-			if(actor==rightArrowBtn) {
+			else if(actor==rightArrowBtn) {
 				if(mainMenu) {
 					playBtn.setVisible(false);
 					rightArrowBtn.setVisible(false);
@@ -209,7 +210,7 @@ public class MenuScreen implements Screen{
 					}
 				}
 			}
-			if(actor==leftArrowBtn) {
+			else if(actor==leftArrowBtn) {
 				if(mainMenu) {
 					optionsBtn.setVisible(false);
 					leftArrowBtn.setVisible(false);
@@ -231,11 +232,6 @@ public class MenuScreen implements Screen{
 					}
 				}
 			}
-		}
-
-		@Override
-		public boolean handle(Event event) {
-			return false;
 		}
 	}
 }
