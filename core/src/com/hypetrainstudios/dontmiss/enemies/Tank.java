@@ -1,5 +1,5 @@
 package com.hypetrainstudios.dontmiss.enemies;
 
-public class Tank {
+public class Tank extends EnemyType{
 
 }

@@ -1,5 +1,5 @@
 package com.hypetrainstudios.dontmiss.enemies;
 
-public class Boss {
+public class Boss extends EnemyType{
 
 }

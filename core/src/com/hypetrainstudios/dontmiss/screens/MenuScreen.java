@@ -19,7 +19,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.hypetrainstudios.dontmiss.handlers.AssetHandler;
 import com.hypetrainstudios.dontmiss.handlers.GameInputHandler;
-import com.hypetrainstudios.dontmiss.screens.PlayScreen;
+import com.hypetrainstudios.dontmiss.screens.GameScreen;
 
 public class MenuScreen implements Screen{
 	//UI Variables
@@ -200,7 +200,7 @@ public class MenuScreen implements Screen{
 			
 			@Override
 			public void changed(ChangeEvent event, Actor actor) {
-				game.setScreen(new PlayScreen(game));
+				game.setScreen(new GameScreen(game));
 			}
 		});
 		stage.addActor(oneBtn);

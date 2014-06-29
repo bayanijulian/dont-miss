@@ -1,5 +1,5 @@
 package com.hypetrainstudios.dontmiss.enemies;
 
-public class Pawn {
+public class Pawn extends EnemyType{
 
 }

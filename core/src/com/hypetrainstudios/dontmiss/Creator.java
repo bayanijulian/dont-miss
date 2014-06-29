@@ -7,10 +7,12 @@ import com.hypetrainstudios.dontmiss.bonuses.BonusType;
 import com.hypetrainstudios.dontmiss.challenges.Challenge;
 import com.hypetrainstudios.dontmiss.enemies.EnemyType;
 import com.hypetrainstudios.dontmiss.entity.Enemy;
+import com.hypetrainstudios.dontmiss.entity.Misc;
 import com.hypetrainstudios.dontmiss.entity.Projectile;
 import com.hypetrainstudios.dontmiss.entity.Turret;
 import com.hypetrainstudios.dontmiss.handlers.AssetHandler;
 import com.hypetrainstudios.dontmiss.handlers.ChallengeHandler;
+import com.hypetrainstudios.dontmiss.handlers.SpawnHandler;
 
 public class Creator {
 	
@@ -33,8 +35,7 @@ public class Creator {
 	public static ArrayList<EnemyType> enemyTypes = new ArrayList<EnemyType>();
 	public static ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 	public static ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
-	
-	
+	public static ArrayList<Misc> misc = new ArrayList<Misc>();
 	public static Turret player = new Turret(new Sprite(AssetHandler.manager.get(AssetHandler.imgTurretLayout)),turretRotationSpeed);
 	
 	public static void createProjectile(){
@@ -42,7 +43,6 @@ public class Creator {
 			fireRateCounter = 0;
 			projectiles.add(new Projectile(new Sprite(AssetHandler.manager.get(AssetHandler.imgProjectileBlue)), projectileSpeed));
 		}
-			
 	}
 	public static void createEnemy(float degrees){
 			enemies.add(new Enemy(new Sprite(AssetHandler.manager.get(AssetHandler.imgEnemyBlue)),player.getSprite(),enemySpeed,degrees));
@@ -51,7 +51,25 @@ public class Creator {
 	{
 		gameTime-=delta;
 		fireRateCounter += delta;
+		updateSpawn(delta);
+		updateEntites(delta);
+		updateChallenge(delta);
+		checkForGarbage();
 	}
+	
+private static void updateSpawn(float delta){
+		
+		if(Creator.spawnWaveCounter>=Creator.spawnWaveRate){
+			SpawnHandler.update(Creator.gameTime);
+			Creator.spawnWaveCounter = 0;
+			/*Debugging Comments*/
+			System.out.println("new wave coming");
+			/*Debugging Comments*/
+		}
+		else
+			Creator.spawnWaveCounter+=delta;
+	}
+	
 	public static void reset(){
 		
 		challenges.clear();
@@ -82,5 +100,35 @@ public class Creator {
 		
 		ChallengeHandler.challengeCounter = 0;
 	}
-	
+	private static void checkForGarbage()
+	{
+		//removes projectiles
+		for(int i=0;i<projectiles.size();i++)
+		{
+			if(!(projectiles.get(i).isActive()))
+				projectiles.remove(i);
+		}
+		//removes enemies
+		for(int i=0;i<enemies.size();i++)
+		{
+			if(!(enemies.get(i).isActive()))
+				enemies.remove(i);
+		}
+	}
+	private static void updateChallenge(float delta){
+		ChallengeHandler.update(gameTime);
+		for(int i = 0; i < challenges.size(); i ++){
+			challenges.get(i).update(delta);
+		}
+		Challenge.currentCode = Challenge.codeDefault;
+	}
+	private static void updateEntites(float delta){
+		player.update(delta);
+		
+		for(int i = 0; i<projectiles.size();i++)
+			projectiles.get(i).update(delta);
+		for(int i = 0; i < enemies.size(); i++)
+			enemies.get(i).update(delta);
+		
+	}
 }

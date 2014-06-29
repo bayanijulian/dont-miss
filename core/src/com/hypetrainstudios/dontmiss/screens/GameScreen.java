@@ -36,7 +36,7 @@ import com.hypetrainstudios.dontmiss.handlers.ChallengeHandler;
 import com.hypetrainstudios.dontmiss.handlers.GameInputHandler;
 import com.hypetrainstudios.dontmiss.handlers.SpawnHandler;
 
-public class PlayScreen implements Screen {
+public class GameScreen implements Screen {
 	
 	private Game game;
 	private static boolean running;
@@ -73,7 +73,7 @@ public class PlayScreen implements Screen {
 	
 	/*--------------------------*/
 	
-	public PlayScreen(Game game){
+	public GameScreen(Game game){
 		this.game = game;
 		running = true;
 		gameOver = false;
@@ -158,27 +158,16 @@ public class PlayScreen implements Screen {
 	public void render(float delta) {
 		Gdx.gl.glClearColor(1,1,1,1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		
+		Gdx.graphics.setTitle("Don't Miss\tFPS:"+Gdx.graphics.getFramesPerSecond());
 		if(running&&(!(gameOver))){
 			
 			Creator.update(delta);
-			
-			updateChallenge(delta);
-			
-			updateSpawn(delta);
-			
+
 			drawEntites();
-			
-			updateEntites(delta);
-			
+
 			checkCollision();
-			
-			removeEntities();
-			
+
 			updateUI();
-			
-			System.out.println(Gdx.graphics.getFramesPerSecond());
-			
 
 			ProjectileLoading.update(delta);
 		}
@@ -216,23 +205,8 @@ public class PlayScreen implements Screen {
 	private void showGameOverUI(){
 		imgTintBG.setVisible(true);
 		btnRetry.setVisible(true);
-		
 	}
-	private void removeEntities()
-	{
-		//removes projectiles
-		for(int i=0;i<Creator.projectiles.size();i++)
-		{
-			if(!(Creator.projectiles.get(i).isActive()))
-				Creator.projectiles.remove(i);
-		}
-		//removes enemies
-		for(int i=0;i<Creator.enemies.size();i++)
-		{
-			if(!(Creator.enemies.get(i).isActive()))
-				Creator.enemies.remove(i);
-		}
-	}
+	
 	private void updateUI(){
 		if(!gameOver){
 			float timerMins = (Creator.gameTime/60);
@@ -273,15 +247,7 @@ public class PlayScreen implements Screen {
 		}
 		
 	}
-	private void updateEntites(float delta){
-		Creator.player.update(delta);
-		
-		for(int i = 0; i<Creator.projectiles.size();i++)
-			Creator.projectiles.get(i).update(delta);
-		for(int i = 0; i < Creator.enemies.size(); i++)
-			Creator.enemies.get(i).update(delta);
-		
-	}
+	
 	private void drawEntites(){
 		batch.begin();
 		batch.setProjectionMatrix(cam.combined);
@@ -295,25 +261,8 @@ public class PlayScreen implements Screen {
 		
 		batch.end();
 	}
-	private void updateSpawn(float delta){
-		
-		if(Creator.spawnWaveCounter>=Creator.spawnWaveRate){
-			SpawnHandler.update(Creator.gameTime);
-			Creator.spawnWaveCounter = 0;
-			/*Debugging Comments*/
-			System.out.println("new wave coming");
-			/*Debugging Comments*/
-		}
-		else
-			Creator.spawnWaveCounter+=delta;
-	}
-	private void updateChallenge(float delta){
-		ChallengeHandler.update(Creator.gameTime);
-		for(int i = 0; i < Creator.challenges.size(); i ++){
-			Creator.challenges.get(i).update(delta);
-		}
-		Challenge.currentCode = Challenge.codeDefault;
-	}
+	
+	
 	private void reset(){
 		btnRetry.setVisible(false);
 		imgTintBG.setVisible(false);
@@ -327,6 +276,5 @@ public class PlayScreen implements Screen {
 		lblChallengeMsg.setColor(0, 0, 0, 1);
 		lblChallengeMsg.addAction(alphaChallengeMsg);
 		alphaChallengeMsg.reset();
-		
 	}
 }
