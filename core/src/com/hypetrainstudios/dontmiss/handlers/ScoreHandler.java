@@ -1,5 +1,5 @@
 package com.hypetrainstudios.dontmiss.handlers;
 
-public class BonusHandler {
-	
+public class ScoreHandler {
+
 }

@@ -7,7 +7,7 @@ import com.hypetrainstudios.dontmiss.challenges.IncreasingDifficultyChallenge;
 import com.hypetrainstudios.dontmiss.challenges.LimitedProjeciltesChallenge;
 import com.hypetrainstudios.dontmiss.challenges.ReverseRotationChallenge;
 import com.hypetrainstudios.dontmiss.challenges.ReverseShootingChallenge;
-import com.hypetrainstudios.dontmiss.screens.GameScreen;
+
 
 
 
@@ -29,7 +29,7 @@ public class ChallengeHandler {
 				Creator.challenges.add(new FrostChallenge()); 
 				frost = false;
 				message="Challenge: Frost";
-				GameScreen.updateChallengeMessage(message);
+				InGameUIHandler.updateChallengeLbl(message);
 			}
 		}
 		if(time<=165&&challengeCounter==1){
@@ -39,7 +39,7 @@ public class ChallengeHandler {
 				Creator.challenges.add(new ReverseRotationChallenge());
 				reverseRotation = false;
 				message="Challenge: The ol' Switcheroo";
-				GameScreen.updateChallengeMessage(message);
+				InGameUIHandler.updateChallengeLbl(message);
 			}
 		}
 		if(time<=150&&challengeCounter==2){
@@ -49,7 +49,7 @@ public class ChallengeHandler {
 				Creator.challenges.add(new DisappearingPlayerChallenge());
 				disappearingPlayer = false;
 				message="Challenge: Where'd he go?";
-				GameScreen.updateChallengeMessage(message);
+				InGameUIHandler.updateChallengeLbl(message);
 			}
 		}
 		if(time<=135&&challengeCounter==3){
@@ -59,7 +59,7 @@ public class ChallengeHandler {
 				Creator.challenges.add(new LimitedProjeciltesChallenge());
 				limitedProjectiles = false;
 				message="Challenge: Running Low";
-				GameScreen.updateChallengeMessage(message);
+				InGameUIHandler.updateChallengeLbl(message);
 			}
 		}
 		if(time<=120&&challengeCounter==4){
@@ -69,7 +69,7 @@ public class ChallengeHandler {
 				Creator.challenges.add(new IncreasingDifficultyChallenge());
 				increasingDifficulty = false;
 				message="Challenge: Damn, did it get harder?";
-				GameScreen.updateChallengeMessage(message);
+				InGameUIHandler.updateChallengeLbl(message);
 			}
 		}
 		if(time<=105&&challengeCounter==5){
@@ -79,7 +79,7 @@ public class ChallengeHandler {
 				Creator.challenges.add(new ReverseShootingChallenge());
 				reverseShooting = false;
 				message="Challenge: Malfunction";
-				GameScreen.updateChallengeMessage(message);
+				InGameUIHandler.updateChallengeLbl(message);
 			}
 		}
 		

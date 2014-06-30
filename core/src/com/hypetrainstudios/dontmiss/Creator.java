@@ -28,7 +28,7 @@ public class Creator {
 	public static final float spawnRateMax = 7f,spawnRateMin = 4f;
 	
 	public static float fireRate = .8f;
-	public static final float  fireRateMin = .5f,fireRateMax = 3f;
+	public static final float  fireRateMin = .3f,fireRateMax = 3f;
 	public static float fireRateCounter = .8f;
 	
 	public static ArrayList<Challenge> challenges = new ArrayList<Challenge>();
