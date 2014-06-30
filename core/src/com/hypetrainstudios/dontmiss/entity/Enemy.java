@@ -3,11 +3,12 @@ package com.hypetrainstudios.dontmiss.entity;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
 
 public class Enemy extends Entity{
 	private float run;
 	private float rise;
-	
+	private MoveToAction act;
 	public Enemy(Sprite spr, Sprite sprTarget, float enemySpeed,float degrees) {
 		super(spr);
 		//gets the widest length of the screen so they all spawn just right out of view

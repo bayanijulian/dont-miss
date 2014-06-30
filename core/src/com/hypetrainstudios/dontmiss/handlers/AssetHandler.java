@@ -20,6 +20,8 @@ public class AssetHandler {
 	public static final AssetDescriptor<Texture> imgEnemyBlue = new AssetDescriptor<Texture>("enemyBlue.png", Texture.class);
 	public static final AssetDescriptor<Texture> imgEnemyYellow = new AssetDescriptor<Texture>("enemyYellow.png", Texture.class);
 	
+	public static final AssetDescriptor<Texture> imgBonus = new AssetDescriptor<Texture>("bonus/bonusCollateral.png", Texture.class);
+	
 	public static final AssetDescriptor<Texture> imgTintBG = new AssetDescriptor<Texture>("tintBG.png", Texture.class);
 	
 	public static final AssetDescriptor<TextureAtlas> atlasButtons = new AssetDescriptor<TextureAtlas>("buttons/buttons.pack", TextureAtlas.class);
@@ -38,6 +40,8 @@ public class AssetHandler {
 		manager.load(imgEnemyBlue);
 		manager.load(imgEnemyYellow);
 		
+		manager.load(imgBonus);
+		
 		manager.load(imgTintBG);
 		
 		manager.load(atlasButtons);
@@ -48,14 +52,16 @@ public class AssetHandler {
 
 	public static void setTextures(){
 		manager.get(imgTurretLayout).setFilter(TextureFilter.Linear,TextureFilter.Linear);
-
+		
 		manager.get(imgProjectileRed).setFilter(TextureFilter.Linear,TextureFilter.Linear);
 		manager.get(imgProjectileBlue).setFilter(TextureFilter.Linear,TextureFilter.Linear);
 		manager.get(imgProjectileYellow).setFilter(TextureFilter.Linear,TextureFilter.Linear);
-
+		
 		manager.get(imgEnemyRed).setFilter(TextureFilter.Linear,TextureFilter.Linear);
 		manager.get(imgEnemyBlue).setFilter(TextureFilter.Linear,TextureFilter.Linear);
 		manager.get(imgEnemyYellow).setFilter(TextureFilter.Linear,TextureFilter.Linear);
+		
+		manager.get(imgBonus).setFilter(TextureFilter.Linear,TextureFilter.Linear);
 		
 		manager.get(imgTintBG).setFilter(TextureFilter.Linear,TextureFilter.Linear);
 		

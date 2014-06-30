@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.hypetrainstudios.dontmiss.bonuses.BonusType;
 import com.hypetrainstudios.dontmiss.challenges.Challenge;
 import com.hypetrainstudios.dontmiss.enemies.EnemyType;
+import com.hypetrainstudios.dontmiss.entity.Bonus;
 import com.hypetrainstudios.dontmiss.entity.Enemy;
 import com.hypetrainstudios.dontmiss.entity.Misc;
 import com.hypetrainstudios.dontmiss.entity.Projectile;
@@ -37,6 +38,7 @@ public class Creator {
 	public static ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 	public static ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
 	public static ArrayList<Misc> misc = new ArrayList<Misc>();
+	public static ArrayList<Bonus> bonuses = new ArrayList<Bonus>();
 	public static Turret player = new Turret(new Sprite(AssetHandler.manager.get(AssetHandler.imgTurretLayout)),turretRotationSpeed);
 	
 	public static void createProjectile(){
@@ -47,6 +49,9 @@ public class Creator {
 	}
 	public static void createEnemy(float degrees){
 			enemies.add(new Enemy(new Sprite(AssetHandler.manager.get(AssetHandler.imgEnemyBlue)),player.getSprite(),enemySpeed,degrees));
+	}
+	public static void createBonus(){
+		bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.imgBonus))));
 	}
 	public static void update(float delta)
 	{
@@ -122,6 +127,8 @@ public class Creator {
 			projectiles.get(i).update(delta);
 		for(int i = 0; i < enemies.size(); i++)
 			enemies.get(i).update(delta);
+		for(int i = 0; i<bonuses.size();i++)
+			bonuses.get(i).update(delta);
 		
 	}
 }

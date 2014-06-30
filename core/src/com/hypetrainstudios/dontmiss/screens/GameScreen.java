@@ -48,6 +48,7 @@ public class GameScreen implements Screen {
 		Gdx.input.setInputProcessor(inputMultiplexer);
 
 		ProjectileLoading.create();
+		Creator.createBonus();
 	}
 	
 	@Override
@@ -99,6 +100,8 @@ public class GameScreen implements Screen {
 			Creator.projectiles.get(i).getSprite().draw(batch);
 		for(int i = 0; i < Creator.enemies.size(); i++)
 			Creator.enemies.get(i).getSprite().draw(batch);
+		for(int i =0; i < Creator.bonuses.size(); i++)
+			Creator.bonuses.get(i).getSprite().draw(batch);
 		batch.end();
 	}	
 }

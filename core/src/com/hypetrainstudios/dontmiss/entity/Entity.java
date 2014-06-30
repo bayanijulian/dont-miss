@@ -1,5 +1,6 @@
 package com.hypetrainstudios.dontmiss.entity;
 
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Circle;
 
@@ -11,6 +12,7 @@ public abstract class Entity{
 	protected float x;
 	protected float y;
 	protected float alpha;
+
 	public Entity(Sprite spr){
 		this.spr = spr;
 		this.active = true;
