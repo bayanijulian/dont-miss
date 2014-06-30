@@ -4,54 +4,68 @@ import java.util.Random;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.MathUtils;
 
 public class Bonus extends Entity{
 	
 	private float timeActive;
 	private float activeCounter;
-	private Random rdm;
 	private float timeToComplete;
 	private float timeToCompleteCounter;
 	private float percent;
 	private float xTarget;
 	private float yTarget;
-	private float timeChangeLocation;
-	private float changeLocationCounter;
-	private float run;
-	private float rise;
+	private float tempDistance;
+	private static final float amountToMove = 300f;
 	public Bonus(Sprite spr) {
 		super(spr);
 		timeActive = 10f;
 		activeCounter = 0;
-		rdm = new Random();
-		timeToComplete = 4f;
-		xTarget = 700;
-		yTarget = 700;
-		x = 300;
-		y = 300;
-		changeLocationCounter = 0;
-		timeChangeLocation = 2f;
-		spr.setPosition(x, y);
-		percent = 0;
+		
+		timeToComplete = 2f;
 		timeToCompleteCounter = 0;
+		
+		xTarget = 0;
+		yTarget = 0;
+		x = MathUtils.random(Gdx.graphics.getWidth());
+		y = MathUtils.random(Gdx.graphics.getHeight());
+		percent = 0;
+		tempDistance = 0;
+		getNewCoords();
+		spr.setPosition(x, y);
+		
 	}
 	
 	@Override
 	public void update(float delta) {
 		activeCounter+=delta;
-		changeLocationCounter +=delta;
 		timeToCompleteCounter +=delta;
 		percent = timeToCompleteCounter/timeToComplete;
-		if(activeCounter>=timeActive)	active = false;
 		
-		
-		
+		if(activeCounter>=timeActive)
+			active = false;
 		if(timeToCompleteCounter<timeToComplete)	
-		spr.setPosition(x + (xTarget - x) * percent, y + (yTarget - y) * percent);
-		
+			spr.setPosition(x + (xTarget - x) * percent, y + (yTarget - y) * percent);
+		if(timeToCompleteCounter>=timeToComplete)
+			changeLocation();
 	}
 	private void changeLocation(){
-		
+		timeToCompleteCounter = 0;
+		x=spr.getX();
+		y=spr.getY();
+		System.out.println("New Coords");
+		getNewCoords();
 	}
-
+	private void getNewCoords(){
+		while(tempDistance!=amountToMove){
+			xTarget = MathUtils.random(Gdx.graphics.getWidth());
+			yTarget = MathUtils.random(Gdx.graphics.getHeight());
+			tempDistance = (float) Math.sqrt(	Math.pow(  (xTarget-x)   , 2) +
+										Math.pow(  (yTarget-y)   , 2)
+									);
+			tempDistance = MathUtils.round(tempDistance);
+		}
+		tempDistance = 0;
+		System.out.println("X Target:" + xTarget + "\tY Target: " + yTarget);
+	}
 }
