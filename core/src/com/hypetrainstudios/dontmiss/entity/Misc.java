@@ -2,16 +2,14 @@ package com.hypetrainstudios.dontmiss.entity;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
-public class Misc extends Entity{
+public abstract class Misc extends Entity{
 	
-	public Misc(Sprite spr) {
+	public Misc(Sprite spr,float x, float y) {
 		super(spr);
 		
 	}
-
+	public abstract void create();
 	@Override
-	public void update(float delta) {
-		
-	}
+	public abstract void update(float delta);
 	
 }

@@ -1,12 +1,14 @@
 package com.hypetrainstudios.dontmiss.handlers;
 
 import com.hypetrainstudios.dontmiss.Creator;
+import com.hypetrainstudios.dontmiss.challenges.DisappearingEnemyChallenge;
 import com.hypetrainstudios.dontmiss.challenges.DisappearingPlayerChallenge;
 import com.hypetrainstudios.dontmiss.challenges.FrostChallenge;
 import com.hypetrainstudios.dontmiss.challenges.IncreasingDifficultyChallenge;
 import com.hypetrainstudios.dontmiss.challenges.LimitedProjeciltesChallenge;
 import com.hypetrainstudios.dontmiss.challenges.ReverseRotationChallenge;
 import com.hypetrainstudios.dontmiss.challenges.ReverseShootingChallenge;
+import com.hypetrainstudios.dontmiss.challenges.SuperSpeedChallenge;
 
 
 
@@ -26,7 +28,9 @@ public class ChallengeHandler {
 			challengeCounter++;
 			frost = true;
 			if(challengeCounter==1&&frost) {
-				Creator.challenges.add(new FrostChallenge()); 
+				//Creator.challenges.add(new FrostChallenge()); 
+				//Creator.challenges.add(new DisappearingEnemyChallenge()); 
+				Creator.challenges.add(new SuperSpeedChallenge());
 				frost = false;
 				message="Challenge: Frost";
 				InGameUIHandler.updateChallengeLbl(message);
@@ -36,7 +40,7 @@ public class ChallengeHandler {
 			challengeCounter++;
 			reverseRotation = true;
 			if(challengeCounter==2 && reverseRotation){
-				Creator.challenges.add(new ReverseRotationChallenge());
+				//Creator.challenges.add(new ReverseRotationChallenge());
 				reverseRotation = false;
 				message="Challenge: The ol' Switcheroo";
 				InGameUIHandler.updateChallengeLbl(message);
@@ -82,6 +86,7 @@ public class ChallengeHandler {
 				InGameUIHandler.updateChallengeLbl(message);
 			}
 		}
+		
 		
 	}
 }

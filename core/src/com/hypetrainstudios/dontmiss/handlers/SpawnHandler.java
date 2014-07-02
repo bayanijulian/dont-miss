@@ -7,7 +7,7 @@ import com.hypetrainstudios.dontmiss.Creator;
 
 public class SpawnHandler {
 	
-	
+	public static boolean spawn = true;
 	private static Random rdm = new Random();
 	private static void spawnAmountRdm(int amountToSpawn){
 		for(int i = 0; i<amountToSpawn; i ++)
@@ -76,17 +76,19 @@ public class SpawnHandler {
 	}
 
 	public static void update(float time){
-		if(time<=15)	spawnFor015();
-		else if (time<=30) spawnFor030();
-		else if (time<=45) spawnFor045();
-		else if (time<=60) spawnFor060();
-		else if (time<=75) spawnFor075();
-		else if (time<=90) spawnFor090();
-		else if (time<=105) spawnFor105();
-		else if (time<=120) spawnFor120();
-		else if (time<=135) spawnFor135();
-		else if (time<=150) spawnFor150();
-		else if (time<=165) spawnFor165();
-		else if (time<=180) spawnFor180();	
+		if(spawn){
+			if(time<=15)	spawnFor015();
+			else if (time<=30) spawnFor030();
+			else if (time<=45) spawnFor045();
+			else if (time<=60) spawnFor060();
+			else if (time<=75) spawnFor075();
+			else if (time<=90) spawnFor090();
+			else if (time<=105) spawnFor105();
+			else if (time<=120) spawnFor120();
+			else if (time<=135) spawnFor135();
+			else if (time<=150) spawnFor150();
+			else if (time<=165) spawnFor165();
+			else if (time<=180) spawnFor180();	
+		}
 	}
 }

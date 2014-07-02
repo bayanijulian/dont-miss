@@ -74,7 +74,7 @@ public class Creator {
 	}
 	public static void reset(){
 		gameOver = false;
-		
+		SpawnHandler.spawn = true;
 		challenges.clear();
 		enemies.clear();
 		projectiles.clear();
@@ -85,7 +85,7 @@ public class Creator {
 		gameTime = 180;
 		spawnWaveRate = 7f;
 		spawnWaveCounter = 7f;
-		fireRate = .8f;
+		fireRate = .3f;
 		fireRateCounter = .8f;
 		turretRotationSpeed = 155f;
 		projectileSpeed = 35f;

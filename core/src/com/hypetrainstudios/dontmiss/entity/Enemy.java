@@ -8,7 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
 public class Enemy extends Entity{
 	private float run;
 	private float rise;
-	private MoveToAction act;
+	private boolean disappearing;
 	public Enemy(Sprite spr, Sprite sprTarget, float enemySpeed,float degrees) {
 		super(spr);
 		//gets the widest length of the screen so they all spawn just right out of view
@@ -21,13 +21,29 @@ public class Enemy extends Entity{
 		//parametric slope is used below
 		run=((x-((sprTarget.getX()+(sprTarget.getWidth()/2))-(spr.getWidth()/2)))*enemySpeed);
 		rise=((y-((sprTarget.getY()+(sprTarget.getHeight()/2))-(spr.getHeight()/2)))*enemySpeed);
+		disappearing = false;
 	}
 
 	@Override
 	public void update(float delta) {
 		//needs delta, because delta acts as the T in a parametric funtion
 		spr.translate(run*delta*-1, rise*delta*-1);
+		
+		spr.setAlpha(alpha);
 		this.updateBounds();
+		if(disappearing){
+			System.out.println(alpha);
+			alpha-=.75*delta;
+			alpha = (alpha<=0) ? 0: alpha;
+		}
+		else
+			alpha = 1;
 	}
-
+	public void enableDisappearing(){
+		disappearing = true;
+		
+	}
+	public void disableDisappearing(){
+		disappearing = false;
+	}
 }

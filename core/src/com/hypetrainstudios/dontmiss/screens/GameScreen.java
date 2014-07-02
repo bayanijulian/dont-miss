@@ -7,16 +7,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
-
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-
 import com.hypetrainstudios.dontmiss.Creator;
-
 import com.hypetrainstudios.dontmiss.entity.ProjectileLoading;
-
+import com.hypetrainstudios.dontmiss.handlers.AssetHandler;
 import com.hypetrainstudios.dontmiss.handlers.CollisionHandler;
 import com.hypetrainstudios.dontmiss.handlers.GameInputHandler;
 import com.hypetrainstudios.dontmiss.handlers.InGameUIHandler;
@@ -48,22 +44,28 @@ public class GameScreen implements Screen {
 		Gdx.input.setInputProcessor(inputMultiplexer);
 
 		ProjectileLoading.create();
-		Creator.createBonus();
+		//Creator.createBonus();
 	}
 	
 	@Override
 	public void render(float delta) {
+		//clears the screen
 		Gdx.gl.glClearColor(1,1,1,1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		
+		//puts the fps in the title
 		Gdx.graphics.setTitle("Don't Miss\tFPS:"+Gdx.graphics.getFramesPerSecond());
+		
+		//updates the UI, ui is always on even if the game is over
 		InGameUIHandler.update();
 		
 		//when the game is not over and its not paused it will update game logic and draw
 		if(running&&(!(Creator.gameOver))){
 			
 			Creator.update(delta);
-			drawEntites();
 			CollisionHandler.update();
+			draw();
+			
 			ProjectileLoading.update(delta);
 		}
 		if(Creator.gameOver){
@@ -89,11 +91,13 @@ public class GameScreen implements Screen {
 	@Override
 	public void dispose() {
 		InGameUIHandler.dispose();
+		AssetHandler.dispose();
 	}
-	private void drawEntites(){
+	private void draw(){
 		batch.begin();
 		batch.setProjectionMatrix(cam.combined);
 		ProjectileLoading.getSprite().draw(batch);
+		
 		Creator.player.getSprite().draw(batch);
 		
 		for(int i = 0; i<Creator.projectiles.size();i++)
@@ -102,6 +106,7 @@ public class GameScreen implements Screen {
 			Creator.enemies.get(i).getSprite().draw(batch);
 		for(int i =0; i < Creator.bonuses.size(); i++)
 			Creator.bonuses.get(i).getSprite().draw(batch);
+		
 		batch.end();
 	}	
 }
