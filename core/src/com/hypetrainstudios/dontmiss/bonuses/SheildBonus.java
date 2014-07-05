@@ -1,12 +1,19 @@
 package com.hypetrainstudios.dontmiss.bonuses;
 
-import com.hypetrainstudios.dontmiss.bonuses.BonusType.Effector;
 
-public class SheildBonus extends BonusType{
+
+public class SheildBonus extends BonusAffect{
 
 	public SheildBonus() {
-		super();
-		effector = Effector.Player;
+		timeToLast = 5f;
+	}
+
+	@Override
+	public void enable() {
+	}
+
+	@Override
+	public void disable() {
 	}
 
 }

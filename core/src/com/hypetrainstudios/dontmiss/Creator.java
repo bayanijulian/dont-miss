@@ -3,7 +3,7 @@ package com.hypetrainstudios.dontmiss;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.hypetrainstudios.dontmiss.bonuses.BonusType;
+import com.hypetrainstudios.dontmiss.bonuses.BonusAffect;
 import com.hypetrainstudios.dontmiss.challenges.Challenge;
 import com.hypetrainstudios.dontmiss.enemies.EnemyType;
 import com.hypetrainstudios.dontmiss.entity.Bonus;
@@ -20,6 +20,7 @@ public class Creator {
 	public static float projectileSpeed = 35f;
 	public static float enemySpeed = .05f;
 	public static float turretRotationSpeed = 155f;
+	public static int totalProjectiles = 5;
 	
 	public static float gameTime = 180;
 	public static boolean gameOver = false;
@@ -33,7 +34,7 @@ public class Creator {
 	public static float fireRateCounter = .8f;
 	
 	public static ArrayList<Challenge> challenges = new ArrayList<Challenge>();
-	public static ArrayList<BonusType> bonusTypes = new ArrayList<BonusType>();
+	public static ArrayList<BonusAffect> bonusTypes = new ArrayList<BonusAffect>();
 	public static ArrayList<EnemyType> enemyTypes = new ArrayList<EnemyType>();
 	public static ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 	public static ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
@@ -90,6 +91,7 @@ public class Creator {
 		turretRotationSpeed = 155f;
 		projectileSpeed = 35f;
 		enemySpeed = .05f;
+		totalProjectiles = 5;
 		
 		player.setRotationSpeed(turretRotationSpeed);
 		player.getSprite().setRotation(270);

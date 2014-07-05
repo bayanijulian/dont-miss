@@ -63,8 +63,7 @@ public class GameInputHandler implements InputProcessor{
 	/* Debugging Comments */
 	private void log(){
 		System.out.println("Fire Rate:\t" + Creator.fireRate);
-		System.out.println("Rotation Speed:\t" + Creator.turretRotationSpeed);
-		System.out.println("Turret Alpha:\t" + Creator.player.getSprite().getColor().a);
+		System.out.println("Number Of Projectiles Left\t" + Creator.totalProjectiles);
 	}
 	/* Debugging Comments */
 

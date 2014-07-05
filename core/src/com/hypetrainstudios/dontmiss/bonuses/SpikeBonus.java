@@ -1,8 +1,16 @@
 package com.hypetrainstudios.dontmiss.bonuses;
 
-public class SpikeBonus extends BonusType{
+public class SpikeBonus extends BonusAffect{
 	
 	public SpikeBonus(){
-		effector = Effector.Field;
+		timeToLast = 5f;
+	}
+
+	@Override
+	public void enable() {
+	}
+
+	@Override
+	public void disable() {
 	}
 }

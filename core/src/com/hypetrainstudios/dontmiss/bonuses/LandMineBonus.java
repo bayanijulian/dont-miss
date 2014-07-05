@@ -1,7 +1,15 @@
 package com.hypetrainstudios.dontmiss.bonuses;
 
-public class LandMineBonus extends BonusType{
+public class LandMineBonus extends BonusAffect{
 	public LandMineBonus(){
-		effector = Effector.Field;
+		timeToLast = 5f;
+	}
+
+	@Override
+	public void enable() {
+	}
+
+	@Override
+	public void disable() {
 	}
 }

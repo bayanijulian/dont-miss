@@ -28,9 +28,9 @@ public class ChallengeHandler {
 			challengeCounter++;
 			frost = true;
 			if(challengeCounter==1&&frost) {
-				//Creator.challenges.add(new FrostChallenge()); 
+				Creator.challenges.add(new FrostChallenge()); 
 				//Creator.challenges.add(new DisappearingEnemyChallenge()); 
-				Creator.challenges.add(new SuperSpeedChallenge());
+				//Creator.challenges.add(new SuperSpeedChallenge());
 				frost = false;
 				message="Challenge: Frost";
 				InGameUIHandler.updateChallengeLbl(message);

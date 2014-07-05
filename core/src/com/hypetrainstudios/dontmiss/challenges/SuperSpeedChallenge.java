@@ -8,17 +8,17 @@ import com.hypetrainstudios.dontmiss.handlers.SpawnHandler;
 public class SuperSpeedChallenge extends Challenge{
 	//private static ShapeRenderer sr = new ShapeRenderer();
 	private float time;
-	private int numOfEnemies = 3;
+	private int numOfEnemies = 4;
 	private boolean beginChallenge = false;
 	private int counter;
 	private float tempSpeed;
-	private static float superSpeed = .8f;
+	private static float superSpeed = .7f;
 	@Override
 	public void update(float delta) {
 		time+=delta;
 		if(time>=10){
 			//System.out.println("now its time");
-			numOfEnemies++;
+			
 			SpawnHandler.spawn = false;
 			Creator.enemySpeed = superSpeed;
 			if(Creator.enemies.size()<=0){
@@ -26,6 +26,7 @@ public class SuperSpeedChallenge extends Challenge{
 				counter++;
 			}
 			if(counter==numOfEnemies){
+				numOfEnemies++;
 				time = 0;
 				Creator.enemySpeed = tempSpeed;
 				SpawnHandler.spawn = true;

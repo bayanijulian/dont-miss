@@ -1,10 +1,19 @@
 package com.hypetrainstudios.dontmiss.bonuses;
 
-public class SlowEnemyBonus extends BonusType{
-
+public class SlowEnemyBonus extends BonusAffect{
+	
+	
 	public SlowEnemyBonus() {
-		super();
-		effector = Effector.Enemy;
+		timeToLast = 5f;
+	}
+
+	@Override
+	public void enable() {
+		
+	}
+
+	@Override
+	public void disable() {
 	}
 
 }

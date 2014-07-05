@@ -1,12 +1,19 @@
 package com.hypetrainstudios.dontmiss.bonuses;
 
-import com.hypetrainstudios.dontmiss.bonuses.BonusType.Effector;
 
-public class CollateralProjectilesBonus extends BonusType{
+
+public class CollateralProjectilesBonus extends BonusAffect{
 
 	public CollateralProjectilesBonus() {
-		super();
-		effector = Effector.Projectile;
+		timeToLast = 5f;
 	}
 
+	@Override
+	public void enable() {
+	}
+
+	@Override
+	public void disable() {
+	}
+	
 }

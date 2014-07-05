@@ -1,12 +1,19 @@
 package com.hypetrainstudios.dontmiss.bonuses;
 
-import com.hypetrainstudios.dontmiss.bonuses.BonusType.Effector;
 
-public class ExplosiveProjectilesBonus extends BonusType{
+
+public class ExplosiveProjectilesBonus extends BonusAffect{
 
 	public ExplosiveProjectilesBonus() {
-		super();
-		effector = Effector.Projectile;
+		timeToLast = 5f;
+	}
+
+	@Override
+	public void enable() {
+	}
+
+	@Override
+	public void disable() {
 	}
 
 }
