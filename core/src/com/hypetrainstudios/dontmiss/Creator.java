@@ -6,6 +6,15 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.MathUtils;
 import com.hypetrainstudios.dontmiss.bonuses.BonusAffect;
 import com.hypetrainstudios.dontmiss.bonuses.CollateralProjectilesBonus;
+import com.hypetrainstudios.dontmiss.bonuses.ExplosiveProjectilesBonus;
+import com.hypetrainstudios.dontmiss.bonuses.GuidedProjectilesBonus;
+import com.hypetrainstudios.dontmiss.bonuses.LandMineBonus;
+import com.hypetrainstudios.dontmiss.bonuses.MultipleProjectilesBonus;
+import com.hypetrainstudios.dontmiss.bonuses.NukeBonus;
+import com.hypetrainstudios.dontmiss.bonuses.SheildBonus;
+import com.hypetrainstudios.dontmiss.bonuses.SlowEnemyBonus;
+import com.hypetrainstudios.dontmiss.bonuses.SpikeBonus;
+import com.hypetrainstudios.dontmiss.bonuses.VisionBonus;
 import com.hypetrainstudios.dontmiss.challenges.Challenge;
 import com.hypetrainstudios.dontmiss.enemies.EnemyType;
 import com.hypetrainstudios.dontmiss.entity.Bonus;
@@ -16,6 +25,7 @@ import com.hypetrainstudios.dontmiss.entity.Turret;
 import com.hypetrainstudios.dontmiss.handlers.AssetHandler;
 import com.hypetrainstudios.dontmiss.handlers.ChallengeHandler;
 import com.hypetrainstudios.dontmiss.handlers.SpawnHandler;
+import com.sun.org.apache.xpath.internal.operations.Mult;
 
 public class Creator {
 	
@@ -53,9 +63,6 @@ public class Creator {
 	public static void createEnemy(float degrees){
 			enemies.add(new Enemy(new Sprite(AssetHandler.manager.get(AssetHandler.imgEnemyBlue)),player.getSprite(),enemySpeed,degrees));
 	}
-	public static void createBonus(){
-		bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.imgBonus))));
-	}
 	public static void update(float delta)
 	{
 		gameTime-=delta;
@@ -76,17 +83,20 @@ public class Creator {
 			spawnWaveCounter+=delta;
 	}
 	public static void createBonus(int bonusType){
-//		if(bonusType==0)		bonus.add(new Bonus());
-//		else if(bonusType==1)	bonus.add(new Bonus());
-//		else if(bonusType==2)	bonus.add(new Bonus());
-//		else if(bonusType==3)	bonus.add(new Bonus());
-//		else if(bonusType==4)	bonus.add(new Bonus());
-//		else if(bonusType==5)	bonus.add(new Bonus());
-//		else if(bonusType==6)	bonus.add(new Bonus());
-//		else if(bonusType==7)	bonus.add(new Bonus());
-//		else if(bonusType==8)	bonus.add(new Bonus());
-//		else if(bonusType==9)	bonus.add(new Bonus());
+		bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.imgBonus)),bonusTypes.get(bonusType)));
 		
+	}
+	public static void setUpBonusTypes(){
+		bonusTypes.add(new CollateralProjectilesBonus());
+		bonusTypes.add(new ExplosiveProjectilesBonus());
+		bonusTypes.add(new GuidedProjectilesBonus());
+		bonusTypes.add(new LandMineBonus());
+		bonusTypes.add(new MultipleProjectilesBonus());
+		bonusTypes.add(new NukeBonus());
+		bonusTypes.add(new SheildBonus());
+		bonusTypes.add(new SlowEnemyBonus());
+		bonusTypes.add(new SpikeBonus());
+		bonusTypes.add(new VisionBonus());
 	}
 	public static void reset(){
 		gameOver = false;
