@@ -3,7 +3,9 @@ package com.hypetrainstudios.dontmiss;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.MathUtils;
 import com.hypetrainstudios.dontmiss.bonuses.BonusAffect;
+import com.hypetrainstudios.dontmiss.bonuses.CollateralProjectilesBonus;
 import com.hypetrainstudios.dontmiss.challenges.Challenge;
 import com.hypetrainstudios.dontmiss.enemies.EnemyType;
 import com.hypetrainstudios.dontmiss.entity.Bonus;
@@ -72,6 +74,19 @@ public class Creator {
 		}
 		else
 			spawnWaveCounter+=delta;
+	}
+	public static void createBonus(int bonusType){
+//		if(bonusType==0)		bonus.add(new Bonus());
+//		else if(bonusType==1)	bonus.add(new Bonus());
+//		else if(bonusType==2)	bonus.add(new Bonus());
+//		else if(bonusType==3)	bonus.add(new Bonus());
+//		else if(bonusType==4)	bonus.add(new Bonus());
+//		else if(bonusType==5)	bonus.add(new Bonus());
+//		else if(bonusType==6)	bonus.add(new Bonus());
+//		else if(bonusType==7)	bonus.add(new Bonus());
+//		else if(bonusType==8)	bonus.add(new Bonus());
+//		else if(bonusType==9)	bonus.add(new Bonus());
+		
 	}
 	public static void reset(){
 		gameOver = false;

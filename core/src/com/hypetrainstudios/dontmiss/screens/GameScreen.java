@@ -13,6 +13,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.hypetrainstudios.dontmiss.Creator;
 import com.hypetrainstudios.dontmiss.entity.ProjectileLoading;
 import com.hypetrainstudios.dontmiss.handlers.AssetHandler;
+import com.hypetrainstudios.dontmiss.handlers.BonusHandler;
 import com.hypetrainstudios.dontmiss.handlers.CollisionHandler;
 import com.hypetrainstudios.dontmiss.handlers.GameInputHandler;
 import com.hypetrainstudios.dontmiss.handlers.InGameUIHandler;
@@ -44,6 +45,7 @@ public class GameScreen implements Screen {
 		Gdx.input.setInputProcessor(inputMultiplexer);
 
 		ProjectileLoading.create();
+		BonusHandler.createChances();
 		//Creator.createBonus();
 	}
 	
