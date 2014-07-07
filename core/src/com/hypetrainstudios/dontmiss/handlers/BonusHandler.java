@@ -19,7 +19,7 @@ public class BonusHandler {
 	
 	
 	private static int [] bonusChance = new int[100];
-	public static int currentBonus = 0;
+	public static int currentBonus = 5;
 	
 	private static float timeToSpawnBonus = 5;
 	private static float timeToSpawnBonusCounter = 0;

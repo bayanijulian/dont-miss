@@ -9,8 +9,10 @@ public class Enemy extends Entity{
 	private float run;
 	private float rise;
 	private boolean disappearing;
+	private Sprite sprTarget;
 	public Enemy(Sprite spr, Sprite sprTarget, float enemySpeed,float degrees) {
 		super(spr);
+		this.sprTarget = sprTarget;
 		//gets the widest length of the screen so they all spawn just right out of view
 		float radius = (float) Math.sqrt(   (Math.pow((Gdx.graphics.getWidth()/2),2)) + (Math.pow((Gdx.graphics.getHeight()/2),2)) );
 		//sets the location of the enemy then it can start updating/moving in a straight line towards target, this is based on the value of the degrees
@@ -24,6 +26,11 @@ public class Enemy extends Entity{
 		disappearing = false;
 	}
 
+	public void setSpeed(float speed){
+		run=((x-((sprTarget.getX()+(sprTarget.getWidth()/2))-(spr.getWidth()/2)))*speed);
+		rise=((y-((sprTarget.getY()+(sprTarget.getHeight()/2))-(spr.getHeight()/2)))*speed);
+	}
+	
 	@Override
 	public void update(float delta) {
 		//needs delta, because delta acts as the T in a parametric funtion

@@ -2,7 +2,7 @@ package com.hypetrainstudios.dontmiss.bonuses;
 
 
 
-public class GuidedProjectilesBonus extends BonusAffect{
+public class GuidedProjectilesBonus extends BonusEffect{
 
 	public GuidedProjectilesBonus() {
 		timeToLast = 5f;

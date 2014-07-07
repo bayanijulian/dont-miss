@@ -40,7 +40,7 @@ public class ChallengeHandler {
 			challengeCounter++;
 			reverseRotation = true;
 			if(challengeCounter==2 && reverseRotation){
-				//Creator.challenges.add(new ReverseRotationChallenge());
+				Creator.challenges.add(new ReverseRotationChallenge());
 				reverseRotation = false;
 				message="Challenge: The ol' Switcheroo";
 				InGameUIHandler.updateChallengeLbl(message);

@@ -5,7 +5,7 @@ import java.util.Random;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.MathUtils;
-import com.hypetrainstudios.dontmiss.bonuses.BonusAffect;
+import com.hypetrainstudios.dontmiss.bonuses.BonusEffect;
 
 public class Bonus extends Entity{
 	
@@ -18,8 +18,8 @@ public class Bonus extends Entity{
 	private float yTarget;
 	private float tempDistance;
 	private static final float amountToMove = 300f;
-	private BonusAffect whatToDo;
-	public Bonus(Sprite spr,BonusAffect whatToDo) {
+	private BonusEffect whatToDo;
+	public Bonus(Sprite spr,BonusEffect whatToDo) {
 		super(spr);
 		timeActive = 10f;
 		activeCounter = 0;

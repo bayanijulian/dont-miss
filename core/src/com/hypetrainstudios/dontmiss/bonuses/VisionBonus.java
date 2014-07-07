@@ -1,6 +1,6 @@
 package com.hypetrainstudios.dontmiss.bonuses;
 
-public class VisionBonus extends BonusAffect{
+public class VisionBonus extends BonusEffect{
 	
 	public VisionBonus(){
 		timeToLast = 5f;

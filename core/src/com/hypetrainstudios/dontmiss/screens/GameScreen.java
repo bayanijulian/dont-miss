@@ -44,6 +44,7 @@ public class GameScreen implements Screen {
 		
 		Gdx.input.setInputProcessor(inputMultiplexer);
 
+		Creator.setUp();
 		ProjectileLoading.create();
 		BonusHandler.createChances();
 		//Creator.createBonus();

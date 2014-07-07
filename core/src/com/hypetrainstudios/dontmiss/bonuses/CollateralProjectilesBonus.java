@@ -2,7 +2,7 @@ package com.hypetrainstudios.dontmiss.bonuses;
 
 
 
-public class CollateralProjectilesBonus extends BonusAffect{
+public class CollateralProjectilesBonus extends BonusEffect{
 
 	public CollateralProjectilesBonus() {
 		timeToLast = 5f;

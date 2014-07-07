@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.MathUtils;
-import com.hypetrainstudios.dontmiss.bonuses.BonusAffect;
+import com.hypetrainstudios.dontmiss.bonuses.BonusEffect;
 import com.hypetrainstudios.dontmiss.bonuses.CollateralProjectilesBonus;
 import com.hypetrainstudios.dontmiss.bonuses.ExplosiveProjectilesBonus;
 import com.hypetrainstudios.dontmiss.bonuses.GuidedProjectilesBonus;
@@ -23,6 +23,7 @@ import com.hypetrainstudios.dontmiss.entity.Misc;
 import com.hypetrainstudios.dontmiss.entity.Projectile;
 import com.hypetrainstudios.dontmiss.entity.Turret;
 import com.hypetrainstudios.dontmiss.handlers.AssetHandler;
+import com.hypetrainstudios.dontmiss.handlers.BonusHandler;
 import com.hypetrainstudios.dontmiss.handlers.ChallengeHandler;
 import com.hypetrainstudios.dontmiss.handlers.SpawnHandler;
 import com.sun.org.apache.xpath.internal.operations.Mult;
@@ -46,7 +47,7 @@ public class Creator {
 	public static float fireRateCounter = .8f;
 	
 	public static ArrayList<Challenge> challenges = new ArrayList<Challenge>();
-	public static ArrayList<BonusAffect> bonusTypes = new ArrayList<BonusAffect>();
+	public static ArrayList<BonusEffect> bonusTypes = new ArrayList<BonusEffect>();
 	public static ArrayList<EnemyType> enemyTypes = new ArrayList<EnemyType>();
 	public static ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 	public static ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
@@ -57,6 +58,10 @@ public class Creator {
 	public static void createProjectile(){
 		if(fireRateCounter >= fireRate){
 			fireRateCounter = 0;
+			if(BonusHandler.currentBonus==5){
+				projectiles.add(new Projectile(new Sprite(AssetHandler.manager.get(AssetHandler.imgProjectileBlue)), projectileSpeed,player.getRotationCounter()+(90)));
+				projectiles.add(new Projectile(new Sprite(AssetHandler.manager.get(AssetHandler.imgProjectileBlue)), projectileSpeed,player.getRotationCounter()-(90)));
+			}
 			projectiles.add(new Projectile(new Sprite(AssetHandler.manager.get(AssetHandler.imgProjectileBlue)), projectileSpeed));
 		}
 	}
@@ -86,7 +91,7 @@ public class Creator {
 		bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.imgBonus)),bonusTypes.get(bonusType)));
 		
 	}
-	public static void setUpBonusTypes(){
+	public static void setUp(){
 		bonusTypes.add(new CollateralProjectilesBonus());
 		bonusTypes.add(new ExplosiveProjectilesBonus());
 		bonusTypes.add(new GuidedProjectilesBonus());

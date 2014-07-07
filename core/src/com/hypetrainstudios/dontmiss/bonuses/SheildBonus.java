@@ -2,7 +2,7 @@ package com.hypetrainstudios.dontmiss.bonuses;
 
 
 
-public class SheildBonus extends BonusAffect{
+public class SheildBonus extends BonusEffect{
 
 	public SheildBonus() {
 		timeToLast = 5f;

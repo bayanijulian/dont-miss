@@ -25,8 +25,8 @@ public class CollisionHandler {
 	private static void enemyCollision(int k, int x){
 		//Removes both the projectile and enemy from the screen
 		Creator.enemies.get(k).setActive(false);
-		Creator.projectiles.get(x).setActive(false);
-		
+		//Creator.projectiles.get(x).setActive(false);
+		Creator.projectiles.get(x).setCollisionWithEnemy(true);
 		//sends a signal to the challenge class saying there has been a collision (essentially)
 		Challenge.currentCode = Challenge.codeCollision;
 	}

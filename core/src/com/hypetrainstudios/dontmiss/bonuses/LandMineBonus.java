@@ -1,6 +1,6 @@
 package com.hypetrainstudios.dontmiss.bonuses;
 
-public class LandMineBonus extends BonusAffect{
+public class LandMineBonus extends BonusEffect{
 	public LandMineBonus(){
 		timeToLast = 5f;
 	}

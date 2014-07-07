@@ -2,7 +2,7 @@ package com.hypetrainstudios.dontmiss.bonuses;
 
 
 
-public class ExplosiveProjectilesBonus extends BonusAffect{
+public class ExplosiveProjectilesBonus extends BonusEffect{
 
 	public ExplosiveProjectilesBonus() {
 		timeToLast = 5f;

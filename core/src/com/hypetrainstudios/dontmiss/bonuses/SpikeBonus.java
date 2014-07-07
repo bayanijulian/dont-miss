@@ -1,6 +1,6 @@
 package com.hypetrainstudios.dontmiss.bonuses;
 
-public class SpikeBonus extends BonusAffect{
+public class SpikeBonus extends BonusEffect{
 	
 	public SpikeBonus(){
 		timeToLast = 5f;

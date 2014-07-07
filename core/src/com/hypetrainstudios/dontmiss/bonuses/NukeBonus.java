@@ -2,7 +2,7 @@ package com.hypetrainstudios.dontmiss.bonuses;
 
 
 
-public class NukeBonus extends BonusAffect{
+public class NukeBonus extends BonusEffect{
 
 	public NukeBonus() {
 		timeToLast = 5f;
