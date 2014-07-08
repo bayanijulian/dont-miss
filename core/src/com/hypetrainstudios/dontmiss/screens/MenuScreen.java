@@ -24,16 +24,14 @@ public class MenuScreen implements Screen{
 	private static FitViewport view;
 	private static OrthographicCamera cam;
 	
-	private static Button playBtn, optionsBtn, rightArrowBtn, leftArrowBtn, oneBtn, twoBtn, threeBtn, backBtn, scoresBtn;
+	private static Button playBtn, optionsBtn, rightArrowBtn, leftArrowBtn, oneBtn, twoBtn, threeBtn, backBtn, scoresBtn, showBtn=new Button(), hideBtn=new Button();
 	private static ButtonStyle playBtnStyle, optionsBtnStyle, rightArrowBtnStyle, leftArrowBtnStyle, oneBtnStyle, twoBtnStyle, threeBtnStyle, backBtnStyle, scoresBtnStyle;
 	private static Listener listener;
 	
 	private static Image mainMenuBackground, playMenuBackground;
 	
-	private static int checkpointNum;
-	private static boolean mainMenu, btnAtDestination;
-	private static float newDelta;
-	private static float run;
+	private static boolean mainMenu, showBtnAtDestination=false, hideBtnAtDestination=false, animationActivated=false;
+	private float runShow, runHide, dir, checkpointNum, showBtnTargetX, hideBtnTargetX, btnSpeed=25;
 	
 	private Game game;
 	
@@ -145,29 +143,76 @@ public class MenuScreen implements Screen{
 	
 	@Override
 	public void render(float delta) {
-		this.newDelta=delta;
 		Gdx.gl.glClearColor(1,1,1,1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
+		updateBtnAnimation(delta);
 		updateMenu();
 	}
 	
-	private Button animateBtnFromRight(Button hideButton, Button showButton) {
-//		btnAtDestination=false;
-//		while(btnAtDestination==false) {
-			run=((showButton.getX()-((Gdx.graphics.getWidth()/2)-(showButton.getWidth()/2)))*25);
-//			showButton.moveBy(run*newDelta*-1, 0);
-//			System.out.println(newDelta);
-//			
-//			if(showButton.getX()==((Gdx.graphics.getWidth()/2)-(showButton.getWidth()/2))) {
-//				btnAtDestination=true;
-//			}
-//		}
-			return showButton;
+	private void animateBtn(Button newShowBtn, Button newHideBtn, float newDirection) {
+		showBtnAtDestination=false;
+		hideBtnAtDestination=false;
+		dir=newDirection;
+		showBtn=newShowBtn;
+		hideBtn=newHideBtn;
+		if(dir==-1) {
+			showBtn.setPosition(Gdx.graphics.getWidth(),(Gdx.graphics.getHeight()/2)-(showBtn.getHeight()/2));
+		}
+		else if(dir==1) {
+			showBtn.setPosition(-showBtn.getWidth(),(Gdx.graphics.getHeight()/2)-(showBtn.getHeight()/2));
+		}
+		showBtn.setVisible(true);
+		rightArrowBtn.setVisible(false);
+		leftArrowBtn.setVisible(false);
+		showBtnTargetX=(Gdx.graphics.getWidth()/2)-(showBtn.getWidth()/2);
+		if(dir==-1) {
+			hideBtnTargetX=-hideBtn.getWidth();
+		}
+		else if(dir==1) {
+			hideBtnTargetX=Gdx.graphics.getWidth();
+		}
+		animationActivated=true;
 	}
 	
-	private void animate(Button showButton, float delta) {
-		showButton.moveBy(run*delta*-1, 0);
+	private void updateBtnAnimation(float delta) {
+		if(animationActivated==false)
+			return;
+		if(showBtnAtDestination && hideBtnAtDestination) {
+			rightArrowBtn.setVisible(true);
+			leftArrowBtn.setVisible(true);
+			animationActivated=false;
+			return;
+		}
+		if(hideBtnAtDestination==false) {
+			if(Math.abs(hideBtn.getX()-hideBtnTargetX)<=1) {
+				hideBtn.moveBy((hideBtn.getX()-hideBtnTargetX)*-1,0);
+//				System.out.println(hideBtn.getX());
+			}
+			else {
+				runHide=((hideBtn.getX()-hideBtnTargetX)*btnSpeed);
+				hideBtn.moveBy(runHide*delta*-1,0);
+//				System.out.println(hideBtn.getX());
+			}
+		}
+		if(showBtnAtDestination==false) {
+			if(Math.abs(showBtn.getX()-showBtnTargetX)<=1) {
+				showBtn.moveBy((showBtn.getX()-showBtnTargetX)*-1,0);
+//				System.out.println(showBtn.getX());
+			}
+			else {
+				runShow=((showBtn.getX()-showBtnTargetX)*btnSpeed);
+				showBtn.moveBy(runShow*delta*-1,0);
+//				System.out.println(showBtn.getX());
+			}
+		}
+		if(showBtn.getX()==showBtnTargetX) {
+			showBtnAtDestination=true;
+		}
+		if(hideBtn.getX()==hideBtnTargetX) {
+			hideBtnAtDestination=true;
+			hideBtn.setVisible(false);
+		}
 	}
 
 	@Override
@@ -240,20 +285,15 @@ public class MenuScreen implements Screen{
 				}
 				else {
 					if(checkpointNum==3) {
-						threeBtn.setVisible(false);
-						twoBtn.setPosition(Gdx.graphics.getWidth(), (Gdx.graphics.getHeight()/2)-(twoBtn.getHeight()/2));
-						twoBtn.setVisible(true);
-						//animateBtnFromRight(threeBtn,twoBtn);
+						animateBtn(twoBtn,threeBtn,-1);
 						checkpointNum=2;
 					}
 					else if(checkpointNum==2) {
-						twoBtn.setVisible(false);
-						oneBtn.setVisible(true);
+						animateBtn(oneBtn,twoBtn,-1);
 						checkpointNum=1;
 					}
 					else {
-						oneBtn.setVisible(false);
-						threeBtn.setVisible(true);
+						animateBtn(threeBtn,oneBtn,-1);
 						checkpointNum=3;
 					}
 				}
@@ -265,18 +305,15 @@ public class MenuScreen implements Screen{
 				}
 				else {
 					if(checkpointNum==2) {
-						twoBtn.setVisible(false);
-						threeBtn.setVisible(true);
+						animateBtn(threeBtn,twoBtn,1);
 						checkpointNum=3;
 					}
 					else if(checkpointNum==1) {
-						oneBtn.setVisible(false);
-						twoBtn.setVisible(true);
+						animateBtn(twoBtn,oneBtn,1);
 						checkpointNum=2;
 					}
 					else {
-						threeBtn.setVisible(false);
-						oneBtn.setVisible(true);
+						animateBtn(oneBtn,threeBtn,1);
 						checkpointNum=1;
 					}
 				}
