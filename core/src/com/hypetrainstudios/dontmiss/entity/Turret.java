@@ -8,7 +8,8 @@ public class Turret extends Entity{
 
 	private float rotationSpeed;
 	private float rotationCounter;
-	
+	private boolean sheild;
+	private boolean collisionWithEnemy;
 	public Turret(Sprite spr,float rotationSpeed) {
 		super(spr);
 		x = Gdx.graphics.getWidth()/2;
@@ -17,11 +18,17 @@ public class Turret extends Entity{
 		spr.setRotation(-90);
 		this.rotationSpeed = rotationSpeed;
 		rotationCounter = 0;
-		
+		sheild = false;
 		this.updateBounds();
 		
 	}
-
+	
+	public void enableSheild(){
+		this.sheild = true;
+	}
+	public void disableSheild(){
+		this.sheild = false;
+	}
 	@Override
 	public void update(float delta) {
 		rotationCounter += rotationSpeed*delta;

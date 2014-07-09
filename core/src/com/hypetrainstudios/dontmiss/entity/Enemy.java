@@ -10,6 +10,8 @@ public class Enemy extends Entity{
 	private float rise;
 	private boolean disappearing;
 	private Sprite sprTarget;
+	private boolean collisionWithProjectile;
+	private boolean collisionWithTurret;
 	public Enemy(Sprite spr, Sprite sprTarget, float enemySpeed,float degrees) {
 		super(spr);
 		this.sprTarget = sprTarget;

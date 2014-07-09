@@ -1,5 +1,7 @@
 package com.hypetrainstudios.dontmiss.bonuses;
 
+import com.hypetrainstudios.dontmiss.Creator;
+
 
 
 public class NukeBonus extends BonusEffect{
@@ -10,7 +12,9 @@ public class NukeBonus extends BonusEffect{
 
 	@Override
 	public void enable() {
-		
+		for(int i = 0; i<Creator.enemies.size();i++){
+			Creator.enemies.get(i).setActive(false);
+		}
 	}
 
 	@Override
