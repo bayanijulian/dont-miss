@@ -3,12 +3,14 @@ package com.hypetrainstudios.dontmiss.screens;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.actions.Actions;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Button.ButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
@@ -24,14 +26,14 @@ public class MenuScreen implements Screen{
 	private static FitViewport view;
 	private static OrthographicCamera cam;
 	
-	private static Button playBtn, optionsBtn, rightArrowBtn, leftArrowBtn, oneBtn, twoBtn, threeBtn, backBtn, scoresBtn, showBtn=new Button(), hideBtn=new Button();
+	private static Button playBtn, optionsBtn, rightArrowBtn, leftArrowBtn, oneBtn, twoBtn, threeBtn, backBtn, scoresBtn;
 	private static ButtonStyle playBtnStyle, optionsBtnStyle, rightArrowBtnStyle, leftArrowBtnStyle, oneBtnStyle, twoBtnStyle, threeBtnStyle, backBtnStyle, scoresBtnStyle;
 	private static Listener listener;
 	
 	private static Image mainMenuBackground, playMenuBackground;
 	
-	private static boolean mainMenu, showBtnAtDestination=false, hideBtnAtDestination=false, animationActivated=false;
-	private float runShow, runHide, dir, checkpointNum, showBtnTargetX, hideBtnTargetX, btnSpeed=25;
+	private static boolean mainMenu;
+	private float checkpointNum, showBtnTargetX, hideBtnTargetX;
 	
 	private Game game;
 	
@@ -53,6 +55,7 @@ public class MenuScreen implements Screen{
 	}
 	
 	private void createButtons() {
+		//initializes all buttons being used in menu
 		playBtnStyle = new ButtonStyle(new TextureRegionDrawable((AssetHandler.manager.get(AssetHandler.atlasButtons).findRegion("playBtn"))),
 									   new TextureRegionDrawable((AssetHandler.manager.get(AssetHandler.atlasButtons).findRegion("playBtnPressed"))),
 									   new TextureRegionDrawable((AssetHandler.manager.get(AssetHandler.atlasButtons).findRegion("playBtn"))));
@@ -136,83 +139,42 @@ public class MenuScreen implements Screen{
 		stage.addActor(scoresBtn);
 	}
 
-	private void updateMenu() {
-		stage.act();
+	private void updateMenu(float delta) {
+		stage.act(delta);
 		stage.draw();
 	}
 	
 	@Override
 	public void render(float delta) {
+		//clears the screen
 		Gdx.gl.glClearColor(1,1,1,1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		
-		updateBtnAnimation(delta);
-		updateMenu();
+		//updates everything on menu
+		updateMenu(delta);
 	}
 	
-	private void animateBtn(Button newShowBtn, Button newHideBtn, float newDirection) {
-		showBtnAtDestination=false;
-		hideBtnAtDestination=false;
-		dir=newDirection;
-		showBtn=newShowBtn;
-		hideBtn=newHideBtn;
+	private void animateBtn(Button showBtn, Button hideBtn, float dir) {
+		//sets showBtn target to middle of screen
+		showBtnTargetX=(Gdx.graphics.getWidth()/2)-(showBtn.getWidth()/2);
+		
+		//sets showBtn position and hideBtn target depending on direction of movement
 		if(dir==-1) {
 			showBtn.setPosition(Gdx.graphics.getWidth(),(Gdx.graphics.getHeight()/2)-(showBtn.getHeight()/2));
-		}
-		else if(dir==1) {
-			showBtn.setPosition(-showBtn.getWidth(),(Gdx.graphics.getHeight()/2)-(showBtn.getHeight()/2));
-		}
-		showBtn.setVisible(true);
-		rightArrowBtn.setVisible(false);
-		leftArrowBtn.setVisible(false);
-		showBtnTargetX=(Gdx.graphics.getWidth()/2)-(showBtn.getWidth()/2);
-		if(dir==-1) {
 			hideBtnTargetX=-hideBtn.getWidth();
 		}
 		else if(dir==1) {
+			showBtn.setPosition(-showBtn.getWidth(),(Gdx.graphics.getHeight()/2)-(showBtn.getHeight()/2));
 			hideBtnTargetX=Gdx.graphics.getWidth();
 		}
-		animationActivated=true;
-	}
-	
-	private void updateBtnAnimation(float delta) {
-		if(animationActivated==false)
-			return;
-		if(showBtnAtDestination && hideBtnAtDestination) {
-			rightArrowBtn.setVisible(true);
-			leftArrowBtn.setVisible(true);
-			animationActivated=false;
-			return;
-		}
-		if(hideBtnAtDestination==false) {
-			if(Math.abs(hideBtn.getX()-hideBtnTargetX)<=1) {
-				hideBtn.moveBy((hideBtn.getX()-hideBtnTargetX)*-1,0);
-//				System.out.println(hideBtn.getX());
-			}
-			else {
-				runHide=((hideBtn.getX()-hideBtnTargetX)*btnSpeed);
-				hideBtn.moveBy(runHide*delta*-1,0);
-//				System.out.println(hideBtn.getX());
-			}
-		}
-		if(showBtnAtDestination==false) {
-			if(Math.abs(showBtn.getX()-showBtnTargetX)<=1) {
-				showBtn.moveBy((showBtn.getX()-showBtnTargetX)*-1,0);
-//				System.out.println(showBtn.getX());
-			}
-			else {
-				runShow=((showBtn.getX()-showBtnTargetX)*btnSpeed);
-				showBtn.moveBy(runShow*delta*-1,0);
-//				System.out.println(showBtn.getX());
-			}
-		}
-		if(showBtn.getX()==showBtnTargetX) {
-			showBtnAtDestination=true;
-		}
-		if(hideBtn.getX()==hideBtnTargetX) {
-			hideBtnAtDestination=true;
-			hideBtn.setVisible(false);
-		}
+		showBtn.setVisible(true);
+		
+		//hides arrow buttons and unhides them after a delay(after button animations finish)
+		rightArrowBtn.addAction(Actions.sequence(Actions.visible(false),Actions.delay(.15f, Actions.visible(true))));
+		leftArrowBtn.addAction(Actions.sequence(Actions.visible(false),Actions.delay(.15f, Actions.visible(true))));
+		
+		//moves showBtn and hideBtn to destinations over a period of time
+		showBtn.addAction(Actions.moveTo(showBtnTargetX,(Gdx.graphics.getHeight()/2)-(showBtn.getHeight()/2),.12f));
+		hideBtn.addAction(Actions.moveTo(hideBtnTargetX, (Gdx.graphics.getHeight()/2)-(showBtn.getHeight()/2),.12f));
 	}
 
 	@Override
