@@ -2,8 +2,9 @@ package com.hypetrainstudios.dontmiss;
 
 import java.util.ArrayList;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.math.MathUtils;
 import com.hypetrainstudios.dontmiss.bonuses.BonusEffect;
 import com.hypetrainstudios.dontmiss.bonuses.CollateralProjectilesBonus;
 import com.hypetrainstudios.dontmiss.bonuses.ExplosiveProjectilesBonus;
@@ -55,6 +56,19 @@ public class Creator {
 	public static ArrayList<Bonus> bonuses = new ArrayList<Bonus>();
 	public static Turret player = new Turret(new Sprite(AssetHandler.manager.get(AssetHandler.imgTurretLayout)),turretRotationSpeed);
 	
+	
+	
+	public static void createMiscProjectileLoading(){
+		Misc reloadingProjectileMisc = new Misc(new Sprite(AssetHandler.manager.get(AssetHandler.atlasLoadingProjBlue).findRegion("loadingProjBlue")),"reloadingProjectileBlue");
+		reloadingProjectileMisc.setCenter(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
+		reloadingProjectileMisc.createLivingAnimation(30, AssetHandler.manager.get(AssetHandler.atlasLoadingProjBlue).findRegions("loadingProjBlue"), PlayMode.NORMAL,true);
+		
+		misc.add(reloadingProjectileMisc);
+		
+	}
+	
+	
+	
 	public static void createProjectile(){
 		if(fireRateCounter >= fireRate){
 			fireRateCounter = 0;
@@ -102,6 +116,8 @@ public class Creator {
 		bonusTypes.add(new SlowEnemyBonus());
 		bonusTypes.add(new SpikeBonus());
 		bonusTypes.add(new VisionBonus());
+		
+		createMiscProjectileLoading();
 	}
 	public static void reset(){
 		gameOver = false;
@@ -161,6 +177,15 @@ public class Creator {
 			enemies.get(i).update(delta);
 		for(int i = 0; i<bonuses.size();i++)
 			bonuses.get(i).update(delta);
+		
+		for(int i = 0; i < misc.size(); i ++){
+			if(misc.get(i).getName().equalsIgnoreCase("reloadingProjectileBlue")){
+				misc.get(i).update(Creator.fireRateCounter/Creator.fireRate);
+			}
+			else
+				misc.get(i).update(delta);
+		}
+		
 		
 	}
 }

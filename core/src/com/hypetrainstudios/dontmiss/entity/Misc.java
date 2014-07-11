@@ -1,15 +1,20 @@
 package com.hypetrainstudios.dontmiss.entity;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
-public abstract class Misc extends Entity{
-	
-	public Misc(Sprite spr,float x, float y) {
+public class Misc extends Entity{
+	private String name;
+	public Misc(Sprite spr,String name) {
 		super(spr);
-		
+		this.name = name;
 	}
-	public abstract void create();
-	@Override
-	public abstract void update(float delta);
 	
+	@Override
+	public  void update(float delta){
+		updateAnimations(delta);
+	}
+	public String getName(){
+		return name;
+	}
 }

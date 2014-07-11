@@ -11,7 +11,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.hypetrainstudios.dontmiss.Creator;
-import com.hypetrainstudios.dontmiss.entity.ProjectileLoading;
+//import com.hypetrainstudios.dontmiss.entity.ProjectileLoading;
 import com.hypetrainstudios.dontmiss.handlers.AssetHandler;
 import com.hypetrainstudios.dontmiss.handlers.BonusHandler;
 import com.hypetrainstudios.dontmiss.handlers.CollisionHandler;
@@ -45,7 +45,7 @@ public class GameScreen implements Screen {
 		Gdx.input.setInputProcessor(inputMultiplexer);
 
 		Creator.setUp();
-		ProjectileLoading.create();
+		//ProjectileLoading.create();
 		BonusHandler.createChances();
 		//Creator.createBonus();
 	}
@@ -69,7 +69,7 @@ public class GameScreen implements Screen {
 			CollisionHandler.update();
 			draw();
 			
-			ProjectileLoading.update(delta);
+			//ProjectileLoading.update(delta);
 		}
 		if(Creator.gameOver){
 			//shows game over menu
@@ -99,9 +99,9 @@ public class GameScreen implements Screen {
 	private void draw(){
 		batch.begin();
 		batch.setProjectionMatrix(cam.combined);
-		ProjectileLoading.getSprite().draw(batch);
+		//ProjectileLoading.getSprite().draw(batch);
 		
-		Creator.player.getSprite().draw(batch);
+		
 		
 		for(int i = 0; i<Creator.projectiles.size();i++)
 			Creator.projectiles.get(i).getSprite().draw(batch);
@@ -109,6 +109,9 @@ public class GameScreen implements Screen {
 			Creator.enemies.get(i).getSprite().draw(batch);
 		for(int i =0; i < Creator.bonuses.size(); i++)
 			Creator.bonuses.get(i).getSprite().draw(batch);
+		for(int i = 0; i< Creator.misc.size(); i ++)
+			Creator.misc.get(i).getSprite().draw(batch);
+		Creator.player.getSprite().draw(batch);
 		
 		batch.end();
 	}	

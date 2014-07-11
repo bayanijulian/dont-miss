@@ -59,7 +59,7 @@ public class Projectile extends Entity{
 			Challenge.currentCode = Challenge.codeMiss;
 		}
 		if(collisionWithEnemy){	
-			if(BonusHandler.currentBonus==1){	collisionWithEnemy = false;	}
+			if(BonusHandler.currentBonus==1){	collateral();	}
 			else if(BonusHandler.currentBonus==2){ explode(); }
 			else	active = false;
 		}
@@ -74,7 +74,9 @@ public class Projectile extends Entity{
 		}
 		this.active = false;
 	}
-	
+	private void collateral(){
+		collisionWithEnemy = false;
+	}
 	public void setCollisionWithEnemy(boolean collisionWithEnemy){
 		this.collisionWithEnemy = collisionWithEnemy;
 	}
