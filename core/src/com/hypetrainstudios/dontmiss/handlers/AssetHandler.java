@@ -29,8 +29,9 @@ public class AssetHandler {
 	
 	public static final AssetDescriptor<BitmapFont> fontPlay = new AssetDescriptor<BitmapFont>("playFont/play.fnt", BitmapFont.class);
 	
-	public static final AssetDescriptor<Texture> mainMenuBG = new AssetDescriptor<Texture>("menuBackground.png", Texture.class);
-	public static final AssetDescriptor<Texture> inGameBG = new AssetDescriptor<Texture>("gameBackground.png", Texture.class);
+	public static final AssetDescriptor<Texture> mainMenuBG = new AssetDescriptor<Texture>("backgrounds/mainMenuBG.png", Texture.class);
+	public static final AssetDescriptor<Texture> playMenuBG = new AssetDescriptor<Texture>("backgrounds/playMenuBG.png", Texture.class);
+	public static final AssetDescriptor<Texture> inGameBG = new AssetDescriptor<Texture>("backgrounds/inGameBG.png", Texture.class);
 	
 	public static void load(){
 		manager.load(imgTurretLayout);
@@ -54,6 +55,7 @@ public class AssetHandler {
 		
 		manager.load(mainMenuBG);
 		manager.load(inGameBG);
+		manager.load(playMenuBG);
 	}
 
 	public static void setTextures(){
@@ -73,7 +75,7 @@ public class AssetHandler {
 		
 		manager.get(mainMenuBG).setFilter(TextureFilter.Linear, TextureFilter.Linear);
 		manager.get(inGameBG).setFilter(TextureFilter.Linear, TextureFilter.Linear);
-		
+		manager.get(playMenuBG).setFilter(TextureFilter.Linear, TextureFilter.Linear);
 	}
 
 	public static void dispose(){

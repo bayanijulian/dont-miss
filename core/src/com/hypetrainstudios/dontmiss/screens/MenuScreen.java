@@ -27,10 +27,10 @@ public class MenuScreen implements Screen{
 	private static ButtonStyle playBtnStyle, optionsBtnStyle, rightArrowBtnStyle, leftArrowBtnStyle, oneBtnStyle, twoBtnStyle, threeBtnStyle, backBtnStyle, scoresBtnStyle;
 	private static Listener listener;
 	
-	private static Image mainMenuBackground, playMenuBackground;
+	private static Image mainMenuBG, playMenuBG;
 	
 	private static boolean mainMenu;
-	private float checkpointNum, showBtnTargetX, hideBtnTargetX;
+	private float checkpointNum, showBtnTargetX, hideBtnTargetX, scaleX, scaleY;
 	
 	private Game game;
 	
@@ -45,12 +45,16 @@ public class MenuScreen implements Screen{
 		view = new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		stage = new Stage(view);
 		
+		scaleX = Gdx.graphics.getWidth()/1920;
+		scaleY = Gdx.graphics.getHeight()/1080;
+		
 		listener = new Listener();
 		
 		createBackgrounds();
 		createButtons();
 		addActors();
 		
+		stage.getViewport().update(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
 		Gdx.input.setInputProcessor(stage);
 	}
 	
@@ -130,11 +134,16 @@ public class MenuScreen implements Screen{
 	}
 
 	private void createBackgrounds() {
-		mainMenuBackground = new Image(AssetHandler.manager.get(AssetHandler.mainMenuBG));
+		mainMenuBG = new Image(AssetHandler.manager.get(AssetHandler.mainMenuBG));
+		mainMenuBG.setScale(scaleX, scaleY);
+		playMenuBG = new Image(AssetHandler.manager.get(AssetHandler.playMenuBG));
+		playMenuBG.setScale(scaleX, scaleY);
+		playMenuBG.setVisible(false);
 	}
 	
 	private void addActors() {
-		stage.addActor(mainMenuBackground);
+		stage.addActor(mainMenuBG);
+		stage.addActor(playMenuBG);
 		stage.addActor(oneBtn);
 		stage.addActor(twoBtn);
 		stage.addActor(threeBtn);
@@ -181,10 +190,14 @@ public class MenuScreen implements Screen{
 		//moves showBtn and hideBtn to destinations over a period of time
 		showBtn.addAction(Actions.moveTo(showBtnTargetX,(Gdx.graphics.getHeight()/2)-(showBtn.getHeight()/2),.12f));
 		hideBtn.addAction(Actions.moveTo(hideBtnTargetX, (Gdx.graphics.getHeight()/2)-(showBtn.getHeight()/2),.12f));
+		//hides and resets hideBtn
+		hideBtn.addAction(Actions.delay(.15f,Actions.visible(false)));
+		hideBtn.addAction(Actions.delay(.15f,Actions.moveTo((Gdx.graphics.getWidth()/2)-(hideBtn.getWidth()/2), (Gdx.graphics.getHeight()/2)-(hideBtn.getHeight()/2))));
 	}
 
 	@Override
 	public void resize(int width, int height) {
+		stage.getViewport().update(width, height, true);
 	}
 
 	@Override
@@ -211,6 +224,8 @@ public class MenuScreen implements Screen{
 		public void changed(ChangeEvent event, Actor actor) {
 			if(actor==playBtn) {
 				mainMenu=false;
+				mainMenuBG.setVisible(false);
+				playMenuBG.setVisible(true);
 				playBtn.setVisible(false);
 				optionsBtn.setVisible(false);
 				checkpointNum=3;
@@ -224,6 +239,7 @@ public class MenuScreen implements Screen{
 				
 			}
 			else if(actor==backBtn) {
+				playMenuBG.setVisible(false);
 				rightArrowBtn.setVisible(false);
 				leftArrowBtn.setVisible(false);
 				backBtn.setVisible(false);
@@ -231,6 +247,7 @@ public class MenuScreen implements Screen{
 				twoBtn.setVisible(false);
 				threeBtn.setVisible(false);
 				scoresBtn.setVisible(false);
+				mainMenuBG.setVisible(true);
 				optionsBtn.setVisible(true);
 				playBtn.setVisible(true);
 			}
