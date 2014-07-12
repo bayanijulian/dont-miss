@@ -3,11 +3,9 @@ package com.hypetrainstudios.dontmiss.screens;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
@@ -16,7 +14,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Button.ButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
-
 import com.hypetrainstudios.dontmiss.handlers.AssetHandler;
 import com.hypetrainstudios.dontmiss.screens.GameScreen;
 
@@ -49,7 +46,10 @@ public class MenuScreen implements Screen{
 		stage = new Stage(view);
 		
 		listener = new Listener();
+		
+		createBackgrounds();
 		createButtons();
+		addActors();
 		
 		Gdx.input.setInputProcessor(stage);
 	}
@@ -127,7 +127,14 @@ public class MenuScreen implements Screen{
 		scoresBtn.setPosition(Gdx.graphics.getWidth()-scoresBtn.getWidth(), Gdx.graphics.getHeight()-scoresBtn.getHeight());
 		scoresBtn.setVisible(false);
 		scoresBtn.addListener(listener);
-		
+	}
+
+	private void createBackgrounds() {
+		mainMenuBackground = new Image(AssetHandler.manager.get(AssetHandler.mainMenuBG));
+	}
+	
+	private void addActors() {
+		stage.addActor(mainMenuBackground);
 		stage.addActor(oneBtn);
 		stage.addActor(twoBtn);
 		stage.addActor(threeBtn);
@@ -138,7 +145,6 @@ public class MenuScreen implements Screen{
 		stage.addActor(backBtn);
 		stage.addActor(scoresBtn);
 	}
-
 	private void updateMenu(float delta) {
 		stage.act(delta);
 		stage.draw();
