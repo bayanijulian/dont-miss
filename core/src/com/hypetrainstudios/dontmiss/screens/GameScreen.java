@@ -11,12 +11,14 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.hypetrainstudios.dontmiss.Creator;
-//import com.hypetrainstudios.dontmiss.entity.ProjectileLoading;
+import com.hypetrainstudios.dontmiss.handlers.AnimationHandler;
 import com.hypetrainstudios.dontmiss.handlers.AssetHandler;
 import com.hypetrainstudios.dontmiss.handlers.BonusHandler;
 import com.hypetrainstudios.dontmiss.handlers.CollisionHandler;
 import com.hypetrainstudios.dontmiss.handlers.GameInputHandler;
+import com.hypetrainstudios.dontmiss.handlers.GarbageHandler;
 import com.hypetrainstudios.dontmiss.handlers.InGameUIHandler;
+import com.hypetrainstudios.dontmiss.handlers.LogicHandler;
 
 
 public class GameScreen implements Screen {
@@ -29,6 +31,7 @@ public class GameScreen implements Screen {
 	private static InputProcessor gameInput;
 	
 	public GameScreen(Game game){
+		Creator.setUp();
 		this.game = game;
 		running = true;
 
@@ -39,15 +42,11 @@ public class GameScreen implements Screen {
 		batch.setProjectionMatrix(cam.combined);
 		
 		gameInput = new GameInputHandler();
-		InGameUIHandler.createUI();
+		
 		inputMultiplexer = new InputMultiplexer(InGameUIHandler.stage, gameInput);
 		
 		Gdx.input.setInputProcessor(inputMultiplexer);
 
-		Creator.setUp();
-		//ProjectileLoading.create();
-		BonusHandler.createChances();
-		//Creator.createBonus();
 	}
 	
 	@Override
@@ -65,11 +64,9 @@ public class GameScreen implements Screen {
 		//when the game is not over and its not paused it will update game logic and draw
 		if(running&&(!(Creator.gameOver))){
 			
-			Creator.update(delta);
-			CollisionHandler.update();
+			update(delta);
 			draw();
 			
-			//ProjectileLoading.update(delta);
 		}
 		if(Creator.gameOver){
 			//shows game over menu
@@ -96,11 +93,16 @@ public class GameScreen implements Screen {
 		InGameUIHandler.dispose();
 		AssetHandler.dispose();
 	}
-	private void draw(){
+	private static void update(float delta){
+		LogicHandler.update(delta);
+		AnimationHandler.update(delta);
+		CollisionHandler.update();
+		GarbageHandler.update();
+	}
+	
+	private static void draw(){
 		batch.begin();
 		batch.setProjectionMatrix(cam.combined);
-		//ProjectileLoading.getSprite().draw(batch);
-		
 		
 		
 		for(int i = 0; i<Creator.projectiles.size();i++)
@@ -111,6 +113,7 @@ public class GameScreen implements Screen {
 			Creator.bonuses.get(i).getSprite().draw(batch);
 		for(int i = 0; i< Creator.misc.size(); i ++)
 			Creator.misc.get(i).getSprite().draw(batch);
+		
 		Creator.player.getSprite().draw(batch);
 		
 		batch.end();

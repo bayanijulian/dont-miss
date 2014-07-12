@@ -1,6 +1,6 @@
 package com.hypetrainstudios.dontmiss.entity;
 
-import com.badlogic.gdx.Gdx;
+
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
 public class Misc extends Entity{
@@ -12,7 +12,7 @@ public class Misc extends Entity{
 	
 	@Override
 	public  void update(float delta){
-		updateAnimations(delta);
+		
 	}
 	public String getName(){
 		return name;

@@ -3,7 +3,7 @@ package com.hypetrainstudios.dontmiss.entity;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.MathUtils;
-import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
+
 
 public class Enemy extends Entity{
 	private float run;
