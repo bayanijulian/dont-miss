@@ -170,16 +170,19 @@ public class MenuScreen implements Screen{
 	
 	private void animateBtn(Button showBtn, Button hideBtn, float dir) {
 		//sets showBtn target to middle of screen
-		showBtnTargetX=(Gdx.graphics.getWidth()/2)-(showBtn.getWidth()/2);
+		showBtn.validate();
+		hideBtn.validate();
+		
+		showBtnTargetX=(view.getWorldWidth()/2)-(showBtn.getWidth()/2);
 		
 		//sets showBtn position and hideBtn target depending on direction of movement
 		if(dir==-1) {
-			showBtn.setPosition(Gdx.graphics.getWidth(),(Gdx.graphics.getHeight()/2)-(showBtn.getHeight()/2));
+			showBtn.setPosition(view.getWorldWidth(),(view.getWorldHeight()/2)-(showBtn.getHeight()/2));
 			hideBtnTargetX=-hideBtn.getWidth();
 		}
 		else if(dir==1) {
-			showBtn.setPosition(-showBtn.getWidth(),(Gdx.graphics.getHeight()/2)-(showBtn.getHeight()/2));
-			hideBtnTargetX=Gdx.graphics.getWidth();
+			showBtn.setPosition(-showBtn.getWidth(),(view.getWorldHeight()/2)-(showBtn.getHeight()/2));
+			hideBtnTargetX=view.getWorldWidth();
 		}
 		showBtn.setVisible(true);
 		
@@ -188,16 +191,17 @@ public class MenuScreen implements Screen{
 		leftArrowBtn.addAction(Actions.sequence(Actions.visible(false),Actions.delay(.15f, Actions.visible(true))));
 		
 		//moves showBtn and hideBtn to destinations over a period of time
-		showBtn.addAction(Actions.moveTo(showBtnTargetX,(Gdx.graphics.getHeight()/2)-(showBtn.getHeight()/2),.12f));
-		hideBtn.addAction(Actions.moveTo(hideBtnTargetX, (Gdx.graphics.getHeight()/2)-(showBtn.getHeight()/2),.12f));
+		showBtn.addAction(Actions.moveTo(showBtnTargetX,(view.getWorldHeight()/2)-(showBtn.getHeight()/2),.12f));
+		hideBtn.addAction(Actions.moveTo(hideBtnTargetX, (view.getWorldHeight()/2)-(showBtn.getHeight()/2),.12f));
 		//hides and resets hideBtn
 		hideBtn.addAction(Actions.delay(.15f,Actions.visible(false)));
-		hideBtn.addAction(Actions.delay(.15f,Actions.moveTo((Gdx.graphics.getWidth()/2)-(hideBtn.getWidth()/2), (Gdx.graphics.getHeight()/2)-(hideBtn.getHeight()/2))));
+		hideBtn.addAction(Actions.delay(.15f,Actions.moveTo((view.getWorldWidth()/2)-(hideBtn.getWidth()/2), (view.getWorldHeight()/2)-(hideBtn.getHeight()/2))));
 	}
 
 	@Override
 	public void resize(int width, int height) {
 		stage.getViewport().update(width, height, true);
+		
 	}
 
 	@Override
