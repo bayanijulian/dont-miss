@@ -31,7 +31,7 @@ public class InGameUIHandler {
 	
 	private static DecimalFormat dfMinutes,dfSeconds;
 	
-	private static Image imgTintBG;
+	private static Image imgTintBG, inGameBG;
 	
 	private static Button btnRetry;
 	private static ButtonStyle retryBtnStyle;
@@ -98,6 +98,7 @@ public class InGameUIHandler {
 		
 	}
 	private static void addActors(){
+		stage.addActor(inGameBG);
 		stage.addActor(lblChallengeMsg);
 		stage.addActor(lblTimer);
 		stage.addActor(imgTintBG);
@@ -127,6 +128,9 @@ public class InGameUIHandler {
 		//creates an image
 		imgTintBG = new Image(AssetHandler.manager.get(AssetHandler.imgTintBG));
 		imgTintBG.setVisible(false);
+		
+		inGameBG = new Image(AssetHandler.manager.get(AssetHandler.inGameBG));
+		inGameBG.setVisible(false);
 	}
 	public static void showGameOverUI(){
 		imgTintBG.setVisible(true);
