@@ -8,7 +8,7 @@ public class FrostChallenge extends Challenge{
 	@Override
 	public void update(float delta) {
 		
-		if(BonusHandler.currentBonus==-1){
+		if(BonusHandler.activeBonus==-1){
 			if(currentCode==codeCollision){
 				if(Creator.fireRate>Creator.fireRateMin)	Creator.fireRate-=.08;
 				else	Creator.fireRate=Creator.fireRateMin;

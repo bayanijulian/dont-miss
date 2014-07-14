@@ -11,7 +11,10 @@ public class AssetHandler {
 	public static final AssetManager manager = new AssetManager();
 
 	public static final AssetDescriptor<Texture> imgTurretLayout = new AssetDescriptor<Texture>("turretLayout.png", Texture.class);
-
+	
+	public static final AssetDescriptor<Texture> imgTurret = new AssetDescriptor<Texture>("turret/turret.png", Texture.class);
+	public static final AssetDescriptor<Texture> imgTurretShield = new AssetDescriptor<Texture>("turret/turretShield.png", Texture.class);
+	
 	public static final AssetDescriptor<Texture> imgProjectileRed = new AssetDescriptor<Texture>("projectileRed.png", Texture.class);
 	public static final AssetDescriptor<Texture> imgProjectileBlue = new AssetDescriptor<Texture>("projectileBlue.png", Texture.class);
 	public static final AssetDescriptor<Texture> imgProjectileYellow = new AssetDescriptor<Texture>("projectileYellow.png", Texture.class);
@@ -39,7 +42,9 @@ public class AssetHandler {
 	
 	public static void load(){
 		manager.load(imgTurretLayout);
-
+		manager.load(imgTurret);
+		manager.load(imgTurretShield);
+		
 		manager.load(imgProjectileRed);
 		manager.load(imgProjectileBlue);
 		manager.load(imgProjectileYellow);
@@ -66,6 +71,8 @@ public class AssetHandler {
 
 	public static void setTextures(){
 		manager.get(imgTurretLayout).setFilter(TextureFilter.Linear,TextureFilter.Linear);
+		manager.get(imgTurret).setFilter(TextureFilter.Linear, TextureFilter.Linear);
+		manager.get(imgTurretShield).setFilter(TextureFilter.Linear, TextureFilter.Linear);
 		
 		manager.get(imgProjectileRed).setFilter(TextureFilter.Linear,TextureFilter.Linear);
 		manager.get(imgProjectileBlue).setFilter(TextureFilter.Linear,TextureFilter.Linear);

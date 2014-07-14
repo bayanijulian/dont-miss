@@ -21,4 +21,9 @@ public class NukeBonus extends BonusEffect{
 	public void disable() {
 	}
 
+	@Override
+	public boolean update() {
+		return true;
+	}
+
 }

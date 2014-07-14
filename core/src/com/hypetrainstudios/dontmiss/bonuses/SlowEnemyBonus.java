@@ -26,4 +26,9 @@ public class SlowEnemyBonus extends BonusEffect{
 		}
 	}
 
+	@Override
+	public boolean update() {
+		return true;
+	}
+
 }

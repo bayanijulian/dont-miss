@@ -5,6 +5,7 @@ package com.hypetrainstudios.dontmiss.entity;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.MathUtils;
+import com.hypetrainstudios.dontmiss.handlers.BonusHandler;
 
 
 public class Bonus extends Entity{
@@ -18,8 +19,8 @@ public class Bonus extends Entity{
 	private float yTarget;
 	private float tempDistance;
 	private static final float amountToMove = 300f;
-
-	public Bonus(Sprite spr) {
+	private static int bonusType;
+	public Bonus(Sprite spr, int bonusType) {
 		super(spr);
 		timeActive = 10f;
 		activeCounter = 0;
@@ -36,12 +37,12 @@ public class Bonus extends Entity{
 		getNewCoords();
 		spr.setPosition(x, y);
 		spr.setSize(64, 64);
-
-		
+		this.changeBounds();
 	}
 	
 	@Override
 	public void update(float delta) {
+		this.updateBounds();
 		activeCounter+=delta;
 		timeToCompleteCounter +=delta;
 		percent = timeToCompleteCounter/timeToComplete;
@@ -53,6 +54,12 @@ public class Bonus extends Entity{
 		if(timeToCompleteCounter>=timeToComplete)
 			changeLocation();
 	}
+	
+	public void collisionWithProjectile(){
+		this.active = false;
+		BonusHandler.setActiveBonus(bonusType);
+	}
+	
 	private void changeLocation(){
 		timeToCompleteCounter = 0;
 		x=spr.getX();

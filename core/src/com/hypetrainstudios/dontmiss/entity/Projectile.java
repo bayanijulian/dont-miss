@@ -59,8 +59,8 @@ public class Projectile extends Entity{
 			Challenge.currentCode = Challenge.codeMiss;
 		}
 		if(collisionWithEnemy){	
-			if(BonusHandler.currentBonus==1){	collateral();	}
-			else if(BonusHandler.currentBonus==2){ explode(); }
+			if(BonusHandler.activeBonus==1){	collateral();	}
+			else if(BonusHandler.activeBonus==2){ explode(); }
 			else	active = false;
 		}
 	}

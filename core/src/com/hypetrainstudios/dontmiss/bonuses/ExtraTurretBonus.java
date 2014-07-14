@@ -10,4 +10,9 @@ public class ExtraTurretBonus extends BonusEffect{
 	public void disable() {
 	}
 
+	@Override
+	public boolean update() {
+		return true;
+	}
+
 }

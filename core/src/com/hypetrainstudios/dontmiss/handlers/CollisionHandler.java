@@ -22,10 +22,11 @@ public class CollisionHandler {
 				playerCollision();
 		
 		//Checks collision between projectile and bonuses
-				for (int x=0; x<Creator.projectiles.size();x++)
-					for (int k=0; k<Creator.bonuses.size();k++)
-						if( Creator.projectiles.get(x).getCircle().overlaps( Creator.bonuses.get(k).getCircle() ) )
-							bonusCollision(k,x);
+		for (int x=0; x<Creator.projectiles.size();x++)
+			for (int k=0; k<Creator.bonuses.size();k++)
+				if( Creator.projectiles.get(x).getCircle().overlaps( Creator.bonuses.get(k).getCircle() ) )
+					bonusCollision(k,x);
+		
 	}
 	
 	private static void enemyCollision(int k, int x){
@@ -42,7 +43,8 @@ public class CollisionHandler {
 	}
 	
 	private static void bonusCollision(int k, int x){
-		
+		Creator.bonuses.get(k).setActive(false);
+		Creator.projectiles.get(x).setCollisionWithEnemy(true);
 	}
 	
 	private static void playerCollision(){

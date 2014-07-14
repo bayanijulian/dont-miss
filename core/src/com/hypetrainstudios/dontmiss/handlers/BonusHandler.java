@@ -22,7 +22,7 @@ public class BonusHandler {
 	
 	
 	private static int [] bonusChance = new int[100];
-	public static int currentBonus = -1;
+	public static int activeBonus = -1;
 	private static int potentialBonus = -1;
 	private static float timeToSpawnBonus = 5;
 	private static float timeToSpawnBonusCounter = 0;
@@ -44,7 +44,9 @@ public class BonusHandler {
 	
 	}
 	
-	
+	public static void setActiveBonus(int bonusType){
+		Creator.bonusTypes.get(bonusType).enable();
+	}
 	public static void update(float delta){
 		timeToSpawnBonusCounter += delta;
 		if(timeToSpawnBonusCounter>=timeToSpawnBonus)

@@ -7,4 +7,5 @@ public abstract class BonusEffect {
 	}
 	public abstract void enable();
 	public abstract void disable();
+	public abstract boolean update();
 }

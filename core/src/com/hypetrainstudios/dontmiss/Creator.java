@@ -36,7 +36,7 @@ public class Creator {
 	
 	public static float gameTime = 180;
 	public static boolean gameOver = false;
-	
+	public static int totalProjectilesShotSoFar = 0;
 	public static float spawnWaveRate = 7;
 	public static float spawnWaveCounter = 7;
 	public static final float spawnRateMax = 7f,spawnRateMin = 4f;
@@ -66,28 +66,30 @@ public class Creator {
 	public static void createProjectile(){
 		if(fireRateCounter >= fireRate){
 			fireRateCounter = 0;
-			if(BonusHandler.currentBonus==5){
+			if(BonusHandler.activeBonus==5){
 				projectiles.add(new Projectile(new Sprite(AssetHandler.manager.get(AssetHandler.imgProjectileBlue)), projectileSpeed,midTurret.getRotationCounter()+(90)));
 				projectiles.add(new Projectile(new Sprite(AssetHandler.manager.get(AssetHandler.imgProjectileBlue)), projectileSpeed,midTurret.getRotationCounter()-(90)));
+				totalProjectiles+=2;
 			}
 			projectiles.add(new Projectile(new Sprite(AssetHandler.manager.get(AssetHandler.imgProjectileBlue)), projectileSpeed));
+			totalProjectiles++;
 		}
 	}
 	public static void createEnemy(float degrees){
 			enemies.add(new Enemy(new Sprite(AssetHandler.manager.get(AssetHandler.imgEnemyBlue)),midTurret.getSprite(),enemySpeed,degrees));
 	}
 	public static void createBonus(int bonusType){
-		if(bonusType==0)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusAlly"))));
-		else if(bonusType==1)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusAssassin"))));
-		else if(bonusType==2)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusBigger"))));
-		else if(bonusType==3)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusCollateral"))));
-		else if(bonusType==4)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusExplosive"))));
-		else if(bonusType==5)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusLandMine"))));
-		else if(bonusType==6)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusMultiples"))));
-		else if(bonusType==7)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusNuke"))));
-		else if(bonusType==8)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusSheild"))));
-		else if(bonusType==9)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusSlow"))));
-		else if(bonusType==10)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusSpikes"))));
+		if(bonusType==0)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusAlly")),bonusType));
+		else if(bonusType==1)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusAssassin")),bonusType));
+		else if(bonusType==2)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusBigger")),bonusType));
+		else if(bonusType==3)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusCollateral")),bonusType));
+		else if(bonusType==4)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusExplosive")),bonusType));
+		else if(bonusType==5)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusLandMine")),bonusType));
+		else if(bonusType==6)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusMultiples")),bonusType));
+		else if(bonusType==7)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusNuke")),bonusType));
+		else if(bonusType==8)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusSheild")),bonusType));
+		else if(bonusType==9)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusSlow")),bonusType));
+		else if(bonusType==10)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusSpikes")),bonusType));
 
 	}
 	public static void setUp(){

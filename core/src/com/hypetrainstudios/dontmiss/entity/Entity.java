@@ -137,7 +137,9 @@ public abstract class Entity{
 		collisionBounds.setPosition(spr.getX()+ (spr.getWidth()/2)
 									,(spr.getY()+spr.getHeight()/2));
 	}
-	
+	public void changeBounds(){
+		collisionBounds.setRadius(spr.getHeight()/2);
+	}
 	public void setActive(boolean active){
 		this.active = active;
 	}

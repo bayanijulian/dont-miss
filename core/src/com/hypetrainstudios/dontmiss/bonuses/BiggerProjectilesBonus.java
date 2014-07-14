@@ -9,6 +9,11 @@ public class BiggerProjectilesBonus extends BonusEffect{
 	@Override
 	public void disable() {
 	}
+
+	@Override
+	public boolean update() {
+		return true;
+	}
 	
 
 }

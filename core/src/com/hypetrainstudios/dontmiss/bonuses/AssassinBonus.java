@@ -10,4 +10,9 @@ public class AssassinBonus extends BonusEffect{
 	public void disable() {
 	}
 
+	@Override
+	public boolean update() {
+		return true;
+	}
+
 }

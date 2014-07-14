@@ -15,5 +15,10 @@ public class CollateralProjectilesBonus extends BonusEffect{
 	@Override
 	public void disable() {
 	}
+
+	@Override
+	public boolean update() {
+		return true;
+	}
 	
 }

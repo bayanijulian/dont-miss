@@ -13,4 +13,9 @@ public class SpikeBonus extends BonusEffect{
 	@Override
 	public void disable() {
 	}
+
+	@Override
+	public boolean update() {
+		return true;
+	}
 }

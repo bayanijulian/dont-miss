@@ -12,4 +12,9 @@ public class LandMineBonus extends BonusEffect{
 	@Override
 	public void disable() {
 	}
+
+	@Override
+	public boolean update() {
+		return true;
+	}
 }
