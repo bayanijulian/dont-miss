@@ -9,7 +9,6 @@ public class SuperSpeedChallenge extends Challenge{
 	//private static ShapeRenderer sr = new ShapeRenderer();
 	private float time;
 	private int numOfEnemies = 4;
-	private boolean beginChallenge = false;
 	private int counter;
 	private float tempSpeed;
 	private static float superSpeed = .7f;
@@ -38,7 +37,7 @@ public class SuperSpeedChallenge extends Challenge{
 	}
 	
 	private void sendInEnemy(){
-		float degrees = Creator.player.getRotationCounter() + 75;
+		float degrees = Creator.midTurret.getRotationCounter() + 75;
 		Creator.createEnemy(degrees);
 		System.out.println("incoming" + Creator.enemySpeed);
 	}

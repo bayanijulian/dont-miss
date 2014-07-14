@@ -5,7 +5,7 @@ package com.hypetrainstudios.dontmiss.entity;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.MathUtils;
-import com.hypetrainstudios.dontmiss.bonuses.BonusEffect;
+
 
 public class Bonus extends Entity{
 	
@@ -18,13 +18,13 @@ public class Bonus extends Entity{
 	private float yTarget;
 	private float tempDistance;
 	private static final float amountToMove = 300f;
-	private BonusEffect whatToDo;
-	public Bonus(Sprite spr,BonusEffect whatToDo) {
+
+	public Bonus(Sprite spr) {
 		super(spr);
 		timeActive = 10f;
 		activeCounter = 0;
 		
-		timeToComplete = 2f;
+		timeToComplete = 3.3f;
 		timeToCompleteCounter = 0;
 		
 		xTarget = 0;
@@ -35,8 +35,8 @@ public class Bonus extends Entity{
 		tempDistance = 0;
 		getNewCoords();
 		spr.setPosition(x, y);
-		
-		this.whatToDo = whatToDo;
+		spr.setSize(64, 64);
+
 		
 	}
 	

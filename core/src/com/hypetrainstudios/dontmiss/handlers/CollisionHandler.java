@@ -18,7 +18,7 @@ public class CollisionHandler {
 		
 		//Checks collision between projectiles and the player
 		for(int  x= 0; x<Creator.enemies.size();x++)
-			if(Creator.enemies.get(x).getCircle().overlaps(Creator.player.getCircle()))
+			if(Creator.enemies.get(x).getCircle().overlaps(Creator.midTurret.getCircle()))
 				playerCollision();
 		
 		//Checks collision between projectile and bonuses
@@ -35,6 +35,10 @@ public class CollisionHandler {
 		Creator.projectiles.get(x).setCollisionWithEnemy(true);
 		//sends a signal to the challenge class saying there has been a collision (essentially)
 		Challenge.currentCode = Challenge.codeCollision;
+		
+		ScoreHandler.score +=1;
+		System.out.println(ScoreHandler.score);
+		
 	}
 	
 	private static void bonusCollision(int k, int x){

@@ -8,7 +8,7 @@ public class ReverseRotationChallenge extends Challenge{
 	public void update(float delta) {
 		if(currentCode==codeCollision){
 			Creator.turretRotationSpeed*=-1;
-			Creator.player.setRotationSpeed(Creator.turretRotationSpeed);
+			Creator.midTurret.setRotationSpeed(Creator.turretRotationSpeed);
 		}
 			
 	}

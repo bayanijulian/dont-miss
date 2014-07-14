@@ -7,7 +7,7 @@ public class ReverseShootingChallenge extends Challenge{
 	@Override
 	public void update(float delta) {
 		if(!didAlready){
-			Creator.player.setRotationCounter(Creator.player.getRotationCounter()+180);
+			Creator.midTurret.setRotationCounter(Creator.midTurret.getRotationCounter()+180);
 			didAlready =true;
 		}
 			

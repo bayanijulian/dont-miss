@@ -22,6 +22,6 @@ public class AnimationHandler {
 				Creator.misc.get(i).updateAnimations(delta);
 		}
 		
-		Creator.player.updateAnimations(delta);
+		Creator.midTurret.updateAnimations(delta);
 	}
 }

@@ -1,6 +1,7 @@
 package com.hypetrainstudios.dontmiss.handlers;
 
 import com.badlogic.gdx.math.MathUtils;
+import com.hypetrainstudios.dontmiss.Creator;
 
 public class BonusHandler {
 	//chances are out of 100, so they all need to add up to 100
@@ -14,13 +15,15 @@ public class BonusHandler {
 //	private static int chanceSlowEnemy = 16;			//8
 //	private static int chanceSpike = 11;				//9
 //	private static int chanceVision = 6;				//10
-	
+//	Assassin
+//	Extra Turret
+//  Bigger Projectile
 	private static int [] percentages = {11,16,7,13,9,6,5,16,11,6};
 	
 	
 	private static int [] bonusChance = new int[100];
 	public static int currentBonus = -1;
-	
+	private static int potentialBonus = -1;
 	private static float timeToSpawnBonus = 5;
 	private static float timeToSpawnBonusCounter = 0;
 	public static void createChances(){
@@ -43,10 +46,13 @@ public class BonusHandler {
 	
 	
 	public static void update(float delta){
-		timeToSpawnBonus += delta;
+		timeToSpawnBonusCounter += delta;
 		if(timeToSpawnBonusCounter>=timeToSpawnBonus)
 		{
-			currentBonus = bonusChance[MathUtils.random(bonusChance.length-1)];
+			potentialBonus = bonusChance[MathUtils.random(bonusChance.length-1)];
+			System.out.println(potentialBonus);
+			Creator.createBonus(potentialBonus);
+			timeToSpawnBonusCounter = 0;
 		}
 			
 	}

@@ -13,7 +13,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.hypetrainstudios.dontmiss.Creator;
 import com.hypetrainstudios.dontmiss.handlers.AnimationHandler;
 import com.hypetrainstudios.dontmiss.handlers.AssetHandler;
-import com.hypetrainstudios.dontmiss.handlers.BonusHandler;
+
 import com.hypetrainstudios.dontmiss.handlers.CollisionHandler;
 import com.hypetrainstudios.dontmiss.handlers.GameInputHandler;
 import com.hypetrainstudios.dontmiss.handlers.GarbageHandler;
@@ -40,13 +40,12 @@ public class GameScreen implements Screen {
 		cam.update();
 		batch = new SpriteBatch();
 		batch.setProjectionMatrix(cam.combined);
-		
+	
 		gameInput = new GameInputHandler();
 		
 		inputMultiplexer = new InputMultiplexer(InGameUIHandler.stage, gameInput);
 		
 		Gdx.input.setInputProcessor(inputMultiplexer);
-
 	}
 	
 	@Override
@@ -115,7 +114,7 @@ public class GameScreen implements Screen {
 		for(int i = 0; i< Creator.misc.size(); i ++)
 			Creator.misc.get(i).getSprite().draw(batch);
 		
-		Creator.player.getSprite().draw(batch);
+		Creator.midTurret.getSprite().draw(batch);
 		
 		batch.end();
 	}	

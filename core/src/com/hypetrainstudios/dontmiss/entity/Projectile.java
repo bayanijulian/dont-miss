@@ -22,11 +22,11 @@ public class Projectile extends Entity{
 		this.y = (Gdx.graphics.getHeight()/2) - (spr.getHeight()/2);
 		
 		//an attempt to spawn the projectile at the tip of the turret
-		spr.setPosition(x + (MathUtils.cosDeg(Creator.player.getRotationCounter()) * (spr.getWidth()*2) ),
-						y + (MathUtils.sinDeg(Creator.player.getRotationCounter()) * (spr.getWidth()*2)));
+		spr.setPosition(x + (MathUtils.cosDeg(Creator.midTurret.getRotationCounter()) * (spr.getWidth()*2) ),
+						y + (MathUtils.sinDeg(Creator.midTurret.getRotationCounter()) * (spr.getWidth()*2)));
 		
-		this.run = MathUtils.cosDeg(Creator.player.getRotationCounter()) * projectileSpeed;
-		this.rise = MathUtils.sinDeg(Creator.player.getRotationCounter()) * projectileSpeed;
+		this.run = MathUtils.cosDeg(Creator.midTurret.getRotationCounter()) * projectileSpeed;
+		this.rise = MathUtils.sinDeg(Creator.midTurret.getRotationCounter()) * projectileSpeed;
 		collisionWithEnemy = false;
 		
 	}

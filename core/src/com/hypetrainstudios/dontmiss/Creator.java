@@ -1,21 +1,18 @@
 package com.hypetrainstudios.dontmiss;
 
 import java.util.ArrayList;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation.PlayMode;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.hypetrainstudios.dontmiss.bonuses.BonusEffect;
 import com.hypetrainstudios.dontmiss.bonuses.CollateralProjectilesBonus;
 import com.hypetrainstudios.dontmiss.bonuses.ExplosiveProjectilesBonus;
-import com.hypetrainstudios.dontmiss.bonuses.GuidedProjectilesBonus;
 import com.hypetrainstudios.dontmiss.bonuses.LandMineBonus;
 import com.hypetrainstudios.dontmiss.bonuses.MultipleProjectilesBonus;
 import com.hypetrainstudios.dontmiss.bonuses.NukeBonus;
 import com.hypetrainstudios.dontmiss.bonuses.SheildBonus;
 import com.hypetrainstudios.dontmiss.bonuses.SlowEnemyBonus;
 import com.hypetrainstudios.dontmiss.bonuses.SpikeBonus;
-import com.hypetrainstudios.dontmiss.bonuses.VisionBonus;
 import com.hypetrainstudios.dontmiss.challenges.Challenge;
 import com.hypetrainstudios.dontmiss.enemies.EnemyType;
 import com.hypetrainstudios.dontmiss.entity.Bonus;
@@ -55,7 +52,7 @@ public class Creator {
 	public static ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
 	public static ArrayList<Misc> misc = new ArrayList<Misc>();
 	public static ArrayList<Bonus> bonuses = new ArrayList<Bonus>();
-	public static Turret player = new Turret(new Sprite(AssetHandler.manager.get(AssetHandler.imgTurretLayout)),turretRotationSpeed);
+	public static Turret midTurret = new Turret(new Sprite(AssetHandler.manager.get(AssetHandler.imgTurretLayout)),turretRotationSpeed);
 	
 	
 	
@@ -70,30 +67,38 @@ public class Creator {
 		if(fireRateCounter >= fireRate){
 			fireRateCounter = 0;
 			if(BonusHandler.currentBonus==5){
-				projectiles.add(new Projectile(new Sprite(AssetHandler.manager.get(AssetHandler.imgProjectileBlue)), projectileSpeed,player.getRotationCounter()+(90)));
-				projectiles.add(new Projectile(new Sprite(AssetHandler.manager.get(AssetHandler.imgProjectileBlue)), projectileSpeed,player.getRotationCounter()-(90)));
+				projectiles.add(new Projectile(new Sprite(AssetHandler.manager.get(AssetHandler.imgProjectileBlue)), projectileSpeed,midTurret.getRotationCounter()+(90)));
+				projectiles.add(new Projectile(new Sprite(AssetHandler.manager.get(AssetHandler.imgProjectileBlue)), projectileSpeed,midTurret.getRotationCounter()-(90)));
 			}
 			projectiles.add(new Projectile(new Sprite(AssetHandler.manager.get(AssetHandler.imgProjectileBlue)), projectileSpeed));
 		}
 	}
 	public static void createEnemy(float degrees){
-			enemies.add(new Enemy(new Sprite(AssetHandler.manager.get(AssetHandler.imgEnemyBlue)),player.getSprite(),enemySpeed,degrees));
+			enemies.add(new Enemy(new Sprite(AssetHandler.manager.get(AssetHandler.imgEnemyBlue)),midTurret.getSprite(),enemySpeed,degrees));
 	}
 	public static void createBonus(int bonusType){
-		bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.imgBonus)),bonusTypes.get(bonusType)));
-		
+		if(bonusType==0)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusAlly"))));
+		else if(bonusType==1)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusAssassin"))));
+		else if(bonusType==2)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusBigger"))));
+		else if(bonusType==3)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusCollateral"))));
+		else if(bonusType==4)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusExplosive"))));
+		else if(bonusType==5)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusLandMine"))));
+		else if(bonusType==6)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusMultiples"))));
+		else if(bonusType==7)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusNuke"))));
+		else if(bonusType==8)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusSheild"))));
+		else if(bonusType==9)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusSlow"))));
+		else if(bonusType==10)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusSpikes"))));
+
 	}
 	public static void setUp(){
 		bonusTypes.add(new CollateralProjectilesBonus());
 		bonusTypes.add(new ExplosiveProjectilesBonus());
-		bonusTypes.add(new GuidedProjectilesBonus());
 		bonusTypes.add(new LandMineBonus());
 		bonusTypes.add(new MultipleProjectilesBonus());
 		bonusTypes.add(new NukeBonus());
 		bonusTypes.add(new SheildBonus());
 		bonusTypes.add(new SlowEnemyBonus());
 		bonusTypes.add(new SpikeBonus());
-		bonusTypes.add(new VisionBonus());
 		
 		createMiscProjectileLoading();
 		InGameUIHandler.createUI();
@@ -110,6 +115,7 @@ public class Creator {
 		enemyTypes.clear();
 		bonusTypes.clear();
 		misc.clear();
+		bonuses.clear();
 		
 		gameTime = 180;
 		spawnWaveRate = 7f;
@@ -121,10 +127,12 @@ public class Creator {
 		enemySpeed = .05f;
 		totalProjectiles = 5;
 		
-		player.setRotationSpeed(turretRotationSpeed);
-		player.getSprite().setRotation(270);
-		player.setRotationCounter(0);
-		player.getSprite().setAlpha(1);
+		midTurret.setRotationSpeed(turretRotationSpeed);
+		midTurret.getSprite().setRotation(270);
+		midTurret.setRotationCounter(0);
+		midTurret.getSprite().setAlpha(1);
+		
+		createMiscProjectileLoading();
 		
 		ChallengeHandler.challengeCounter = 0;
 	}

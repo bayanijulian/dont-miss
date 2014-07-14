@@ -26,11 +26,32 @@ public class Enemy extends Entity{
 		run=((x-((sprTarget.getX()+(sprTarget.getWidth()/2))-(spr.getWidth()/2)))*enemySpeed);
 		rise=((y-((sprTarget.getY()+(sprTarget.getHeight()/2))-(spr.getHeight()/2)))*enemySpeed);
 		disappearing = false;
+		collisionWithProjectile = false;
+		collisionWithTurret = false;
 	}
 
 	public void setSpeed(float speed){
 		run=((x-((sprTarget.getX()+(sprTarget.getWidth()/2))-(spr.getWidth()/2)))*speed);
 		rise=((y-((sprTarget.getY()+(sprTarget.getHeight()/2))-(spr.getHeight()/2)))*speed);
+	}
+	
+
+	public void setCollisionWithProjectile(boolean collisionWithProjectile) {
+		this.collisionWithProjectile = collisionWithProjectile;
+	}
+
+	public void setCollisionWithTurret(boolean collisionWithTurret) {
+		this.collisionWithTurret = collisionWithTurret;
+	}
+
+	
+	private void checkCollision(){
+		if(collisionWithTurret){
+			
+		}
+		else if(collisionWithProjectile){
+			
+		}
 	}
 	
 	@Override
@@ -47,6 +68,7 @@ public class Enemy extends Entity{
 		}
 		else
 			alpha = 1;
+		checkCollision();
 	}
 	public void enableDisappearing(){
 		disappearing = true;

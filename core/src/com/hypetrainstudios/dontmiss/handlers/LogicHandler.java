@@ -6,7 +6,7 @@ import com.hypetrainstudios.dontmiss.challenges.Challenge;
 public class LogicHandler {
 	public static void update(float delta){
 		
-		Creator.player.update(delta);
+		Creator.midTurret.update(delta);
 		
 		for(int i = 0; i<Creator.projectiles.size();i++)
 			Creator.projectiles.get(i).update(delta);
@@ -19,6 +19,7 @@ public class LogicHandler {
 		
 		updateChallenge(delta);
 		updateSpawn(delta);
+		BonusHandler.update(delta);
 		
 		Creator.gameTime-=delta;
 		Creator.fireRateCounter += delta;

@@ -10,10 +10,10 @@ public class DisappearingPlayerChallenge extends Challenge{
 		time+=delta;
 		if(time>=4){
 			time = 0;
-			Creator.player.getSprite().setAlpha(0);
+			Creator.midTurret.getSprite().setAlpha(0);
 		}
-		if(time>=1&& Creator.player.getSprite().getColor().a<=.15)
-			Creator.player.getSprite().setAlpha(1);
+		if(time>=1&& Creator.midTurret.getSprite().getColor().a<=.15)
+			Creator.midTurret.getSprite().setAlpha(1);
 	}
 
 }

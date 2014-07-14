@@ -26,8 +26,12 @@ public class AssetHandler {
 	
 	public static final AssetDescriptor<TextureAtlas> atlasButtons = new AssetDescriptor<TextureAtlas>("buttons/buttons.pack", TextureAtlas.class);
 	public static final AssetDescriptor<TextureAtlas> atlasLoadingProjBlue = new AssetDescriptor<TextureAtlas>("loadingProj/loadingProj.pack", TextureAtlas.class);
+	public static final AssetDescriptor<TextureAtlas> atlasBonuses = new AssetDescriptor<TextureAtlas>("bonus/bonus.pack", TextureAtlas.class);
 	
 	public static final AssetDescriptor<BitmapFont> fontPlay = new AssetDescriptor<BitmapFont>("playFont/play.fnt", BitmapFont.class);
+	
+	
+	
 	
 	public static final AssetDescriptor<Texture> mainMenuBG = new AssetDescriptor<Texture>("backgrounds/mainMenuBG.png", Texture.class);
 	public static final AssetDescriptor<Texture> playMenuBG = new AssetDescriptor<Texture>("backgrounds/playMenuBG.png", Texture.class);
@@ -50,6 +54,8 @@ public class AssetHandler {
 		
 		manager.load(atlasButtons);
 		manager.load(atlasLoadingProjBlue);
+		manager.load(atlasBonuses);
+		
 		
 		manager.load(fontPlay);
 		

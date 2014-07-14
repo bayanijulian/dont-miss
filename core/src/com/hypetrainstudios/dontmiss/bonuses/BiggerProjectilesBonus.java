@@ -1,10 +1,7 @@
 package com.hypetrainstudios.dontmiss.bonuses;
 
-public class VisionBonus extends BonusEffect{
-	
-	public VisionBonus(){
-		timeToLast = 5f;
-	}
+public class BiggerProjectilesBonus extends BonusEffect{
+
 	@Override
 	public void enable() {
 	}
@@ -12,5 +9,6 @@ public class VisionBonus extends BonusEffect{
 	@Override
 	public void disable() {
 	}
+	
 
 }

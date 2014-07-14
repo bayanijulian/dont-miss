@@ -1,0 +1,82 @@
+
+bonus.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bonusAlly
+  rotate: false
+  xy: 5, 537
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+bonusAssassin
+  rotate: false
+  xy: 5, 271
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+bonusBigger
+  rotate: false
+  xy: 271, 537
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+bonusCollateral
+  rotate: false
+  xy: 5, 5
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+bonusExplosive
+  rotate: false
+  xy: 271, 271
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+bonusLandMine
+  rotate: false
+  xy: 537, 537
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+bonusMultiples
+  rotate: false
+  xy: 271, 5
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+bonusNuke
+  rotate: false
+  xy: 537, 271
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+bonusSheild
+  rotate: false
+  xy: 803, 537
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+bonusSlow
+  rotate: false
+  xy: 537, 5
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+bonusSpikes
+  rotate: false
+  xy: 803, 271
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1

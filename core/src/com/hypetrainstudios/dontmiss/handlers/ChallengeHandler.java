@@ -1,14 +1,14 @@
 package com.hypetrainstudios.dontmiss.handlers;
 
 import com.hypetrainstudios.dontmiss.Creator;
-import com.hypetrainstudios.dontmiss.challenges.DisappearingEnemyChallenge;
+
 import com.hypetrainstudios.dontmiss.challenges.DisappearingPlayerChallenge;
 import com.hypetrainstudios.dontmiss.challenges.FrostChallenge;
 import com.hypetrainstudios.dontmiss.challenges.IncreasingDifficultyChallenge;
 import com.hypetrainstudios.dontmiss.challenges.LimitedProjeciltesChallenge;
 import com.hypetrainstudios.dontmiss.challenges.ReverseRotationChallenge;
 import com.hypetrainstudios.dontmiss.challenges.ReverseShootingChallenge;
-import com.hypetrainstudios.dontmiss.challenges.SuperSpeedChallenge;
+
 
 
 
