@@ -29,8 +29,8 @@ public class MenuScreen implements Screen{
 	
 	private static Image mainMenuBG, playMenuBG;
 	
-	private static boolean mainMenu;
-	private float checkpointNum, showBtnTargetX, hideBtnTargetX, scaleX, scaleY;
+	private static boolean mainMenu, optionsMenu, scoresMenu, achievementsMenu, storeMenu;
+	private static float checkpointNum, showBtnTargetX, hideBtnTargetX, scaleX, scaleY;
 	
 	private Game game;
 	
@@ -45,8 +45,8 @@ public class MenuScreen implements Screen{
 		view = new FitViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		stage = new Stage(view);
 		
-		scaleX = Gdx.graphics.getWidth()/1920;
-		scaleY = Gdx.graphics.getHeight()/1080;
+		scaleX = view.getWorldWidth()/1920;
+		scaleY = view.getWorldHeight()/1080;
 		
 		listener = new Listener();
 		
@@ -54,7 +54,6 @@ public class MenuScreen implements Screen{
 		createButtons();
 		addActors();
 		
-		stage.getViewport().update(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), true);
 		Gdx.input.setInputProcessor(stage);
 	}
 	
@@ -80,7 +79,7 @@ public class MenuScreen implements Screen{
 			   	  			 				 new TextureRegionDrawable((AssetHandler.manager.get(AssetHandler.atlasButtons).findRegion("rightArrowBtnPressed"))),
 			   	  			 				 new TextureRegionDrawable((AssetHandler.manager.get(AssetHandler.atlasButtons).findRegion("rightArrowBtn-01"))));
 		rightArrowBtn = new Button(rightArrowBtnStyle);
-		rightArrowBtn.setPosition((3*Gdx.graphics.getWidth()/4-(rightArrowBtn.getWidth()/2)), ((Gdx.graphics.getHeight()/2)-(rightArrowBtn.getHeight()/2)));
+		rightArrowBtn.setPosition(((view.getWorldWidth()-(110*scaleX))-(rightArrowBtn.getWidth()/2)), ((Gdx.graphics.getHeight()/2)-(rightArrowBtn.getHeight()/2)));
 		rightArrowBtn.setVisible(false);
 		rightArrowBtn.addListener(listener);
 
@@ -88,7 +87,7 @@ public class MenuScreen implements Screen{
   	  			 							new TextureRegionDrawable((AssetHandler.manager.get(AssetHandler.atlasButtons).findRegion("leftArrowBtnPressed"))),
   	  			 							new TextureRegionDrawable((AssetHandler.manager.get(AssetHandler.atlasButtons).findRegion("leftArrowBtn"))));
 		leftArrowBtn = new Button(leftArrowBtnStyle);
-		leftArrowBtn.setPosition((Gdx.graphics.getWidth()/4-(leftArrowBtn.getWidth()/2)), ((Gdx.graphics.getHeight()/2)-(leftArrowBtn.getHeight()/2)));
+		leftArrowBtn.setPosition(((110*scaleX)-(leftArrowBtn.getWidth()/2)), ((Gdx.graphics.getHeight()/2)-(leftArrowBtn.getHeight()/2)));
 		leftArrowBtn.setVisible(false);
 		leftArrowBtn.addListener(listener);
 		
@@ -96,7 +95,6 @@ public class MenuScreen implements Screen{
 	  				  new TextureRegionDrawable((AssetHandler.manager.get(AssetHandler.atlasButtons).findRegion("oneBtnPressed"))),
 	  				  new TextureRegionDrawable((AssetHandler.manager.get(AssetHandler.atlasButtons).findRegion("oneBtn"))));
 		oneBtn = new Button(oneBtnStyle);
-		oneBtn.setPosition((Gdx.graphics.getWidth()/2-(oneBtn.getWidth()/2)), ((Gdx.graphics.getHeight()/2)-(oneBtn.getHeight()/2)));
 		oneBtn.setVisible(false);
 		oneBtn.addListener(listener);
 		
@@ -104,7 +102,6 @@ public class MenuScreen implements Screen{
 			  				  		  new TextureRegionDrawable((AssetHandler.manager.get(AssetHandler.atlasButtons).findRegion("twoBtnPressed"))),
 			  				  		  new TextureRegionDrawable((AssetHandler.manager.get(AssetHandler.atlasButtons).findRegion("twoBtn"))));
 		twoBtn = new Button(twoBtnStyle);
-		twoBtn.setPosition((Gdx.graphics.getWidth()/2-(twoBtn.getWidth()/2)), ((Gdx.graphics.getHeight()/2)-(twoBtn.getHeight()/2)));
 		twoBtn.setVisible(false);
 		twoBtn.addListener(listener);
 		
@@ -159,11 +156,18 @@ public class MenuScreen implements Screen{
 		stage.draw();
 	}
 	
+	private void updateScale() {
+		scaleX = view.getWorldWidth()/1920;
+		scaleY = view.getWorldHeight()/1080;
+	}
+	
 	@Override
 	public void render(float delta) {
 		//clears the screen
 		Gdx.gl.glClearColor(1,1,1,1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		//updates scale values
+		updateScale();
 		//updates everything on menu
 		updateMenu(delta);
 	}
