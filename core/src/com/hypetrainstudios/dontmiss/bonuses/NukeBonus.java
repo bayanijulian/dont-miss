@@ -1,15 +1,13 @@
 package com.hypetrainstudios.dontmiss.bonuses;
 
 import com.hypetrainstudios.dontmiss.Creator;
+import com.hypetrainstudios.dontmiss.handlers.BonusHandler;
 
 
 
-public class NukeBonus extends BonusEffect{
+public class NukeBonus extends BaseBonus{
 
-	public NukeBonus() {
-		timeToLast = 5f;
-	}
-
+	
 	@Override
 	public void enable() {
 		for(int i = 0; i<Creator.enemies.size();i++){
@@ -19,11 +17,12 @@ public class NukeBonus extends BonusEffect{
 
 	@Override
 	public void disable() {
+		BonusHandler.activeBonus = 0;
 	}
 
 	@Override
-	public boolean update() {
-		return true;
+	public boolean update(float delta) {
+		return false;
 	}
 
 }

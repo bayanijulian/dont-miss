@@ -19,7 +19,7 @@ public class Bonus extends Entity{
 	private float yTarget;
 	private float tempDistance;
 	private static final float amountToMove = 300f;
-	private static int bonusType;
+	private int bonusType;
 	public Bonus(Sprite spr, int bonusType) {
 		super(spr);
 		timeActive = 10f;
@@ -38,6 +38,8 @@ public class Bonus extends Entity{
 		spr.setPosition(x, y);
 		spr.setSize(64, 64);
 		this.changeBounds();
+		
+		this.bonusType = bonusType;
 	}
 	
 	@Override
@@ -64,7 +66,7 @@ public class Bonus extends Entity{
 		timeToCompleteCounter = 0;
 		x=spr.getX();
 		y=spr.getY();
-		System.out.println("New Coords");
+		
 		getNewCoords();
 	}
 	private void getNewCoords(){
@@ -77,6 +79,6 @@ public class Bonus extends Entity{
 			tempDistance = MathUtils.round(tempDistance);
 		}
 		tempDistance = 0;
-		System.out.println("X Target:" + xTarget + "\tY Target: " + yTarget);
+		
 	}
 }

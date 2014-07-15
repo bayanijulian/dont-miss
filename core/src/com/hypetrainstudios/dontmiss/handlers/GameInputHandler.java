@@ -64,6 +64,7 @@ public class GameInputHandler implements InputProcessor{
 	private void log(){
 		System.out.println("Fire Rate:\t" + Creator.fireRate);
 		System.out.println("Number Of Projectiles Left\t" + Creator.totalProjectiles);
+		System.out.println("active bonus is" + BonusHandler.activeBonus);
 	}
 	/* Debugging Comments */
 

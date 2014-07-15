@@ -1,10 +1,7 @@
 package com.hypetrainstudios.dontmiss.bonuses;
 
-public class LandMineBonus extends BonusEffect{
-	public LandMineBonus(){
-		timeToLast = 5f;
-	}
-
+public class LandMineBonus extends BaseBonus{
+	
 	@Override
 	public void enable() {
 	}
@@ -14,7 +11,7 @@ public class LandMineBonus extends BonusEffect{
 	}
 
 	@Override
-	public boolean update() {
+	public boolean update(float delta) {
 		return true;
 	}
 }

@@ -2,12 +2,11 @@ package com.hypetrainstudios.dontmiss.bonuses;
 
 import com.hypetrainstudios.dontmiss.Creator;
 
-public class SlowEnemyBonus extends BonusEffect{
+public class SlowEnemyBonus extends BaseBonus{
 	private static float tempSpeed = 0;
-	private float slowSpeed = .001f;
-	public SlowEnemyBonus() {
-		timeToLast = 5f;
-	}
+	private float slowSpeed = .01f;
+	private float timeCounter;
+	private float timeToLast;
 
 	@Override
 	public void enable() {
@@ -16,6 +15,8 @@ public class SlowEnemyBonus extends BonusEffect{
 		for(int i = 0; i<Creator.enemies.size();i++){
 			Creator.enemies.get(i).setSpeed(slowSpeed);
 		}
+		timeCounter = 0;
+		timeToLast = 5;
 	}
 
 	@Override
@@ -27,8 +28,13 @@ public class SlowEnemyBonus extends BonusEffect{
 	}
 
 	@Override
-	public boolean update() {
-		return true;
+	public boolean update(float delta) {
+		
+		timeCounter += delta;
+		if(timeCounter>=timeToLast)
+			return false;
+		else
+			return true;
 	}
 
 }

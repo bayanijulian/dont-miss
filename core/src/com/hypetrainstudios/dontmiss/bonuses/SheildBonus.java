@@ -2,12 +2,9 @@ package com.hypetrainstudios.dontmiss.bonuses;
 
 
 
-public class SheildBonus extends BonusEffect{
+public class SheildBonus extends BaseBonus{
 
-	public SheildBonus() {
-		timeToLast = 5f;
-	}
-
+	
 	@Override
 	public void enable() {
 	}
@@ -17,7 +14,7 @@ public class SheildBonus extends BonusEffect{
 	}
 
 	@Override
-	public boolean update() {
+	public boolean update(float delta) {
 		return true;
 	}
 

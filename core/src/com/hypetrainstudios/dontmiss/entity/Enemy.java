@@ -77,4 +77,12 @@ public class Enemy extends Entity{
 	public void disableDisappearing(){
 		disappearing = false;
 	}
+	
+	
+	public void collisionWithProjectile(){
+		
+	}
+	public void collisionWithTurret(){
+		
+	}
 }

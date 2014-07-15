@@ -6,7 +6,7 @@ import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.MathUtils;
 import com.hypetrainstudios.dontmiss.Creator;
 import com.hypetrainstudios.dontmiss.challenges.Challenge;
-import com.hypetrainstudios.dontmiss.handlers.BonusHandler;
+
 
 public class Projectile extends Entity{
 	
@@ -15,7 +15,17 @@ public class Projectile extends Entity{
 	
 	private static Circle circleExplosion = new Circle(-1000,-1000,312);
 	private boolean collisionWithEnemy;
-	public Projectile(Sprite spr,float projectileSpeed) {
+	/* Assassin Bonus Variables */
+	private float assassinTimer;
+	private float percent;
+	private static float timeToComplete = .1f;
+	private float timeToCompleteCounter;
+	private float xTarget;
+	private float yTarget;
+	private float tempDistance;
+	private static float amountToMove = 400f;
+	private int activeBonus;
+	public Projectile(Sprite spr,float projectileSpeed,int activeBonus) {
 		super(spr);
 		
 		this.x = (Gdx.graphics.getWidth()/2) - (spr.getWidth()/2);
@@ -28,9 +38,14 @@ public class Projectile extends Entity{
 		this.run = MathUtils.cosDeg(Creator.midTurret.getRotationCounter()) * projectileSpeed;
 		this.rise = MathUtils.sinDeg(Creator.midTurret.getRotationCounter()) * projectileSpeed;
 		collisionWithEnemy = false;
+		this.activeBonus = activeBonus;
+		if(activeBonus == 2) {
+			spr.setSize(128, 128);
+			changeBounds();
+		}
 		
 	}
-	public Projectile(Sprite spr,float projectileSpeed,float degrees) {
+	public Projectile(Sprite spr,float projectileSpeed,float degrees,int activeBonus) {
 		super(spr);
 		
 		this.x = (Gdx.graphics.getWidth()/2) - (spr.getWidth()/2);
@@ -44,27 +59,33 @@ public class Projectile extends Entity{
 		this.rise = MathUtils.sinDeg(degrees) * projectileSpeed;
 		collisionWithEnemy = false;
 		
+		this.activeBonus = activeBonus;
+		
 	}
 	@Override
 	public void update(float delta) {
 		//no need for delta because in run and rise the degrees are multiplied by delta, I may be wrong
-		if(!collisionWithEnemy){
+		
+		
+		this.updateBounds();
+		
+		if(activeBonus==1){
+			assassinUpdate(delta);
+		}
+		else{
 			spr.translate(run, rise);
-			this.updateBounds();
 		}
 		
+		//if the projectile is off the screen remove it, and it also counts as a miss
 		if(spr.getX()<(0-spr.getHeight())||spr.getY()<(0-spr.getHeight())||spr.getX()>(Gdx.graphics.getWidth()+spr.getHeight())||spr.getY()>(Gdx.graphics.getHeight()+spr.getHeight()))
 		{
 			active = false;
 			Challenge.currentCode = Challenge.codeMiss;
 		}
-		if(collisionWithEnemy){	
-			if(BonusHandler.activeBonus==1){	collateral();	}
-			else if(BonusHandler.activeBonus==2){ explode(); }
-			else	active = false;
-		}
+		
 	}
 	
+	/* Explosive Bonus */
 	private void explode(){
 		circleExplosion.setPosition(spr.getX(), spr.getY());
 		for(int i = 0; i<Creator.enemies.size();i++){
@@ -74,11 +95,63 @@ public class Projectile extends Entity{
 		}
 		this.active = false;
 	}
-	private void collateral(){
-		collisionWithEnemy = false;
+	/* Assassin Bonus */
+	private void assassinUpdate(float delta){
+		assassinTimer += delta;
+		
+		timeToCompleteCounter += delta;
+		percent = timeToCompleteCounter/timeToComplete;
+		
+		if(assassinTimer>=10)
+			active = false;
+		if(timeToCompleteCounter<timeToComplete)	
+			spr.setPosition(x + (xTarget - x) * percent, y + (yTarget - y) * percent);
+		if(timeToCompleteCounter>=timeToComplete)
+			changeLocation();
 	}
+	public void changeLocation(){
+		timeToCompleteCounter = 0;
+		x=spr.getX();
+		y=spr.getY();
+		
+		getNewCoords();
+	}
+	private void getNewCoords(){
+		while(tempDistance!=amountToMove){
+			xTarget = MathUtils.random(Gdx.graphics.getWidth());
+			yTarget = MathUtils.random(Gdx.graphics.getHeight());
+			tempDistance = (float) Math.sqrt(	Math.pow(  (xTarget-x)   , 2) +
+										Math.pow(  (yTarget-y)   , 2)
+									);
+			tempDistance = MathUtils.round(tempDistance);
+		}
+		tempDistance = 0;
+		
+	}
+	
+	private void assassinCollision(){
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	public void setCollisionWithEnemy(boolean collisionWithEnemy){
 		this.collisionWithEnemy = collisionWithEnemy;
 	}
 	
+	
+	
+	public void collisionWithEnemy(){
+		if(activeBonus==1)	assassinCollision();	
+		else if(activeBonus==3) explode(); 
+		else	active = false;
+	}
+	public void collisionWithBonus(){
+		
+	}
 }

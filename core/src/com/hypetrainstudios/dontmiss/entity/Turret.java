@@ -53,5 +53,7 @@ public class Turret extends Entity{
 		this.rotationCounter = rotationCounter;
 	}
 	
-	
+	public void collisionWithEnemy(){
+		
+	}
 }

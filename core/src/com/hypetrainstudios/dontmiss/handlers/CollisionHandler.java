@@ -33,18 +33,18 @@ public class CollisionHandler {
 		//Removes both the projectile and enemy from the screen
 		Creator.enemies.get(k).setActive(false);
 		//Creator.projectiles.get(x).setActive(false);
-		Creator.projectiles.get(x).setCollisionWithEnemy(true);
+		Creator.projectiles.get(x).collisionWithEnemy();
 		//sends a signal to the challenge class saying there has been a collision (essentially)
 		Challenge.currentCode = Challenge.codeCollision;
 		
-		ScoreHandler.score +=1;
+		ScoreHandler.score +=10;
 		System.out.println(ScoreHandler.score);
 		
 	}
 	
 	private static void bonusCollision(int k, int x){
-		Creator.bonuses.get(k).setActive(false);
-		Creator.projectiles.get(x).setCollisionWithEnemy(true);
+		Creator.bonuses.get(k).collisionWithProjectile();
+		
 	}
 	
 	private static void playerCollision(){

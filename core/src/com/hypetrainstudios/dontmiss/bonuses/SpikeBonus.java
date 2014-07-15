@@ -1,10 +1,8 @@
 package com.hypetrainstudios.dontmiss.bonuses;
 
-public class SpikeBonus extends BonusEffect{
+public class SpikeBonus extends BaseBonus{
 	
-	public SpikeBonus(){
-		timeToLast = 5f;
-	}
+	
 
 	@Override
 	public void enable() {
@@ -15,7 +13,7 @@ public class SpikeBonus extends BonusEffect{
 	}
 
 	@Override
-	public boolean update() {
+	public boolean update(float delta) {
 		return true;
 	}
 }

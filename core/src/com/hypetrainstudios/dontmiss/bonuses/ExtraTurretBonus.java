@@ -1,6 +1,6 @@
 package com.hypetrainstudios.dontmiss.bonuses;
 
-public class ExtraTurretBonus extends BonusEffect{
+public class ExtraTurretBonus extends BaseBonus{
 
 	@Override
 	public void enable() {
@@ -11,7 +11,7 @@ public class ExtraTurretBonus extends BonusEffect{
 	}
 
 	@Override
-	public boolean update() {
+	public boolean update(float delta) {
 		return true;
 	}
 
