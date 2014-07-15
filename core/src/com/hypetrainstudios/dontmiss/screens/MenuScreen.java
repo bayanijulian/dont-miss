@@ -30,7 +30,7 @@ public class MenuScreen implements Screen{
 	private static Image mainMenuBG, playMenuBG;
 	
 	private static boolean mainMenu;
-	private float checkpointNum, showBtnTargetX, hideBtnTargetX, scaleX, scaleY;
+	private float checkpointNum, showBtnTargetX, hideBtnTargetX,  scaleX, scaleY;
 	
 	private Game game;
 	
@@ -135,9 +135,9 @@ public class MenuScreen implements Screen{
 
 	private void createBackgrounds() {
 		mainMenuBG = new Image(AssetHandler.manager.get(AssetHandler.mainMenuBG));
-		mainMenuBG.setScale(scaleX, scaleY);
+		//mainMenuBG.setScale(scaleX, scaleY);
 		playMenuBG = new Image(AssetHandler.manager.get(AssetHandler.playMenuBG));
-		playMenuBG.setScale(scaleX, scaleY);
+		//playMenuBG.setScale(scaleX, scaleY);
 		playMenuBG.setVisible(false);
 	}
 	
