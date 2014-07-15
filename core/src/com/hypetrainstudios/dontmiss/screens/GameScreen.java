@@ -111,8 +111,8 @@ public class GameScreen implements Screen {
 			Creator.enemies.get(i).getSprite().draw(batch);
 		for(int i =0; i < Creator.bonuses.size(); i++)
 			Creator.bonuses.get(i).getSprite().draw(batch);
-//		for(int i = 0; i< Creator.misc.size(); i ++)
-//			Creator.misc.get(i).getSprite().draw(batch);
+		for(int i = 0; i< Creator.misc.size(); i ++)
+			Creator.misc.get(i).getSprite().draw(batch);
 		
 		Creator.midTurret.getSprite().draw(batch);
 		

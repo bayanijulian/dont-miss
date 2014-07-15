@@ -59,7 +59,10 @@ public class Bonus extends Entity{
 	
 	public void collisionWithProjectile(){
 		this.active = false;
+		BonusHandler.lastKilledX = spr.getX();
+		BonusHandler.lastKilledY = spr.getY();
 		BonusHandler.setActiveBonus(bonusType);
+		
 	}
 	
 	private void changeLocation(){

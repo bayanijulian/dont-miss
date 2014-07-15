@@ -23,7 +23,8 @@ public class AssetHandler {
 	public static final AssetDescriptor<Texture> imgEnemyBlue = new AssetDescriptor<Texture>("enemyBlue.png", Texture.class);
 	public static final AssetDescriptor<Texture> imgEnemyYellow = new AssetDescriptor<Texture>("enemyYellow.png", Texture.class);
 	
-	public static final AssetDescriptor<Texture> imgBonus = new AssetDescriptor<Texture>("bonus/bonusCollateral.png", Texture.class);
+	public static final AssetDescriptor<Texture> imgMiscSpikes = new AssetDescriptor<Texture>("bonus/miscSpikes.png", Texture.class);
+	public static final AssetDescriptor<Texture> imgMiscLandMine = new AssetDescriptor<Texture>("bonus/miscLandmine.png", Texture.class);
 	
 	public static final AssetDescriptor<Texture> imgTintBG = new AssetDescriptor<Texture>("tintBG.png", Texture.class);
 	
@@ -53,7 +54,8 @@ public class AssetHandler {
 		manager.load(imgEnemyBlue);
 		manager.load(imgEnemyYellow);
 		
-		manager.load(imgBonus);
+		manager.load(imgMiscSpikes);
+		manager.load(imgMiscLandMine);
 		
 		manager.load(imgTintBG);
 		
@@ -82,7 +84,8 @@ public class AssetHandler {
 		manager.get(imgEnemyBlue).setFilter(TextureFilter.Linear,TextureFilter.Linear);
 		manager.get(imgEnemyYellow).setFilter(TextureFilter.Linear,TextureFilter.Linear);
 		
-		manager.get(imgBonus).setFilter(TextureFilter.Linear,TextureFilter.Linear);
+		manager.get(imgMiscSpikes).setFilter(TextureFilter.Linear,TextureFilter.Linear);
+		manager.get(imgMiscLandMine).setFilter(TextureFilter.Linear,TextureFilter.Linear);
 		
 		manager.get(imgTintBG).setFilter(TextureFilter.Linear,TextureFilter.Linear);
 		

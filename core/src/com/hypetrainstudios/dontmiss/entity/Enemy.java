@@ -53,7 +53,9 @@ public class Enemy extends Entity{
 			
 		}
 	}
-	
+	public void collisionWithMisc(){
+		this.active = false;
+	}
 	@Override
 	public void update(float delta) {
 		//needs delta, because delta acts as the T in a parametric funtion

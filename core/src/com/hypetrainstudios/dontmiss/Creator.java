@@ -55,7 +55,7 @@ public class Creator {
 	public static ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
 	public static ArrayList<Misc> misc = new ArrayList<Misc>();
 	public static ArrayList<Bonus> bonuses = new ArrayList<Bonus>();
-	public static Turret midTurret = new Turret(new Sprite(AssetHandler.manager.get(AssetHandler.imgTurretShield)),turretRotationSpeed);
+	public static Turret midTurret = new Turret(new Sprite(AssetHandler.manager.get(AssetHandler.imgTurretLayout)),turretRotationSpeed);
 	
 	
 	
@@ -65,6 +65,12 @@ public class Creator {
 		reloadingProjectileMisc.createLivingAnimation(30, AssetHandler.manager.get(AssetHandler.atlasLoadingProjBlue).findRegions("loadingProjBlue"), PlayMode.NORMAL,true);
 		
 		misc.add(reloadingProjectileMisc);
+	}
+	public static void createLandmine(){
+		misc.add(new Misc(new Sprite(AssetHandler.manager.get(AssetHandler.imgMiscLandMine)),"landmine"));
+	}
+	public static void createSpikes(){
+		misc.add(new Misc(new Sprite(AssetHandler.manager.get(AssetHandler.imgMiscSpikes)),"spikes"));
 	}
 	public static void createProjectile(){
 		if(fireRateCounter >= fireRate){

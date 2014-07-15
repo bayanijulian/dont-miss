@@ -7,13 +7,15 @@ public class BonusHandler {
 	//chances are out of 100, so they all need to add up to 100
 
 	//private static int [] percentages = {11,16,7,13,9,6,5,16,11,6};
-	private static int [] percentages = {0,0,0,0,0,0,0,0,100,0};
+	private static int [] percentages = {0,0,0,0,0,0,0,0,0,100};
 	
 	private static int [] bonusChance = new int[100];
 	public static int activeBonus = 0;
 	private static int potentialBonus = 0;
 	private static float timeToSpawnBonus = 5;
 	private static float timeToSpawnBonusCounter = 0;
+	public static float lastKilledX;
+	public static float lastKilledY;
 	public static void createChances(){
 		int counter = 0;
 		for(int i = 0; i<percentages.length;i++){

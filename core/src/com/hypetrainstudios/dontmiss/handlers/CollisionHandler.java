@@ -26,7 +26,11 @@ public class CollisionHandler {
 			for (int k=0; k<Creator.bonuses.size();k++)
 				if( Creator.projectiles.get(x).getCircle().overlaps( Creator.bonuses.get(k).getCircle() ) )
 					bonusCollision(k,x);
-		
+		//Checks collision between misc(landmines or spikes) and enemies
+		for(int  x= 0; x<Creator.enemies.size();x++)
+			for (int k=0; k<Creator.misc.size();k++)
+			if(Creator.enemies.get(x).getCircle().overlaps(Creator.misc.get(k).getCircle()))
+				miscCollision(x,k);
 	}
 	
 	private static void enemyCollision(int k, int x){
@@ -36,12 +40,14 @@ public class CollisionHandler {
 		Creator.projectiles.get(x).collisionWithEnemy();
 		//sends a signal to the challenge class saying there has been a collision (essentially)
 		Challenge.currentCode = Challenge.codeCollision;
-		
 		ScoreHandler.score +=10;
 		System.out.println(ScoreHandler.score);
 		
 	}
-	
+	private static void miscCollision(int x, int k){
+		Creator.enemies.get(x).collisionWithMisc();
+		Creator.misc.get(k).collisionWithEnemy();
+	}
 	private static void bonusCollision(int k, int x){
 		Creator.bonuses.get(k).collisionWithProjectile();
 		
