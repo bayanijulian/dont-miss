@@ -7,7 +7,7 @@ public class BonusHandler {
 	//chances are out of 100, so they all need to add up to 100
 
 	//private static int [] percentages = {11,16,7,13,9,6,5,16,11,6};
-	private static int [] percentages = {0,0,0,0,0,0,0,0,0,100};
+	private static int [] percentages = {10,10,10,10,10,10,10,10,10,10};
 	
 	private static int [] bonusChance = new int[100];
 	public static int activeBonus = 0;
@@ -24,7 +24,6 @@ public class BonusHandler {
 				counter++;
 			}
 		}
-	
 	}
 	
 	public static void setActiveBonus(int bonusType){

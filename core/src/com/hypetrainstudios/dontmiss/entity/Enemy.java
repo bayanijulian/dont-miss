@@ -45,16 +45,10 @@ public class Enemy extends Entity{
 	}
 
 	
-	private void checkCollision(){
-		if(collisionWithTurret){
-			
-		}
-		else if(collisionWithProjectile){
-			
-		}
-	}
+	
 	public void collisionWithMisc(){
 		this.active = false;
+		System.out.println("killed");
 	}
 	@Override
 	public void update(float delta) {
@@ -70,7 +64,7 @@ public class Enemy extends Entity{
 		}
 		else
 			alpha = 1;
-		checkCollision();
+		
 	}
 	public void enableDisappearing(){
 		disappearing = true;
@@ -85,6 +79,6 @@ public class Enemy extends Entity{
 		
 	}
 	public void collisionWithTurret(){
-		
+		this.active = false;
 	}
 }

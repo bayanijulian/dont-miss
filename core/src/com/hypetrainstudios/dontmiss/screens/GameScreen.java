@@ -116,6 +116,8 @@ public class GameScreen implements Screen {
 		
 		Creator.midTurret.getSprite().draw(batch);
 		
+		
+		
 		batch.end();
 	}	
 }

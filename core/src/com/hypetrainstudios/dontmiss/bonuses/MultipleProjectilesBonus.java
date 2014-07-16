@@ -9,7 +9,7 @@ public class MultipleProjectilesBonus extends BaseBonus{
 
 	
 	private int lastNumOfProjectiles;
-	private int amountToShoot = 1;
+	private int amountToShoot = 5;
 	
 	@Override
 	public void enable() {

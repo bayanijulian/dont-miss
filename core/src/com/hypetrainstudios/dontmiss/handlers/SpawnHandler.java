@@ -76,6 +76,7 @@ public class SpawnHandler {
 	}
 
 	public static void update(float time){
+		System.out.println("spawn" + spawn);
 		if(spawn){
 			if(time<=15)	spawnFor015();
 			else if (time<=30) spawnFor030();

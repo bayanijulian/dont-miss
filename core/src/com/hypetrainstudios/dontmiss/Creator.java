@@ -52,10 +52,11 @@ public class Creator {
 	public static ArrayList<BaseBonus> bonusTypes = new ArrayList<BaseBonus>();
 	public static ArrayList<EnemyType> enemyTypes = new ArrayList<EnemyType>();
 	public static ArrayList<Enemy> enemies = new ArrayList<Enemy>();
+	public static ArrayList<Turret> turrets = new ArrayList<Turret>();
 	public static ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
 	public static ArrayList<Misc> misc = new ArrayList<Misc>();
 	public static ArrayList<Bonus> bonuses = new ArrayList<Bonus>();
-	public static Turret midTurret = new Turret(new Sprite(AssetHandler.manager.get(AssetHandler.imgTurretLayout)),turretRotationSpeed);
+	public static Turret midTurret = new Turret(new Sprite(AssetHandler.manager.get(AssetHandler.imgTurret)),turretRotationSpeed);
 	
 	
 	
@@ -65,6 +66,11 @@ public class Creator {
 		reloadingProjectileMisc.createLivingAnimation(30, AssetHandler.manager.get(AssetHandler.atlasLoadingProjBlue).findRegions("loadingProjBlue"), PlayMode.NORMAL,true);
 		
 		misc.add(reloadingProjectileMisc);
+	}
+	public static void createShield(){
+		Misc shield = new Misc(new Sprite(AssetHandler.manager.get(AssetHandler.imgShield)),"shield");
+		shield.setCenter(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
+		misc.add(shield);
 	}
 	public static void createLandmine(){
 		misc.add(new Misc(new Sprite(AssetHandler.manager.get(AssetHandler.imgMiscLandMine)),"landmine"));
@@ -114,7 +120,12 @@ public class Creator {
 		bonusTypes.add(new SlowEnemyBonus());
 		bonusTypes.add(new SpikeBonus());
 		
+		
+		//turrets.add(new Turret(new Sprite(AssetHandler.manager.get(AssetHandler.imgTurret)),turretRotationSpeed));
+		
+		
 		createMiscProjectileLoading();
+		createShield();
 		InGameUIHandler.createUI();
 		BonusHandler.createChances();
 	}
@@ -145,9 +156,10 @@ public class Creator {
 		midTurret.getSprite().setRotation(270);
 		midTurret.setRotationCounter(0);
 		midTurret.getSprite().setAlpha(1);
+		midTurret.enableSheild();
 		
 		createMiscProjectileLoading();
-		
+		createShield();
 		ChallengeHandler.challengeCounter = 0;
 	}
 	

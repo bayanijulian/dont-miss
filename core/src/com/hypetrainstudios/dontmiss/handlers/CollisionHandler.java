@@ -19,7 +19,7 @@ public class CollisionHandler {
 		//Checks collision between projectiles and the player
 		for(int  x= 0; x<Creator.enemies.size();x++)
 			if(Creator.enemies.get(x).getCircle().overlaps(Creator.midTurret.getCircle()))
-				playerCollision();
+				playerCollision(x);
 		
 		//Checks collision between projectile and bonuses
 		for (int x=0; x<Creator.projectiles.size();x++)
@@ -29,8 +29,8 @@ public class CollisionHandler {
 		//Checks collision between misc(landmines or spikes) and enemies
 		for(int  x= 0; x<Creator.enemies.size();x++)
 			for (int k=0; k<Creator.misc.size();k++)
-			if(Creator.enemies.get(x).getCircle().overlaps(Creator.misc.get(k).getCircle()))
-				miscCollision(x,k);
+				if(Creator.enemies.get(x).getCircle().overlaps(Creator.misc.get(k).getCircle())&&(Creator.misc.get(k).getName().equals("landmine")||Creator.misc.get(k).getName().equals("spikes")))
+					miscCollision(x,k);
 	}
 	
 	private static void enemyCollision(int k, int x){
@@ -53,8 +53,9 @@ public class CollisionHandler {
 		
 	}
 	
-	private static void playerCollision(){
+	private static void playerCollision(int x){
 		//puts the game in a game over state
-		Creator.gameOver = true;
+		Creator.midTurret.collisionWithEnemy();
+		Creator.enemies.get(x).collisionWithTurret();
 	}
 }

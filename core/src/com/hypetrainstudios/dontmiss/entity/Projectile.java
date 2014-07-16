@@ -14,7 +14,7 @@ public class Projectile extends Entity{
 	private float rise;
 	
 	private static Circle circleExplosion = new Circle(-1000,-1000,312);
-	private boolean collisionWithEnemy;
+	
 	/* Assassin Bonus Variables */
 	private float assassinTimer;
 	private float percent;
@@ -37,7 +37,7 @@ public class Projectile extends Entity{
 		
 		this.run = MathUtils.cosDeg(Creator.midTurret.getRotationCounter()) * projectileSpeed;
 		this.rise = MathUtils.sinDeg(Creator.midTurret.getRotationCounter()) * projectileSpeed;
-		collisionWithEnemy = false;
+		
 		this.activeBonus = activeBonus;
 		if(activeBonus == 2) {
 			spr.setSize(128, 128);
@@ -57,7 +57,7 @@ public class Projectile extends Entity{
 		
 		this.run = MathUtils.cosDeg(degrees) * projectileSpeed;
 		this.rise = MathUtils.sinDeg(degrees) * projectileSpeed;
-		collisionWithEnemy = false;
+		
 		
 		this.activeBonus = activeBonus;
 		
@@ -132,19 +132,7 @@ public class Projectile extends Entity{
 	private void assassinCollision(){
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	public void setCollisionWithEnemy(boolean collisionWithEnemy){
-		this.collisionWithEnemy = collisionWithEnemy;
-	}
-	
-	
+
 	
 	public void collisionWithEnemy(){
 		if(activeBonus==1)	assassinCollision();	

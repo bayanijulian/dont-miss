@@ -1,16 +1,17 @@
 package com.hypetrainstudios.dontmiss.bonuses;
 
 import com.hypetrainstudios.dontmiss.Creator;
+import com.hypetrainstudios.dontmiss.challenges.IncreasingDifficultyChallenge;
 
 public class SlowEnemyBonus extends BaseBonus{
-	private static float tempSpeed = 0;
+
 	private float slowSpeed = .01f;
 	private float timeCounter;
 	private float timeToLast;
 
 	@Override
 	public void enable() {
-		tempSpeed = Creator.enemySpeed;
+		
 		Creator.enemySpeed = slowSpeed;
 		for(int i = 0; i<Creator.enemies.size();i++){
 			Creator.enemies.get(i).setSpeed(slowSpeed);
@@ -21,9 +22,9 @@ public class SlowEnemyBonus extends BaseBonus{
 
 	@Override
 	public void disable() {
-		Creator.enemySpeed = tempSpeed;
+		Creator.enemySpeed = IncreasingDifficultyChallenge.speed;
 		for(int i = 0; i<Creator.enemies.size();i++){
-			Creator.enemies.get(i).setSpeed(tempSpeed);
+			Creator.enemies.get(i).setSpeed(IncreasingDifficultyChallenge.speed);
 		}
 	}
 

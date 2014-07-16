@@ -9,21 +9,22 @@ import com.hypetrainstudios.dontmiss.handlers.BonusHandler;
 public class Misc extends Entity{
 	private String name;
 	private int spikeKilled;
-	private static Circle circleExplosion;
-	private static float timeCounter;
+	private Circle circleExplosion;
+	private float timeCounter;
 	public Misc(Sprite spr,String name) {
 		super(spr);
 		this.name = name;
 		if(name.equals("spikes")){
 			spr.setPosition(BonusHandler.lastKilledX,BonusHandler.lastKilledY);
-			this.updateBounds();
+			
 			spikeKilled = 0;
 		}
 		if(name.equals("landmine")){
 			spr.setPosition(BonusHandler.lastKilledX,BonusHandler.lastKilledY);
-			this.updateBounds();
+			
 			circleExplosion = new Circle(spr.getX(),spr.getY(),spr.getHeight()/2);
 		}
+		this.updateBounds();
 	}
 	
 	public void collisionWithEnemy(){

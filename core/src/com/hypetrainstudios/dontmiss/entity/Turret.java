@@ -2,6 +2,7 @@ package com.hypetrainstudios.dontmiss.entity;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.hypetrainstudios.dontmiss.Creator;
 
 
 public class Turret extends Entity{
@@ -15,26 +16,35 @@ public class Turret extends Entity{
 		x = Gdx.graphics.getWidth()/2;
 		y = Gdx.graphics.getHeight()/2;
 		spr.setCenter(x, y);
-		//spr.setOrigin(128, 78);
 		spr.setRotation(-90);
 		this.rotationSpeed = rotationSpeed;
 		rotationCounter = 0;
-		sheild = false;
+		sheild = true;
 		this.updateBounds();
 		
 	}
 	
 	public void enableSheild(){
 		this.sheild = true;
+		collisionBounds.setRadius(128);
+		this.updateBounds();
+		for(int i = 0; i<Creator.misc.size(); i ++)
+			if(Creator.misc.get(i).getName().equals("shield"))
+				Creator.misc.get(i).getSprite().setAlpha(1);	
 	}
 	public void disableSheild(){
 		this.sheild = false;
+		collisionBounds.setRadius(64);
+		this.updateBounds();
+		for(int i = 0; i<Creator.misc.size(); i ++)
+			if(Creator.misc.get(i).getName().equals("shield"))
+				Creator.misc.get(i).getSprite().setAlpha(0);
 	}
 	@Override
 	public void update(float delta) {
 		rotationCounter += rotationSpeed*delta;
 		spr.rotate(rotationSpeed*delta);
-			
+		
 	}
 
 	public float getRotationSpeed() {
@@ -54,6 +64,9 @@ public class Turret extends Entity{
 	}
 	
 	public void collisionWithEnemy(){
-		
+		if(sheild)
+			disableSheild();
+		else
+			Creator.gameOver = true;
 	}
 }
