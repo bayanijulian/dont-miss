@@ -2,6 +2,7 @@ package com.hypetrainstudios.dontmiss.handlers;
 
 import com.hypetrainstudios.dontmiss.Creator;
 import com.hypetrainstudios.dontmiss.challenges.Challenge;
+import com.hypetrainstudios.dontmiss.challenges.ColorMatchChallenge;
 
 /* Author:	Bayani Julian
  * The class to handle collision 
@@ -35,9 +36,34 @@ public class CollisionHandler {
 	
 	private static void enemyCollision(int k, int x){
 		//Removes both the projectile and enemy from the screen
-		Creator.enemies.get(k).setActive(false);
-		//Creator.projectiles.get(x).setActive(false);
-		Creator.projectiles.get(x).collisionWithEnemy();
+		if(ColorMatchChallenge.colorEnabled){
+			if(
+					(Creator.enemies.get(k).getSprite().getTexture()==AssetHandler.manager.get(AssetHandler.imgEnemyBlue)
+					&&Creator.projectiles.get(x).getSprite().getTexture()==AssetHandler.manager.get(AssetHandler.imgProjectileBlue))
+					
+					||
+					
+					(Creator.enemies.get(k).getSprite().getTexture()==AssetHandler.manager.get(AssetHandler.imgEnemyRed)
+					&&Creator.projectiles.get(x).getSprite().getTexture()==AssetHandler.manager.get(AssetHandler.imgProjectileRed))
+					
+					||
+					
+					(Creator.enemies.get(k).getSprite().getTexture()==AssetHandler.manager.get(AssetHandler.imgEnemyYellow)
+					&&Creator.projectiles.get(x).getSprite().getTexture()==AssetHandler.manager.get(AssetHandler.imgProjectileYellow))
+					
+				)
+				{
+				Creator.enemies.get(k).collisionWithProjectile();
+				//Creator.projectiles.get(x).setActive(false);
+				Creator.projectiles.get(x).collisionWithEnemy();
+				}
+		}
+		else{
+			Creator.enemies.get(k).collisionWithProjectile();;
+			//Creator.projectiles.get(x).setActive(false);
+			Creator.projectiles.get(x).collisionWithEnemy();
+		}
+		
 		//sends a signal to the challenge class saying there has been a collision (essentially)
 		Challenge.currentCode = Challenge.codeCollision;
 		ScoreHandler.score +=10;

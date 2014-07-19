@@ -1,17 +1,13 @@
 package com.hypetrainstudios.dontmiss.entity;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.MathUtils;
-
-
-public class Enemy extends Entity{
-	private float run;
-	private float rise;
-	private boolean disappearing;
+public abstract class Enemy extends Entity{
+	protected float run;
+	protected float rise;
+	protected boolean disappearing;
 	private Sprite sprTarget;
-	private boolean collisionWithProjectile;
-	private boolean collisionWithTurret;
+	
 	public Enemy(Sprite spr, Sprite sprTarget, float enemySpeed,float degrees) {
 		super(spr);
 		this.sprTarget = sprTarget;
@@ -26,45 +22,10 @@ public class Enemy extends Entity{
 		run=((x-((sprTarget.getX()+(sprTarget.getWidth()/2))-(spr.getWidth()/2)))*enemySpeed);
 		rise=((y-((sprTarget.getY()+(sprTarget.getHeight()/2))-(spr.getHeight()/2)))*enemySpeed);
 		disappearing = false;
-		collisionWithProjectile = false;
-		collisionWithTurret = false;
 	}
-
 	public void setSpeed(float speed){
 		run=((x-((sprTarget.getX()+(sprTarget.getWidth()/2))-(spr.getWidth()/2)))*speed);
 		rise=((y-((sprTarget.getY()+(sprTarget.getHeight()/2))-(spr.getHeight()/2)))*speed);
-	}
-	
-
-	public void setCollisionWithProjectile(boolean collisionWithProjectile) {
-		this.collisionWithProjectile = collisionWithProjectile;
-	}
-
-	public void setCollisionWithTurret(boolean collisionWithTurret) {
-		this.collisionWithTurret = collisionWithTurret;
-	}
-
-	
-	
-	public void collisionWithMisc(){
-		this.active = false;
-		System.out.println("killed");
-	}
-	@Override
-	public void update(float delta) {
-		//needs delta, because delta acts as the T in a parametric funtion
-		spr.translate(run*delta*-1, rise*delta*-1);
-		
-		spr.setAlpha(alpha);
-		this.updateBounds();
-		if(disappearing){
-			System.out.println(alpha);
-			alpha-=.75*delta;
-			alpha = (alpha<=0) ? 0: alpha;
-		}
-		else
-			alpha = 1;
-		
 	}
 	public void enableDisappearing(){
 		disappearing = true;
@@ -73,12 +34,8 @@ public class Enemy extends Entity{
 	public void disableDisappearing(){
 		disappearing = false;
 	}
-	
-	
-	public void collisionWithProjectile(){
-		
-	}
-	public void collisionWithTurret(){
-		this.active = false;
-	}
+	public abstract void update(float delta);
+	public abstract void collisionWithMisc();
+	public abstract void collisionWithProjectile();
+	public abstract void collisionWithTurret();
 }

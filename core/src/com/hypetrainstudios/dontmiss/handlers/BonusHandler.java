@@ -27,8 +27,9 @@ public class BonusHandler {
 	}
 	
 	public static void setActiveBonus(int bonusType){
-		
+		Creator.bonusTypes.get(activeBonus).disable();
 		Creator.bonusTypes.get(bonusType).enable();
+		
 		activeBonus = bonusType;
 	}
 	public static void update(float delta){

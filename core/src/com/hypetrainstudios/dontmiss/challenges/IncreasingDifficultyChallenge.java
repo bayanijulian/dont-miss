@@ -5,7 +5,7 @@ import com.hypetrainstudios.dontmiss.Creator;
 public class IncreasingDifficultyChallenge extends Challenge{
 
 	private static float time = 0;
-	public static float speed = Creator.enemySpeed;
+	public static float speed = .07f;
 	@Override
 	public void update(float delta) {
 		time+=delta;
@@ -15,7 +15,6 @@ public class IncreasingDifficultyChallenge extends Challenge{
 			if(Creator.enemySpeed<=.3){
 				speed+=.002f;
 				Creator.enemySpeed=speed;
-				
 			}
 				
 		}

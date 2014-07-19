@@ -24,6 +24,7 @@ public class AssetHandler {
 	public static final AssetDescriptor<Texture> imgEnemyRed = new AssetDescriptor<Texture>("enemyRed.png", Texture.class);
 	public static final AssetDescriptor<Texture> imgEnemyBlue = new AssetDescriptor<Texture>("enemyBlue.png", Texture.class);
 	public static final AssetDescriptor<Texture> imgEnemyYellow = new AssetDescriptor<Texture>("enemyYellow.png", Texture.class);
+	public static final AssetDescriptor<Texture> imgTank = new AssetDescriptor<Texture>("enemies/tank.png", Texture.class);
 	
 	public static final AssetDescriptor<Texture> imgMiscSpikes = new AssetDescriptor<Texture>("bonus/miscSpikes.png", Texture.class);
 	public static final AssetDescriptor<Texture> imgMiscLandMine = new AssetDescriptor<Texture>("bonus/miscLandmine.png", Texture.class);
@@ -31,7 +32,7 @@ public class AssetHandler {
 	public static final AssetDescriptor<Texture> imgTintBG = new AssetDescriptor<Texture>("tintBG.png", Texture.class);
 	
 	public static final AssetDescriptor<TextureAtlas> atlasButtons = new AssetDescriptor<TextureAtlas>("buttons/buttons.pack", TextureAtlas.class);
-	public static final AssetDescriptor<TextureAtlas> atlasLoadingProjBlue = new AssetDescriptor<TextureAtlas>("loadingProj/loadingProj.pack", TextureAtlas.class);
+	public static final AssetDescriptor<TextureAtlas> atlasReload = new AssetDescriptor<TextureAtlas>("reload/reload.pack", TextureAtlas.class);
 	public static final AssetDescriptor<TextureAtlas> atlasBonuses = new AssetDescriptor<TextureAtlas>("bonus/bonus.pack", TextureAtlas.class);
 	
 	public static final AssetDescriptor<BitmapFont> fontPlay = new AssetDescriptor<BitmapFont>("playFont/play.fnt", BitmapFont.class);
@@ -56,6 +57,7 @@ public class AssetHandler {
 		manager.load(imgEnemyRed);
 		manager.load(imgEnemyBlue);
 		manager.load(imgEnemyYellow);
+		manager.load(imgTank);
 		
 		manager.load(imgMiscSpikes);
 		manager.load(imgMiscLandMine);
@@ -63,7 +65,7 @@ public class AssetHandler {
 		manager.load(imgTintBG);
 		
 		manager.load(atlasButtons);
-		manager.load(atlasLoadingProjBlue);
+		manager.load(atlasReload);
 		manager.load(atlasBonuses);
 		
 		
@@ -87,6 +89,7 @@ public class AssetHandler {
 		manager.get(imgEnemyRed).setFilter(TextureFilter.Linear,TextureFilter.Linear);
 		manager.get(imgEnemyBlue).setFilter(TextureFilter.Linear,TextureFilter.Linear);
 		manager.get(imgEnemyYellow).setFilter(TextureFilter.Linear,TextureFilter.Linear);
+		manager.get(imgTank).setFilter(TextureFilter.Linear,TextureFilter.Linear);
 		
 		manager.get(imgMiscSpikes).setFilter(TextureFilter.Linear,TextureFilter.Linear);
 		manager.get(imgMiscLandMine).setFilter(TextureFilter.Linear,TextureFilter.Linear);

@@ -15,7 +15,7 @@ public class AnimationHandler {
 			Creator.bonuses.get(i).updateAnimations(delta);
 		
 		for(int i = 0; i < Creator.misc.size(); i ++){
-			if(Creator.misc.get(i).getName().equalsIgnoreCase("reloadingProjectileBlue")){
+			if(Creator.misc.get(i).getName().substring(0, 6).equals("reload")){
 				Creator.misc.get(i).updateAnimations(Creator.fireRateCounter/Creator.fireRate);
 			}
 			else

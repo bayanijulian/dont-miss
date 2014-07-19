@@ -1,7 +1,8 @@
 package com.hypetrainstudios.dontmiss.handlers;
 
 import com.hypetrainstudios.dontmiss.Creator;
-
+import com.hypetrainstudios.dontmiss.challenges.ColorMatchChallenge;
+import com.hypetrainstudios.dontmiss.challenges.DisappearingEnemyChallenge;
 import com.hypetrainstudios.dontmiss.challenges.DisappearingPlayerChallenge;
 import com.hypetrainstudios.dontmiss.challenges.FrostChallenge;
 import com.hypetrainstudios.dontmiss.challenges.IncreasingDifficultyChallenge;
@@ -28,7 +29,8 @@ public class ChallengeHandler {
 			challengeCounter++;
 			frost = true;
 			if(challengeCounter==1&&frost) {
-				Creator.challenges.add(new FrostChallenge()); 
+				//Creator.challenges.add(new ColorMatchChallenge());
+				//Creator.challenges.add(new FrostChallenge()); 
 				//Creator.challenges.add(new DisappearingEnemyChallenge()); 
 				//Creator.challenges.add(new SuperSpeedChallenge());
 				frost = false;

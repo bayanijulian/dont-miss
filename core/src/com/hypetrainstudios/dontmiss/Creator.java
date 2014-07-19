@@ -17,7 +17,8 @@ import com.hypetrainstudios.dontmiss.bonuses.SheildBonus;
 import com.hypetrainstudios.dontmiss.bonuses.SlowEnemyBonus;
 import com.hypetrainstudios.dontmiss.bonuses.SpikeBonus;
 import com.hypetrainstudios.dontmiss.challenges.Challenge;
-import com.hypetrainstudios.dontmiss.enemies.EnemyType;
+import com.hypetrainstudios.dontmiss.challenges.ColorMatchChallenge;
+import com.hypetrainstudios.dontmiss.enemies.Pawn;
 import com.hypetrainstudios.dontmiss.entity.Bonus;
 import com.hypetrainstudios.dontmiss.entity.Enemy;
 import com.hypetrainstudios.dontmiss.entity.Misc;
@@ -33,7 +34,7 @@ import com.hypetrainstudios.dontmiss.handlers.SpawnHandler;
 public class Creator {
 	
 	public static float projectileSpeed = 35f;
-	public static float enemySpeed = .05f;
+	public static float enemySpeed = .08f;
 	public static float turretRotationSpeed = 155f;
 	public static int totalProjectiles = 5;
 	
@@ -50,7 +51,6 @@ public class Creator {
 	
 	public static ArrayList<Challenge> challenges = new ArrayList<Challenge>();
 	public static ArrayList<BaseBonus> bonusTypes = new ArrayList<BaseBonus>();
-	public static ArrayList<EnemyType> enemyTypes = new ArrayList<EnemyType>();
 	public static ArrayList<Enemy> enemies = new ArrayList<Enemy>();
 	public static ArrayList<Turret> turrets = new ArrayList<Turret>();
 	public static ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
@@ -61,11 +61,23 @@ public class Creator {
 	
 	
 	public static void createMiscProjectileLoading(){
-		Misc reloadingProjectileMisc = new Misc(new Sprite(AssetHandler.manager.get(AssetHandler.atlasLoadingProjBlue).findRegion("loadingProjBlue")),"reloadingProjectileBlue");
-		reloadingProjectileMisc.setCenter(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
-		reloadingProjectileMisc.createLivingAnimation(30, AssetHandler.manager.get(AssetHandler.atlasLoadingProjBlue).findRegions("loadingProjBlue"), PlayMode.NORMAL,true);
+		Misc reloadBlue = new Misc(new Sprite(AssetHandler.manager.get(AssetHandler.atlasReload).findRegion("reloadBlue")),"reloadBlue");
+		reloadBlue.setCenter(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
+		reloadBlue.createLivingAnimation(30, AssetHandler.manager.get(AssetHandler.atlasReload).findRegions("reloadBlue"), PlayMode.NORMAL,true);
 		
-		misc.add(reloadingProjectileMisc);
+		misc.add(reloadBlue);
+		
+		Misc reloadRed = new Misc(new Sprite(AssetHandler.manager.get(AssetHandler.atlasReload).findRegion("reloadRed")),"reloadRed");
+		reloadRed.setCenter(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
+		reloadRed.createLivingAnimation(30, AssetHandler.manager.get(AssetHandler.atlasReload).findRegions("reloadRed"), PlayMode.NORMAL,true);
+		reloadRed.getSprite().setAlpha(0);
+		misc.add(reloadRed);
+		
+		Misc reloadYellow = new Misc(new Sprite(AssetHandler.manager.get(AssetHandler.atlasReload).findRegion("reloadYellow")),"reloadYellow");
+		reloadYellow.setCenter(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
+		reloadYellow.createLivingAnimation(30, AssetHandler.manager.get(AssetHandler.atlasReload).findRegions("reloadYellow"), PlayMode.NORMAL,true);
+		reloadYellow.getSprite().setAlpha(0);
+		misc.add(reloadYellow);
 	}
 	public static void createShield(){
 		Misc shield = new Misc(new Sprite(AssetHandler.manager.get(AssetHandler.imgShield)),"shield");
@@ -81,17 +93,29 @@ public class Creator {
 	public static void createProjectile(){
 		if(fireRateCounter >= fireRate){
 			fireRateCounter = 0;
-			if(BonusHandler.activeBonus==6){
-				projectiles.add(new Projectile(new Sprite(AssetHandler.manager.get(AssetHandler.imgProjectileBlue)), projectileSpeed,midTurret.getRotationCounter()+(90),BonusHandler.activeBonus));
-				projectiles.add(new Projectile(new Sprite(AssetHandler.manager.get(AssetHandler.imgProjectileBlue)), projectileSpeed,midTurret.getRotationCounter()-(90),BonusHandler.activeBonus));
-				totalProjectilesShotSoFar+=2;
+			if(ColorMatchChallenge.colorEnabled){
+				if(BonusHandler.activeBonus==6){
+					projectiles.add(new Projectile(new Sprite(ColorMatchChallenge.randomProjectileColor()), projectileSpeed,midTurret.getRotationCounter()+(90),BonusHandler.activeBonus));
+					projectiles.add(new Projectile(new Sprite(ColorMatchChallenge.randomProjectileColor()), projectileSpeed,midTurret.getRotationCounter()-(90),BonusHandler.activeBonus));
+					totalProjectilesShotSoFar+=2;
+				}
+				projectiles.add(new Projectile(new Sprite(ColorMatchChallenge.randomProjectileColor()), projectileSpeed,BonusHandler.activeBonus));
+				totalProjectilesShotSoFar++;
 			}
-			projectiles.add(new Projectile(new Sprite(AssetHandler.manager.get(AssetHandler.imgProjectileBlue)), projectileSpeed,BonusHandler.activeBonus));
-			totalProjectilesShotSoFar++;
+			else{
+				if(BonusHandler.activeBonus==6){
+					projectiles.add(new Projectile(new Sprite(AssetHandler.manager.get(AssetHandler.imgProjectileBlue)), projectileSpeed,midTurret.getRotationCounter()+(90),BonusHandler.activeBonus));
+					projectiles.add(new Projectile(new Sprite(AssetHandler.manager.get(AssetHandler.imgProjectileBlue)), projectileSpeed,midTurret.getRotationCounter()-(90),BonusHandler.activeBonus));
+					totalProjectilesShotSoFar+=2;
+				}
+				projectiles.add(new Projectile(new Sprite(AssetHandler.manager.get(AssetHandler.imgProjectileBlue)), projectileSpeed,BonusHandler.activeBonus));
+				totalProjectilesShotSoFar++;
+			}
 		}
 	}
 	public static void createEnemy(float degrees){
-			enemies.add(new Enemy(new Sprite(AssetHandler.manager.get(AssetHandler.imgEnemyBlue)),midTurret.getSprite(),enemySpeed,degrees));
+		if(ColorMatchChallenge.colorEnabled)	enemies.add(new Pawn(new Sprite(ColorMatchChallenge.randomEnemyColor()),midTurret.getSprite(),enemySpeed,degrees));
+		else	enemies.add(new Pawn(new Sprite(AssetHandler.manager.get(AssetHandler.imgEnemyBlue)),midTurret.getSprite(),enemySpeed,degrees));
 	}
 	public static void createBonus(int bonusType){
 		if(bonusType==0)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusAlly")),bonusType));
@@ -137,7 +161,7 @@ public class Creator {
 		challenges.clear();
 		enemies.clear();
 		projectiles.clear();
-		enemyTypes.clear();
+		
 		
 		misc.clear();
 		bonuses.clear();
@@ -149,7 +173,7 @@ public class Creator {
 		fireRateCounter = .8f;
 		turretRotationSpeed = 155f;
 		projectileSpeed = 35f;
-		enemySpeed = .05f;
+		enemySpeed = .08f;
 		totalProjectiles = 5;
 		
 		midTurret.setRotationSpeed(turretRotationSpeed);
