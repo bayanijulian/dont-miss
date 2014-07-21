@@ -5,7 +5,7 @@ import com.hypetrainstudios.dontmiss.challenges.IncreasingDifficultyChallenge;
 
 public class SlowEnemyBonus extends BaseBonus{
 
-	private float slowSpeed = .01f;
+	private float slowSpeed = 30f;
 	private float timeCounter;
 	private float timeToLast;
 

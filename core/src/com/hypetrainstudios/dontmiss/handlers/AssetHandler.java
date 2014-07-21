@@ -34,7 +34,7 @@ public class AssetHandler {
 	public static final AssetDescriptor<TextureAtlas> atlasButtons = new AssetDescriptor<TextureAtlas>("buttons/buttons.pack", TextureAtlas.class);
 	public static final AssetDescriptor<TextureAtlas> atlasReload = new AssetDescriptor<TextureAtlas>("reload/reload.pack", TextureAtlas.class);
 	public static final AssetDescriptor<TextureAtlas> atlasBonuses = new AssetDescriptor<TextureAtlas>("bonus/bonus.pack", TextureAtlas.class);
-	
+	public static final AssetDescriptor<TextureAtlas> atlasEnemies = new AssetDescriptor<TextureAtlas>("enemies/enemy.pack", TextureAtlas.class);
 	public static final AssetDescriptor<BitmapFont> fontPlay = new AssetDescriptor<BitmapFont>("playFont/play.fnt", BitmapFont.class);
 	
 	
@@ -67,7 +67,7 @@ public class AssetHandler {
 		manager.load(atlasButtons);
 		manager.load(atlasReload);
 		manager.load(atlasBonuses);
-		
+		manager.load(atlasEnemies);
 		
 		manager.load(fontPlay);
 		

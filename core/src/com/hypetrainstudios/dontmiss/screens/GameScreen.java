@@ -9,11 +9,12 @@ import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.hypetrainstudios.dontmiss.Creator;
+import com.hypetrainstudios.dontmiss.enemies.Boss;
 import com.hypetrainstudios.dontmiss.handlers.AnimationHandler;
 import com.hypetrainstudios.dontmiss.handlers.AssetHandler;
-
 import com.hypetrainstudios.dontmiss.handlers.CollisionHandler;
 import com.hypetrainstudios.dontmiss.handlers.GameInputHandler;
 import com.hypetrainstudios.dontmiss.handlers.GarbageHandler;
@@ -46,6 +47,7 @@ public class GameScreen implements Screen {
 		inputMultiplexer = new InputMultiplexer(InGameUIHandler.stage, gameInput);
 		
 		Gdx.input.setInputProcessor(inputMultiplexer);
+		//Creator.enemies.add(new Boss(new Sprite(AssetHandler.manager.get(AssetHandler.imgEnemyRed)), Creator.midTurret.getSprite(), 3, 40));
 	}
 	
 	@Override

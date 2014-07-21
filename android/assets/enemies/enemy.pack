@@ -1,0 +1,1920 @@
+
+enemy.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+blueDeath/enemyBlueDeath
+  rotate: false
+  xy: 1, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 0
+blueDeath/enemyBlueDeath
+  rotate: false
+  xy: 67, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 1
+blueDeath/enemyBlueDeath
+  rotate: false
+  xy: 133, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 2
+blueDeath/enemyBlueDeath
+  rotate: false
+  xy: 199, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 3
+blueDeath/enemyBlueDeath
+  rotate: false
+  xy: 265, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 4
+blueDeath/enemyBlueDeath
+  rotate: false
+  xy: 331, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 5
+blueDeath/enemyBlueDeath
+  rotate: false
+  xy: 397, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 6
+blueDeath/enemyBlueDeath
+  rotate: false
+  xy: 463, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 7
+blueDeath/enemyBlueDeath
+  rotate: false
+  xy: 529, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 8
+blueDeath/enemyBlueDeath
+  rotate: false
+  xy: 595, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 9
+blueDeath/enemyBlueDeath
+  rotate: false
+  xy: 661, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 10
+blueDeath/enemyBlueDeath
+  rotate: false
+  xy: 727, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 11
+blueDeath/enemyBlueDeath
+  rotate: false
+  xy: 793, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 12
+blueDeath/enemyBlueDeath
+  rotate: false
+  xy: 859, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 13
+blueDeath/enemyBlueDeath
+  rotate: false
+  xy: 925, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 14
+blueDeath/enemyBlueDeath
+  rotate: false
+  xy: 991, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 15
+blueDeath/enemyBlueDeath
+  rotate: false
+  xy: 1057, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 16
+blueDeath/enemyBlueDeath
+  rotate: false
+  xy: 1123, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 17
+blueDeath/enemyBlueDeath
+  rotate: false
+  xy: 1189, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 18
+blueDeath/enemyBlueDeath
+  rotate: false
+  xy: 1255, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 19
+blueDeath/enemyBlueDeath
+  rotate: false
+  xy: 1321, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 20
+blueDeath/enemyBlueDeath
+  rotate: false
+  xy: 1387, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 21
+blueDeath/enemyBlueDeath
+  rotate: false
+  xy: 1453, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 22
+blueDeath/enemyBlueDeath
+  rotate: false
+  xy: 1519, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 23
+blueDeath/enemyBlueDeath
+  rotate: false
+  xy: 1585, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 24
+blueDeath/enemyBlueDeath
+  rotate: false
+  xy: 1651, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 25
+blueDeath/enemyBlueDeath
+  rotate: false
+  xy: 1717, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 26
+blueDeath/enemyBlueDeath
+  rotate: false
+  xy: 1783, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 27
+blueDeath/enemyBlueDeath
+  rotate: false
+  xy: 1849, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 28
+blueDeath/enemyBlueDeath
+  rotate: false
+  xy: 1915, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 29
+
+enemy2.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 1, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 0
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 1, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 1
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 67, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 2
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 1, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 3
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 67, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 4
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 133, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 5
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 67, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 6
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 133, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 7
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 199, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 8
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 133, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 9
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 199, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 10
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 265, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 11
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 199, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 12
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 265, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 13
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 331, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 14
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 265, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 15
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 331, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 16
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 397, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 17
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 331, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 18
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 397, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 19
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 463, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 20
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 397, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 21
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 463, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 22
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 529, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 23
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 463, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 24
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 529, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 25
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 595, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 26
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 529, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 27
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 595, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 28
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 661, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 29
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 595, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 30
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 661, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 31
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 727, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 32
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 661, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 33
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 727, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 34
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 793, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 35
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 727, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 36
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 793, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 37
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 859, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 38
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 793, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 39
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 859, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 40
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 925, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 41
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 859, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 42
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 925, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 43
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 991, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 44
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 925, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 45
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 991, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 46
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 1057, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 47
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 991, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 48
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 1057, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 49
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 1123, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 50
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 1057, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 51
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 1123, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 52
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 1189, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 53
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 1123, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 54
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 1189, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 55
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 1255, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 56
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 1189, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 57
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 1255, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 58
+blueLiving/enemyBlueLiving
+  rotate: false
+  xy: 1321, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 59
+
+enemy3.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+redDeath/enemyRedDeath
+  rotate: false
+  xy: 1, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 0
+redDeath/enemyRedDeath
+  rotate: false
+  xy: 67, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 1
+redDeath/enemyRedDeath
+  rotate: false
+  xy: 133, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 2
+redDeath/enemyRedDeath
+  rotate: false
+  xy: 199, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 3
+redDeath/enemyRedDeath
+  rotate: false
+  xy: 265, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 4
+redDeath/enemyRedDeath
+  rotate: false
+  xy: 331, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 5
+redDeath/enemyRedDeath
+  rotate: false
+  xy: 397, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 6
+redDeath/enemyRedDeath
+  rotate: false
+  xy: 463, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 7
+redDeath/enemyRedDeath
+  rotate: false
+  xy: 529, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 8
+redDeath/enemyRedDeath
+  rotate: false
+  xy: 595, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 9
+redDeath/enemyRedDeath
+  rotate: false
+  xy: 661, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 10
+redDeath/enemyRedDeath
+  rotate: false
+  xy: 727, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 11
+redDeath/enemyRedDeath
+  rotate: false
+  xy: 793, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 12
+redDeath/enemyRedDeath
+  rotate: false
+  xy: 859, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 13
+redDeath/enemyRedDeath
+  rotate: false
+  xy: 925, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 14
+redDeath/enemyRedDeath
+  rotate: false
+  xy: 991, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 15
+redDeath/enemyRedDeath
+  rotate: false
+  xy: 1057, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 16
+redDeath/enemyRedDeath
+  rotate: false
+  xy: 1123, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 17
+redDeath/enemyRedDeath
+  rotate: false
+  xy: 1189, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 18
+redDeath/enemyRedDeath
+  rotate: false
+  xy: 1255, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 19
+redDeath/enemyRedDeath
+  rotate: false
+  xy: 1321, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 20
+redDeath/enemyRedDeath
+  rotate: false
+  xy: 1387, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 21
+redDeath/enemyRedDeath
+  rotate: false
+  xy: 1453, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 22
+redDeath/enemyRedDeath
+  rotate: false
+  xy: 1519, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 23
+redDeath/enemyRedDeath
+  rotate: false
+  xy: 1585, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 24
+redDeath/enemyRedDeath
+  rotate: false
+  xy: 1651, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 25
+redDeath/enemyRedDeath
+  rotate: false
+  xy: 1717, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 26
+redDeath/enemyRedDeath
+  rotate: false
+  xy: 1783, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 27
+redDeath/enemyRedDeath
+  rotate: false
+  xy: 1849, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 28
+redDeath/enemyRedDeath
+  rotate: false
+  xy: 1915, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 29
+
+enemy4.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 1, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 0
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 1, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 1
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 67, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 2
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 1, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 3
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 67, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 4
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 133, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 5
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 67, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 6
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 133, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 7
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 199, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 8
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 133, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 9
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 199, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 10
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 265, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 11
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 199, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 12
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 265, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 13
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 331, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 14
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 265, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 15
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 331, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 16
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 397, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 17
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 331, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 18
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 397, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 19
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 463, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 20
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 397, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 21
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 463, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 22
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 529, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 23
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 463, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 24
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 529, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 25
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 595, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 26
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 529, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 27
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 595, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 28
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 661, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 29
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 595, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 30
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 661, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 31
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 727, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 32
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 661, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 33
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 727, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 34
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 793, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 35
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 727, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 36
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 793, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 37
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 859, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 38
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 793, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 39
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 859, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 40
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 925, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 41
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 859, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 42
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 925, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 43
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 991, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 44
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 925, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 45
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 991, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 46
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 1057, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 47
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 991, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 48
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 1057, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 49
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 1123, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 50
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 1057, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 51
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 1123, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 52
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 1189, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 53
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 1123, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 54
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 1189, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 55
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 1255, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 56
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 1189, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 57
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 1255, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 58
+redLiving/enemyRedLiving
+  rotate: false
+  xy: 1321, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 59
+
+enemy5.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+yellowDeath/enemyYellowDeath
+  rotate: false
+  xy: 1, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 0
+yellowDeath/enemyYellowDeath
+  rotate: false
+  xy: 67, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 1
+yellowDeath/enemyYellowDeath
+  rotate: false
+  xy: 133, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 2
+yellowDeath/enemyYellowDeath
+  rotate: false
+  xy: 199, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 3
+yellowDeath/enemyYellowDeath
+  rotate: false
+  xy: 265, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 4
+yellowDeath/enemyYellowDeath
+  rotate: false
+  xy: 331, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 5
+yellowDeath/enemyYellowDeath
+  rotate: false
+  xy: 397, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 6
+yellowDeath/enemyYellowDeath
+  rotate: false
+  xy: 463, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 7
+yellowDeath/enemyYellowDeath
+  rotate: false
+  xy: 529, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 8
+yellowDeath/enemyYellowDeath
+  rotate: false
+  xy: 595, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 9
+yellowDeath/enemyYellowDeath
+  rotate: false
+  xy: 661, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 10
+yellowDeath/enemyYellowDeath
+  rotate: false
+  xy: 727, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 11
+yellowDeath/enemyYellowDeath
+  rotate: false
+  xy: 793, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 12
+yellowDeath/enemyYellowDeath
+  rotate: false
+  xy: 859, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 13
+yellowDeath/enemyYellowDeath
+  rotate: false
+  xy: 925, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 14
+yellowDeath/enemyYellowDeath
+  rotate: false
+  xy: 991, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 15
+yellowDeath/enemyYellowDeath
+  rotate: false
+  xy: 1057, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 16
+yellowDeath/enemyYellowDeath
+  rotate: false
+  xy: 1123, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 17
+yellowDeath/enemyYellowDeath
+  rotate: false
+  xy: 1189, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 18
+yellowDeath/enemyYellowDeath
+  rotate: false
+  xy: 1255, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 19
+yellowDeath/enemyYellowDeath
+  rotate: false
+  xy: 1321, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 20
+yellowDeath/enemyYellowDeath
+  rotate: false
+  xy: 1387, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 21
+yellowDeath/enemyYellowDeath
+  rotate: false
+  xy: 1453, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 22
+yellowDeath/enemyYellowDeath
+  rotate: false
+  xy: 1519, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 23
+yellowDeath/enemyYellowDeath
+  rotate: false
+  xy: 1585, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 24
+yellowDeath/enemyYellowDeath
+  rotate: false
+  xy: 1651, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 25
+yellowDeath/enemyYellowDeath
+  rotate: false
+  xy: 1717, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 26
+yellowDeath/enemyYellowDeath
+  rotate: false
+  xy: 1783, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 27
+yellowDeath/enemyYellowDeath
+  rotate: false
+  xy: 1849, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 28
+yellowDeath/enemyYellowDeath
+  rotate: false
+  xy: 1915, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 29
+
+enemy6.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 1, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 0
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 1, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 1
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 67, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 2
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 1, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 3
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 67, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 4
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 133, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 5
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 67, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 6
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 133, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 7
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 199, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 8
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 133, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 9
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 199, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 10
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 265, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 11
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 199, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 12
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 265, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 13
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 331, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 14
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 265, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 15
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 331, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 16
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 397, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 17
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 331, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 18
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 397, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 19
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 463, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 20
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 397, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 21
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 463, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 22
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 529, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 23
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 463, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 24
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 529, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 25
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 595, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 26
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 529, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 27
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 595, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 28
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 661, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 29
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 595, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 30
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 661, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 31
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 727, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 32
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 661, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 33
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 727, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 34
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 793, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 35
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 727, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 36
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 793, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 37
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 859, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 38
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 793, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 39
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 859, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 40
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 925, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 41
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 859, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 42
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 925, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 43
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 991, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 44
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 925, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 45
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 991, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 46
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 1057, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 47
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 991, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 48
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 1057, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 49
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 1123, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 50
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 1057, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 51
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 1123, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 52
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 1189, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 53
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 1123, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 54
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 1189, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 55
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 1255, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 56
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 1189, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 57
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 1255, 67
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 58
+yellowLiving/enemyYellowLiving
+  rotate: false
+  xy: 1321, 133
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: 59

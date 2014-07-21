@@ -82,6 +82,5 @@ public class Bonus extends Entity{
 			tempDistance = MathUtils.round(tempDistance);
 		}
 		tempDistance = 0;
-		
 	}
 }

@@ -3,10 +3,17 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.MathUtils;
 public abstract class Enemy extends Entity{
-	protected float run;
-	protected float rise;
+	
 	protected boolean disappearing;
 	private Sprite sprTarget;
+	
+	protected float xTarget;
+	protected float yTarget;
+	protected float timeToComplete;
+	protected float timeToCompleteCounter;
+	protected float percent;
+	
+	
 	
 	public Enemy(Sprite spr, Sprite sprTarget, float enemySpeed,float degrees) {
 		super(spr);
@@ -17,15 +24,20 @@ public abstract class Enemy extends Entity{
 		//the turret is the origin
 		x=(MathUtils.cosDeg(degrees)*radius)+((Gdx.graphics.getWidth()/2)-(spr.getWidth()/2));
 		y=(MathUtils.sinDeg(degrees)*radius)+((Gdx.graphics.getHeight()/2)-(spr.getHeight()/2));
+		
 		spr.setPosition(x, y);
-		//parametric slope is used below
-		run=((x-((sprTarget.getX()+(sprTarget.getWidth()/2))-(spr.getWidth()/2)))*enemySpeed);
-		rise=((y-((sprTarget.getY()+(sprTarget.getHeight()/2))-(spr.getHeight()/2)))*enemySpeed);
+		
+		timeToCompleteCounter = 0;
+		timeToComplete = 15f;
+		percent = 0;
+		xTarget = Gdx.graphics.getWidth()/2;
+		yTarget = Gdx.graphics.getHeight()/2;
+		
+		
 		disappearing = false;
 	}
 	public void setSpeed(float speed){
-		run=((x-((sprTarget.getX()+(sprTarget.getWidth()/2))-(spr.getWidth()/2)))*speed);
-		rise=((y-((sprTarget.getY()+(sprTarget.getHeight()/2))-(spr.getHeight()/2)))*speed);
+		timeToComplete = speed;
 	}
 	public void enableDisappearing(){
 		disappearing = true;
@@ -38,4 +50,16 @@ public abstract class Enemy extends Entity{
 	public abstract void collisionWithMisc();
 	public abstract void collisionWithProjectile();
 	public abstract void collisionWithTurret();
+	public void deactivate(){
+		this.active = false;
+	}
+	public boolean moveToTarget(float delta){
+		percent = timeToCompleteCounter/timeToComplete;
+		timeToCompleteCounter+=delta;
+		spr.setPosition(x + (xTarget - x) * percent, y + (yTarget - y) * percent);
+		if(timeToCompleteCounter>timeToComplete)
+			return false;
+		else
+			return true;
+	}
 }

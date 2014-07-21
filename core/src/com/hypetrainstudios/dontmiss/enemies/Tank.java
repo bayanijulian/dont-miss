@@ -15,7 +15,8 @@ public class Tank extends Enemy{
 	
 	@Override
 	public void update(float delta) {
-		spr.translate(run*delta*-1, rise*delta*-1);
+		//spr.translate(run*delta*-1, rise*delta*-1);
+		moveToTarget(delta);
 	}
 
 	@Override

@@ -72,6 +72,7 @@ public abstract class Entity{
 		deathAnimation = new Animation(1f/amountOfFrames,frames);
 		timeAnimation = 0;
 		deathAnimation.setPlayMode(mode);
+		livingEnabled = false;
 		deathEnabled = true;
 		this.deathAbstractTime = deathAbstractTime;
 	}
@@ -107,6 +108,7 @@ public abstract class Entity{
 			if(deathAnimation.isAnimationFinished(timeAnimation)){
 				timeAnimation = 0;
 				deathEnabled=false;
+				this.active = false;
 			}
 			else	timeAnimation += time;
 		}
@@ -124,10 +126,6 @@ public abstract class Entity{
 			updateDeathAnimation(delta);
 		}
 	}
-	
-	
-	
-	
 	
 	public void setCenter(float x,float y){
 		spr.setCenter(x, y);
