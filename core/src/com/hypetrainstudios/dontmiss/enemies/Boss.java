@@ -10,26 +10,32 @@ public class Boss extends Enemy{
 	
 	private float tempDistance;
 	private static final float amountToMove = 300f;
+	private static float []  xCoords ={	(Gdx.graphics.getWidth()*.1f),	(Gdx.graphics.getWidth()-(Gdx.graphics.getWidth()*.1f)),
+										(Gdx.graphics.getWidth()-(Gdx.graphics.getWidth()*.1f)),(Gdx.graphics.getWidth()*.1f)};
 	
-	private static final Circle circleTurret = new Circle(175,Gdx.graphics.getWidth()/2,Gdx.graphics.getHeight()/2);;
+	private static float [] yCoords = {	(Gdx.graphics.getHeight()*.1f),(Gdx.graphics.getHeight()*.1f)	,
+										(Gdx.graphics.getHeight()-(Gdx.graphics.getHeight()*.1f)),(Gdx.graphics.getHeight()-(Gdx.graphics.getHeight()*.1f))};
+		
+	private int coordCounter;
+	
+	
 	public Boss(Sprite spr, Sprite sprTarget, float enemySpeed, float degrees) {
 		super(spr, sprTarget, enemySpeed, degrees);
-		changeLocation();
+		spr.setPosition(xCoords[1], yCoords[1]);
 		timeToComplete = 2;
+		
+		coordCounter = 0;
+		changeLocation();
 	}
-	
-	
 	
 	@Override
 	public void update(float delta) {
 		this.updateBounds();
 		if(!(moveToTarget(delta))){
+			coordCounter++;
 			changeLocation();
 		}
-		if(collisionBounds.overlaps(circleTurret)){
-			changeLocation();
-			System.out.println("too much");
-		}
+		
 	}
 
 	@Override
@@ -39,9 +45,11 @@ public class Boss extends Enemy{
 	@Override
 	public void collisionWithProjectile() {
 	}
-
+	
 	@Override
 	public void collisionWithTurret() {
+		System.out.println("too much weroithqpwepoerwqpoterwipoihtqwe");
+		changeLocation();
 	}
 	
 	private void changeLocation(){
@@ -52,14 +60,9 @@ public class Boss extends Enemy{
 		getNewCoords();
 	}
 	private void getNewCoords(){
-		while(tempDistance!=amountToMove){
-			xTarget = MathUtils.random(Gdx.graphics.getWidth());
-			yTarget = MathUtils.random(Gdx.graphics.getHeight());
-			tempDistance = (float) Math.sqrt(	Math.pow(  (xTarget-x)   , 2) +
-										Math.pow(  (yTarget-y)   , 2)
-									);
-			tempDistance = MathUtils.round(tempDistance);
-		}
-		tempDistance = 0;
+		this.xTarget = xCoords[coordCounter];
+		this.yTarget = yCoords[coordCounter];
+		if(coordCounter>=3) coordCounter = 0;
+			
 	}
 }

@@ -9,13 +9,14 @@ public class Tank extends Enemy{
 	
 	public Tank(Sprite spr, Sprite sprTarget, float enemySpeed, float degrees) {
 		super(spr, sprTarget, enemySpeed, degrees);
-		numOfHitsBeforeDeath = 3;
+		numOfHitsBeforeDeath = 2;
 		hitCounter = 0;
 	}
 	
 	@Override
 	public void update(float delta) {
 		//spr.translate(run*delta*-1, rise*delta*-1);
+		this.updateBounds();
 		moveToTarget(delta);
 	}
 
@@ -29,6 +30,7 @@ public class Tank extends Enemy{
 
 	@Override
 	public void collisionWithProjectile() {
+		System.out.println("Hit da tank " + hitCounter);
 		if(hitCounter>=numOfHitsBeforeDeath)
 			this.active=false;
 		else
