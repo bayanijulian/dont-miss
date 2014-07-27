@@ -1,4 +1,4 @@
-package com.hypetrainstudios.dontmiss;
+   package com.hypetrainstudios.dontmiss;
 
 import java.util.ArrayList;
 
@@ -19,6 +19,7 @@ import com.hypetrainstudios.dontmiss.bonuses.SpikeBonus;
 import com.hypetrainstudios.dontmiss.challenges.Challenge;
 import com.hypetrainstudios.dontmiss.challenges.ColorMatchChallenge;
 import com.hypetrainstudios.dontmiss.enemies.Pawn;
+import com.hypetrainstudios.dontmiss.enemies.Swift;
 import com.hypetrainstudios.dontmiss.entity.Bonus;
 import com.hypetrainstudios.dontmiss.entity.Enemy;
 import com.hypetrainstudios.dontmiss.entity.Misc;
@@ -117,6 +118,10 @@ public class Creator {
 		if(ColorMatchChallenge.colorEnabled)	enemies.add(new Pawn(new Sprite(ColorMatchChallenge.randomEnemyColor()),midTurret.getSprite(),enemySpeed,degrees));
 		else	enemies.add(new Pawn(new Sprite(AssetHandler.manager.get(AssetHandler.imgEnemyBlue)),midTurret.getSprite(),enemySpeed,degrees));
 	}
+	public static void createEnemy(float x,float y){
+		if(ColorMatchChallenge.colorEnabled)	enemies.add(new Pawn(new Sprite(ColorMatchChallenge.randomEnemyColor()),midTurret.getSprite(),enemySpeed,x,y));
+		else	enemies.add(new Pawn(new Sprite(AssetHandler.manager.get(AssetHandler.imgEnemyBlue)),midTurret.getSprite(),enemySpeed,x,y));
+	}
 	public static void createBonus(int bonusType){
 		if(bonusType==0)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusAlly")),bonusType));
 		else if(bonusType==1)	bonuses.add(new Bonus(new Sprite(AssetHandler.manager.get(AssetHandler.atlasBonuses).findRegion("bonusAssassin")),bonusType));
@@ -146,7 +151,7 @@ public class Creator {
 		
 		
 		//turrets.add(new Turret(new Sprite(AssetHandler.manager.get(AssetHandler.imgTurret)),turretRotationSpeed));
-		
+		enemies.add(new Swift(new Sprite(AssetHandler.manager.get(AssetHandler.imgEnemyYellow)), midTurret.getSprite(), 4, 0));
 		
 		createMiscProjectileLoading();
 		createShield();

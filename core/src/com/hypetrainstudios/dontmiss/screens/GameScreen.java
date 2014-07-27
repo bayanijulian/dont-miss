@@ -7,13 +7,15 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+
+import com.badlogic.gdx.math.MathUtils;
 import com.hypetrainstudios.dontmiss.Creator;
-import com.hypetrainstudios.dontmiss.enemies.Boss;
-import com.hypetrainstudios.dontmiss.enemies.Tank;
+
 import com.hypetrainstudios.dontmiss.handlers.AnimationHandler;
 import com.hypetrainstudios.dontmiss.handlers.AssetHandler;
 import com.hypetrainstudios.dontmiss.handlers.CollisionHandler;
@@ -32,6 +34,9 @@ public class GameScreen implements Screen {
 	private static InputMultiplexer inputMultiplexer;
 	private static InputProcessor gameInput;
 	
+	
+	
+	
 	public GameScreen(Game game){
 		Creator.setUp();
 		this.game = game;
@@ -47,8 +52,10 @@ public class GameScreen implements Screen {
 		
 		inputMultiplexer = new InputMultiplexer(InGameUIHandler.stage, gameInput);
 		
+		
+	
+		
 		Gdx.input.setInputProcessor(inputMultiplexer);
-		Creator.enemies.add(new Boss(new Sprite(AssetHandler.manager.get(AssetHandler.imgEnemyRed)), Creator.midTurret.getSprite(), 3, 40));
 	}
 	
 	@Override
@@ -62,6 +69,8 @@ public class GameScreen implements Screen {
 		
 		//updates the UI, ui is always on even if the game is over
 		InGameUIHandler.update();
+		
+		
 		
 		//when the game is not over and its not paused it will update game logic and draw
 		if(running&&(!(Creator.gameOver))){

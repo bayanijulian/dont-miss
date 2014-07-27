@@ -21,7 +21,19 @@ public class Pawn extends Enemy{
 		}
 		run = true;
 	}
-
+	public Pawn(Sprite spr, Sprite sprTarget, float enemySpeed, float x,float y) {
+		super(spr, sprTarget, enemySpeed, x,y);
+		if(spr.getTexture()==AssetHandler.manager.get(AssetHandler.imgEnemyBlue)){
+			createLivingAnimation(45, AssetHandler.manager.get(AssetHandler.atlasEnemies).findRegions("blueLiving/enemyBlueLiving"), PlayMode.LOOP, false);
+		}
+		else if(spr.getTexture()==AssetHandler.manager.get(AssetHandler.imgEnemyRed)){
+			createLivingAnimation(45, AssetHandler.manager.get(AssetHandler.atlasEnemies).findRegions("redLiving/enemyRedLiving"), PlayMode.LOOP, false);
+		}
+		else if(spr.getTexture()==AssetHandler.manager.get(AssetHandler.imgEnemyYellow)){
+			createLivingAnimation(45, AssetHandler.manager.get(AssetHandler.atlasEnemies).findRegions("yellowLiving/enemyYellowLiving"), PlayMode.LOOP, false);
+		}
+		run = true;
+	}
 
 
 	@Override

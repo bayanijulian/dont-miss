@@ -36,6 +36,27 @@ public abstract class Enemy extends Entity{
 		
 		disappearing = false;
 	}
+	public Enemy(Sprite spr, Sprite sprTarget, float enemySpeed,float x,float y) {
+		super(spr);
+		this.sprTarget = sprTarget;
+		//gets the widest length of the screen so they all spawn just right out of view
+		float radius = (float) Math.sqrt(   (Math.pow((Gdx.graphics.getWidth()/2),2)) + (Math.pow((Gdx.graphics.getHeight()/2),2)) );
+		//sets the location of the enemy then it can start updating/moving in a straight line towards target, this is based on the value of the degrees
+		//the turret is the origin
+		x=this.x;
+		y=this.y;
+		
+		spr.setPosition(x, y);
+		
+		timeToCompleteCounter = 0;
+		timeToComplete = 15f;
+		percent = 0;
+		xTarget = Gdx.graphics.getWidth()/2;
+		yTarget = Gdx.graphics.getHeight()/2;
+		
+		
+		disappearing = false;
+	}
 	public void setSpeed(float speed){
 		timeToComplete = speed;
 	}
