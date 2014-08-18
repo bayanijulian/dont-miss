@@ -1,0 +1,40 @@
+
+images.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+platform
+  rotate: false
+  xy: 1, 67
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+shield
+  rotate: false
+  xy: 259, 67
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+turret
+  rotate: false
+  xy: 517, 67
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+enemy
+  rotate: false
+  xy: 1, 1
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+projectile
+  rotate: false
+  xy: 775, 259
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
