@@ -1,5 +1,6 @@
 package com.hypetrainstudios.dontmiss.handlers;
 
-public class SpawnHandler {
 
+public class GameHandler {
+	
 }
